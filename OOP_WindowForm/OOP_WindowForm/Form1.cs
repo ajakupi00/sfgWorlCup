@@ -1,4 +1,6 @@
-﻿using System;
+﻿using dllOOP.DAL;
+using dllOOP.DAL.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace OOP_WindowForm
 {
     public partial class Form1 : Form
     {
+        private IRepo repo = RepoFactory.GetRepo();
         public Form1()
         {
             InitializeComponent();

@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\dllOOP\dllOOP.csproj">
+      <Project>{6D88DC6F-1C98-463D-82C5-D34CE6BC0E10}</Project>
+      <Name>dllOOP</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

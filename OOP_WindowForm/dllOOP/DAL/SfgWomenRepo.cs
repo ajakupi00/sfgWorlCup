@@ -1,5 +1,6 @@
 ﻿using dllOOOP.Models;
 using dllOOP.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace dllOOP.DAL
             throw new NotImplementedException();
         }
 
-        public List<NationalTeam> GetNationalTeams()
+        public Task<RestResponse<NationalTeam>> GetNationalTeams()
         {
             throw new NotImplementedException();
         }

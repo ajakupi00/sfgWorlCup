@@ -1,5 +1,6 @@
 ﻿using dllOOOP.Models;
 using dllOOP.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace dllOOP.DAL
         //LISTA SVIH IGRAČA ZA REPKU
         //LISTA UTAKMICA ZA ODABRANU REPKU
 
-        List<NationalTeam> GetNationalTeams();
+        Task<RestResponse<NationalTeam>> GetNationalTeams();
         List<Player> GetPlayers(NationalTeam team);
         List<Match> GetMatches(NationalTeam team);
 

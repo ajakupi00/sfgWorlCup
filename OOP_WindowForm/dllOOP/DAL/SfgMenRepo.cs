@@ -24,9 +24,9 @@ namespace dllOOP.DAL
             throw new NotImplementedException();
         }
 
-        public List<NationalTeam> DeserijalizirajPodatke(RestResponse<NationalTeam> odgovorPodaci)
+        public static List<T> NewMethod<T>(RestResponse<T> odgovorPodaci)
         {
-            return (List<NationalTeam>)JsonConvert.DeserializeObject(odgovorPodaci.Content, typeof(List<NationalTeam>));
+            return (List<T>)JsonConvert.DeserializeObject(odgovorPodaci.Content, typeof(List<T>));
         }
 
         public Task<RestResponse<NationalTeam>> GetNationalTeams()

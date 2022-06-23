@@ -24,7 +24,7 @@ namespace OOP_WindowForm
         {
             label1.Text = "Dohvaćam podatke...";
             RestResponse<NationalTeam> odgovorPodaci = await sfgMen.GetNationalTeams();
-            List<NationalTeam> podaci = sfgMen.DeserijalizirajPodatke(odgovorPodaci);
+            List<NationalTeam> podaci = SfgMenRepo.NewMethod(odgovorPodaci);
             comboBox1.Text = string.Empty;
 
             foreach (var korisnik in podaci)
@@ -34,7 +34,6 @@ namespace OOP_WindowForm
             comboBox1.SelectedIndex = 0;
         }
 
-       
 
 
     }

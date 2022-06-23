@@ -9,6 +9,11 @@ namespace dllOOP.DAL
 {
     public class SfgMenRepo : ISfg
     {
+        public List<Match> GetMatches(NationalTeam team)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<NationalTeam> GetNationalTeams()
         {
             throw new NotImplementedException();

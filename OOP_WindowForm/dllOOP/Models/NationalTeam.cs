@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,35 @@ namespace dllOOP.Models
 {
     public class NationalTeam
     {
-        public int ID { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("country")]
         public string Country { get; set; }
-        public string Fifa_Code { get; set; }
-        public int Group_id{ get; set; }
-        public string Group_letter{ get; set; }
-        public int Wins{ get; set; }
-        public int Losses{ get; set; }
-        public int Games_played{ get; set; }
-        public int Points{ get; set; }
-        public int Goals_for{ get; set; }
-        public int Goals_against { get; set; }
-        public int Goals_differential { get; set; }
+
+        [JsonProperty("fifa_code")]
+        public string FifaCode { get; set; }
+
+
+        [JsonProperty("wins")]
+        public long Wins { get; set; }
+
+        [JsonProperty("draws")]
+        public long Draws { get; set; }
+
+        [JsonProperty("losses")]
+        public long Losses { get; set; }
+
+        [JsonProperty("games_played")]
+        public long GamesPlayed { get; set; }
+
+        [JsonProperty("goals_for")]
+        public long GoalsFor { get; set; }
+
+        [JsonProperty("goals_against")]
+        public long GoalsAgainst { get; set; }
+
+        [JsonProperty("goal_differential")]
+        public long GoalDifferential { get; set; }
     }
 }

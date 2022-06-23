@@ -22,12 +22,24 @@ namespace dllOOP.DAL
             {
                 Directory.CreateDirectory(DIR);
             }
-            if (!File.Exists(DIR+FILE_NAME))
+            if (!File.Exists(DIR + FILE_NAME))
             {
                 File.Create(DIR + FILE_NAME);
-                
+
             }
             PATH = DIR + FILE_NAME;
+        }
+
+        public string GetLanguage()
+        {
+            string[] lines = File.ReadAllLines(PATH);
+            return lines[0];
+        }
+
+        public Sex GetSexSetting()
+        {
+            string[] lines = File.ReadAllLines(PATH);
+            return (lines[1] == "MEN") ? Sex.MEN : Sex.WOMEN;
         }
 
         public void SetLanguage(string lang)

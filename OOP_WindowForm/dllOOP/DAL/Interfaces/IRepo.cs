@@ -17,7 +17,9 @@ namespace dllOOP.DAL.Interfaces
         //POSTAVI OMILJENA 3 IGRACA
 
         //DOHVATI JEZIK
+        string GetLanguage();
         //DOHVATI SPOL STATITSTIKE
+        Sex GetSexSetting();
         //DOHVATI OMILJENU REPREZENTACIJU
         //DOHVATI OMILJENA 3 IGRACA
     }

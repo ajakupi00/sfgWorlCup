@@ -15,6 +15,7 @@ namespace dllOOP.DAL
 
         List<NationalTeam> GetNationalTeams();
         List<Player> GetPlayers(NationalTeam team);
+        List<Match> GetMatches(NationalTeam team);
 
     }
 }

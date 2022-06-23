@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dllOOP.DAL.Interfaces
+namespace dllOOP.DAL
 {
-    public interface ISetting
+    public class SfgMenRepo : ISfg
     {
-        //POSTAVI JEZIK
-        //POSTAVI SPOL STATITSTIKE
     }
 }

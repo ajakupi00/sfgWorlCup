@@ -12,5 +12,6 @@ namespace dllOOP.Models
         public bool Captain { get; set; }
         public int Shirt_Number { get; set; }
         public string Position { get; set; }
+        public NationalTeam Country { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,18 @@ namespace dllOOP.Models
 {
     public class Player
     {
+        [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("captain")]
         public bool Captain { get; set; }
-        public int Shirt_Number { get; set; }
-        public string Position { get; set; }
-        public NationalTeam Country { get; set; }
+
+        [JsonProperty("shirt_number")]
+        public long ShirtNumber { get; set; }
+
+        [JsonProperty("position")]
+        public Position Position { get; set; }
     }
+
+    public enum Position { Defender, Forward, Goalie, Midfield };
 }

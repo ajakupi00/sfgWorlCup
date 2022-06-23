@@ -2,16 +2,6 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\O
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\OOP_WindowForm.exe
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\OOP_WindowForm.pdb
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\dllOOP.dll
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\dllOOP.pdb
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.AssemblyReference.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.SuggestedBindingRedirects.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Properties.Resources.resources
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.GenerateResource.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CoreCompileInputs.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CopyComplete
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.exe
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.pdb
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Form1.resources
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Newtonsoft.Json.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\RestSharp.dll
@@ -23,6 +13,7 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\S
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.Text.Json.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.ValueTuple.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\dllOOP.pdb
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\dllOOP.dll.config
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Newtonsoft.Json.xml
@@ -35,3 +26,12 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\S
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.Text.Json.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.ValueTuple.xml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.AssemblyReference.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.SuggestedBindingRedirects.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Form1.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Properties.Resources.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.GenerateResource.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CoreCompileInputs.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CopyComplete
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.exe
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.pdb

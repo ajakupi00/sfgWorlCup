@@ -1,10 +1,6 @@
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.dll.config
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.pdb
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.AssemblyReference.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.CoreCompileInputs.cache
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.dll
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.pdb
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.dll.config
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\Newtonsoft.Json.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\RestSharp.dll
@@ -27,4 +23,8 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\System.Te
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\System.Text.Json.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\System.ValueTuple.xml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.AssemblyReference.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.CoreCompileInputs.cache
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.CopyComplete
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.pdb

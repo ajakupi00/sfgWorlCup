@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace dllOOP.DAL
 {
     public class SfgWomenRepo : ISfg
+
     {
         public List<Match> GetMatches(NationalTeam team)
         {
@@ -25,5 +26,6 @@ namespace dllOOP.DAL
         {
             throw new NotImplementedException();
         }
+
     }
 }

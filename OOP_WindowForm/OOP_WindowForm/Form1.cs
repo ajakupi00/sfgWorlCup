@@ -24,7 +24,7 @@ namespace OOP_WindowForm
         {
             label1.Text = "Dohvaćam podatke...";
             RestResponse<NationalTeam> odgovorPodaci = await sfgMen.GetNationalTeams();
-            List<NationalTeam> podaci = SfgMenRepo.NewMethod(odgovorPodaci);
+            List<NationalTeam> podaci = SfgMenRepo.DeserializeObject(odgovorPodaci);
             comboBox1.Text = string.Empty;
 
             foreach (var korisnik in podaci)

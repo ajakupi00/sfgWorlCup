@@ -24,7 +24,7 @@ namespace dllOOP.DAL
             throw new NotImplementedException();
         }
 
-        public static List<T> NewMethod<T>(RestResponse<T> odgovorPodaci)
+        public static List<T> DeserializeObject<T>(RestResponse<T> odgovorPodaci)
         {
             return (List<T>)JsonConvert.DeserializeObject(odgovorPodaci.Content, typeof(List<T>));
         }

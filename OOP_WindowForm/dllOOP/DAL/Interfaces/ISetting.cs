@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dllOOP.DAL
+namespace dllOOP.DAL.Interfaces
 {
-    internal class IRepo
+    public interface ISetting
     {
+        //POSTAVI JEZIK
+        //POSTAVI SPOL STATITSTIKE
     }
 }

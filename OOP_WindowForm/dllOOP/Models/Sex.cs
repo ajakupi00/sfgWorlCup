@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dllOOP.DAL.Interfaces
+namespace dllOOP.Models
 {
-    public interface ISetting
+    public enum Sex
     {
-        //POSTAVI JEZIK
-        //POSTAVI SPOL STATITSTIKE
+        MEN, WOMEN
     }
 }

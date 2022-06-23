@@ -1,0 +1,6 @@
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\bin\Debug\dllOOP.pdb
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.AssemblyReference.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.csproj.CoreCompileInputs.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\dllOOP\obj\Debug\dllOOP.pdb

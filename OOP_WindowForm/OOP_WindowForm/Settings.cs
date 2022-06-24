@@ -21,9 +21,15 @@ namespace OOP_WindowForm
 
         private void Init()
         {
+            lblGender.Text = Resources.Resource.Gender;
+
             cbGender.Items.Add(Sex.MEN.ToString());
             cbGender.Items.Add(Sex.WOMEN.ToString());
             cbGender.SelectedIndex = 0;
+
+            cbLanguage.Items.Add(Resources.Resource.Croatian);
+            cbLanguage.Items.Add(Resources.Resource.English);
+            cbLanguage.SelectedIndex = 0;
         }
 
 

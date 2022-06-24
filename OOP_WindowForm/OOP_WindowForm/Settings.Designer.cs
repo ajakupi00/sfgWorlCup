@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLanguage = new System.Windows.Forms.Label();
             this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.cbGender = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblGender = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblLanguage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(58, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Postavite jezik aplikacije";
+            this.lblLanguage.AutoSize = true;
+            this.lblLanguage.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblLanguage.Location = new System.Drawing.Point(58, 92);
+            this.lblLanguage.Name = "lblLanguage";
+            this.lblLanguage.Size = new System.Drawing.Size(239, 27);
+            this.lblLanguage.TabIndex = 0;
+            this.lblLanguage.Text = "Postavite jezik aplikacije";
             // 
             // cbLanguage
             // 
@@ -64,15 +64,15 @@
             this.cbGender.Size = new System.Drawing.Size(354, 28);
             this.cbGender.TabIndex = 3;
             // 
-            // label2
+            // lblGender
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(58, 224);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 27);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Postavite spol prvenstva";
+            this.lblGender.AutoSize = true;
+            this.lblGender.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblGender.Location = new System.Drawing.Point(58, 224);
+            this.lblGender.Name = "lblGender";
+            this.lblGender.Size = new System.Drawing.Size(243, 27);
+            this.lblGender.TabIndex = 2;
+            this.lblGender.Text = "Postavite spol prvenstva";
             // 
             // btnSave
             // 
@@ -92,9 +92,9 @@
             this.ClientSize = new System.Drawing.Size(474, 528);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbGender);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblGender);
             this.Controls.Add(this.cbLanguage);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblLanguage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
             this.Text = "WorldCup 2018";
@@ -105,10 +105,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.ComboBox cbGender;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Button btnSave;
     }
 }

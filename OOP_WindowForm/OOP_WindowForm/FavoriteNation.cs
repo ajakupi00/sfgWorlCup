@@ -1,4 +1,8 @@
-﻿using System;
+﻿using dllOOOP.Models;
+using dllOOP.DAL;
+using dllOOP.DAL.Interfaces;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,29 @@ namespace OOP_WindowForm
 {
     public partial class FavoriteNation : Form
     {
+        private IRepo repo = RepoFactory.GetRepo();
+        private ISfg sfg;
         public FavoriteNation()
         {
+            sfg = SfgFactory.GetSfg(repo.GetSexSetting());
             InitializeComponent();
+        }
+
+        private void FavoriteNation_Load(object sender, EventArgs e)
+        {
+            NapuniPodatke();
+        }
+
+        private async void NapuniPodatke()
+        {
+
+            RestResponse<NationalTeam> odgovorPodaci = await sfg.GetNationalTeams();
+            List<NationalTeam> teams = SfgMenRepo.DeserializeObject(odgovorPodaci);
+
+            foreach (NationalTeam team in teams)
+                cbNations.Items.Add(team);
+            cbNations.SelectedIndex = 0;
+            lblLoading.Text = "Nations loaded.";
         }
     }
 }

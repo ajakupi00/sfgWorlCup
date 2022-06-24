@@ -75,7 +75,8 @@ namespace OOP_WindowForm
             string lang = currentCulture.Name.Substring(0, 2);
             repo.SetLanguage(lang);
             repo.SetSexSetting((Sex)cbGender.SelectedItem);
-            this.Close();
+            new FavoriteNation().Show();
+            this.Hide();
         }
     }
 }

@@ -55,5 +55,9 @@ namespace dllOOOP.Models
 
         [JsonProperty("goal_differential")]
         public long GoalDifferential { get; set; }
+
+        public override string ToString() => $"{Country} ({FifaCode})";
     }
+
+    
 }

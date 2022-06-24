@@ -19,7 +19,8 @@ namespace OOP_WindowForm
         public Settings()
         {
             InitializeComponent();
-            Init("hr");
+            string lang = SetKultura(repo.GetLanguage());
+            Init(lang);
         }
 
         private void Init(string lang)
@@ -28,11 +29,14 @@ namespace OOP_WindowForm
 
             cbGender.Items.Add(Sex.MEN);
             cbGender.Items.Add(Sex.WOMEN);
-            cbGender.SelectedIndex = 0;
-
+            Sex sex = repo.GetSexSetting();
+            if(cbGender.Items[0].ToString() == sex.ToString())
+                 cbGender.SelectedIndex = 0;
+            else
+                cbGender.SelectedIndex = 1;
             lblLanguage.Text = Resources.Resource.Language;
             btnSave.Text = Resources.Resource.Save;
-           if(lang == "hr")
+           if(lang == "hr" || lang == "" || lang == null)
                  btnLanguage.Text = Resources.Resource.English;
            else
                  btnLanguage.Text = Resources.Resource.Croatian;

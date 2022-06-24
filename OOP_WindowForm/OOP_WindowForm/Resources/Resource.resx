@@ -118,15 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Croatian" xml:space="preserve">
-    <value>Hrvatski</value>
+    <value>Croatian</value>
   </data>
   <data name="English" xml:space="preserve">
-    <value>Engleski</value>
+    <value>English</value>
   </data>
   <data name="Gender" xml:space="preserve">
-    <value>Postavi spol prvenstva</value>
+    <value>Set world cup gender</value>
   </data>
   <data name="Language" xml:space="preserve">
-    <value>Postavi jezik aplikacije</value>
+    <value>Set language of application</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

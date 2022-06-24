@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace OOP_WindowForm
 {
-    public partial class Form1 : Form
+    public partial class Settings : Form
     {
         private SfgWomenRepo sfgMen = new SfgWomenRepo();
-        public Form1()
+        public Settings()
         {
             InitializeComponent();
             NapuniPodatke();

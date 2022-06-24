@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace dllOOP.Models
 {
-    public class Player
+    public class Player 
     {
         [JsonProperty("name")]
         public string Name { get; set; }
@@ -20,6 +20,14 @@ namespace dllOOP.Models
 
         [JsonProperty("position")]
         public Position Position { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   Name == player.Name;
+        }
+
+        public override int GetHashCode() => Name.GetHashCode();
     }
 
     public enum Position { Defender, Forward, Goalie, Midfield };

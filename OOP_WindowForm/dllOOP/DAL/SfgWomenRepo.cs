@@ -12,8 +12,8 @@ namespace dllOOP.DAL
 {
     public class SfgWomenRepo : ISfg
     {
-        private const string NATIONAL_TEAMS_ENDPOINT = @"https://worldcup.sfg.io/teams/results";
-        private const string MATCH_ENDPOINT = @"https://worldcup.sfg.io/matches/country?fifa_code=";
+        private const string NATIONAL_TEAMS_ENDPOINT = @"http://worldcup.sfg.io/teams/results";
+        private const string MATCH_ENDPOINT = @"http://worldcup.sfg.io/matches/country?fifa_code=";
 
 
         public static List<T> DeserializeObject<T>(RestResponse<T> odgovorPodaci)

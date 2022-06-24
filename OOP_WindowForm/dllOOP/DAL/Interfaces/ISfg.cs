@@ -1,4 +1,6 @@
-﻿using dllOOP.Models;
+﻿using dllOOOP.Models;
+using dllOOP.Models;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +11,9 @@ namespace dllOOP.DAL
 {
     public interface ISfg
     {
-        //LISTA SVIH REPKI
-        //LISTA SVIH IGRAČA ZA REPKU
-        //LISTA UTAKMICA ZA ODABRANU REPKU
-
-        List<NationalTeam> GetNationalTeams();
-        List<Player> GetPlayers(NationalTeam team);
+        Task<RestResponse<NationalTeam>> GetNationalTeams();
+        Task<HashSet<Player>> GetPlayers(NationalTeam team);
+        Task<RestResponse<Match>> GetMatches(NationalTeam team);
 
     }
 }

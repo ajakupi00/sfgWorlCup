@@ -11,13 +11,9 @@ namespace dllOOP.DAL
 {
     public interface ISfg
     {
-        //LISTA SVIH REPKI
-        //LISTA SVIH IGRAČA ZA REPKU
-        //LISTA UTAKMICA ZA ODABRANU REPKU
-
         Task<RestResponse<NationalTeam>> GetNationalTeams();
-        List<Player> GetPlayers(NationalTeam team);
-        List<Match> GetMatches(NationalTeam team);
+        Task<HashSet<Player>> GetPlayers(NationalTeam team);
+        Task<RestResponse<Match>> GetMatches(NationalTeam team);
 
     }
 }

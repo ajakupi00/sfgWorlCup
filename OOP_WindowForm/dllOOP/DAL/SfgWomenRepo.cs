@@ -9,23 +9,10 @@ using System.Threading.Tasks;
 
 namespace dllOOP.DAL
 {
-    public class SfgWomenRepo : ISfg
+    public class SfgWomenRepo
 
     {
-        public List<Match> GetMatches(NationalTeam team)
-        {
-            throw new NotImplementedException();
-        }
 
-        public Task<RestResponse<NationalTeam>> GetNationalTeams()
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Player> GetPlayers(NationalTeam team)
-        {
-            throw new NotImplementedException();
-        }
 
     }
 }

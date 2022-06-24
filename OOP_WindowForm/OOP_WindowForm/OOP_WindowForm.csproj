@@ -116,7 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\dllOOP\dllOOP.csproj">
-      <Project>{6D88DC6F-1C98-463D-82C5-D34CE6BC0E10}</Project>
+      <Project>{6d88dc6f-1c98-463d-82c5-d34ce6bc0e10}</Project>
       <Name>dllOOP</Name>
     </ProjectReference>
   </ItemGroup>

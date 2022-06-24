@@ -19,7 +19,6 @@ namespace OOP_WindowForm.UserControls
         private bool captain;
         private int shirtNumber;
 
-
         public bool Favorite
         {
             get
@@ -90,7 +89,9 @@ namespace OOP_WindowForm.UserControls
 
         private void PlayerControl_MouseDown(object sender, MouseEventArgs e)
         {
-            ((PlayerControl)sender).DoDragDrop(((PlayerControl)sender), DragDropEffects.Move);
+            PlayerControl player = ((PlayerControl)sender);
+            player.DoDragDrop(player, DragDropEffects.Move);
+
         }
 
         public virtual void favoriteToolStripMenuItem_Click(object sender, EventArgs e)

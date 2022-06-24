@@ -64,8 +64,9 @@
             // lblPlayer
             // 
             this.lblPlayer.AutoSize = true;
+            this.lblPlayer.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPlayer.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPlayer.Location = new System.Drawing.Point(12, 9);
+            this.lblPlayer.Location = new System.Drawing.Point(0, 0);
             this.lblPlayer.Name = "lblPlayer";
             this.lblPlayer.Size = new System.Drawing.Size(84, 27);
             this.lblPlayer.TabIndex = 1;
@@ -75,10 +76,10 @@
             // 
             this.pnlPlayers.AllowDrop = true;
             this.pnlPlayers.AutoScroll = true;
-            this.pnlPlayers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlPlayers.Location = new System.Drawing.Point(0, 39);
+            this.pnlPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPlayers.Location = new System.Drawing.Point(0, 0);
             this.pnlPlayers.Name = "pnlPlayers";
-            this.pnlPlayers.Size = new System.Drawing.Size(625, 740);
+            this.pnlPlayers.Size = new System.Drawing.Size(625, 779);
             this.pnlPlayers.TabIndex = 0;
             this.pnlPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragDrop);
             this.pnlPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragEnter);
@@ -87,10 +88,10 @@
             // 
             this.pnlFavPlayers.AllowDrop = true;
             this.pnlFavPlayers.AutoScroll = true;
-            this.pnlFavPlayers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFavPlayers.Location = new System.Drawing.Point(0, 39);
+            this.pnlFavPlayers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFavPlayers.Location = new System.Drawing.Point(0, 27);
             this.pnlFavPlayers.Name = "pnlFavPlayers";
-            this.pnlFavPlayers.Size = new System.Drawing.Size(534, 740);
+            this.pnlFavPlayers.Size = new System.Drawing.Size(534, 752);
             this.pnlFavPlayers.TabIndex = 3;
             this.pnlFavPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlFavPlayers_DragDrop);
             this.pnlFavPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlFavPlayers_DragEnter);
@@ -98,8 +99,9 @@
             // lblFavPlayer
             // 
             this.lblFavPlayer.AutoSize = true;
+            this.lblFavPlayer.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblFavPlayer.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFavPlayer.Location = new System.Drawing.Point(12, 9);
+            this.lblFavPlayer.Location = new System.Drawing.Point(0, 0);
             this.lblFavPlayer.Name = "lblFavPlayer";
             this.lblFavPlayer.Size = new System.Drawing.Size(172, 27);
             this.lblFavPlayer.TabIndex = 2;

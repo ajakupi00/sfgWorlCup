@@ -37,14 +37,18 @@ namespace OOP_WindowForm
             HashSet<Player> players = await sfg.GetPlayers(team);
             foreach (Player player in players)
             {
-                pnlPlayers.Controls.Add(new PlayerControl()
+                
+                PlayerControl playerControl = new PlayerControl()
                 {
                     PlayerName = player.Name,
                     Position = (dllOOOP.Models.Position)player.Position,
                     Captain = player.Captain,
                     Favorite = false,
-                    ShirtNumber = int.Parse(player.ShirtNumber.ToString())
-                });
+                    ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
+                };
+                playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
+                playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
+                pnlPlayers.Controls.Add(playerControl);
             }
 
         }
@@ -57,7 +61,32 @@ namespace OOP_WindowForm
         private void pnlFavPlayers_DragDrop(object sender, DragEventArgs e)
         {
             PlayerControl player = (PlayerControl)e.Data.GetData(typeof(PlayerControl));
+            player.Favorite = true;
             pnlFavPlayers.Controls.Add(player);
+        }
+
+        
+
+        private void favoriteStripItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem item = (ToolStripItem)sender;
+            ToolStrip ts = item.Owner;
+            ContextMenuStrip strip = (ContextMenuStrip)item.Owner;
+            PlayerControl player = (PlayerControl)strip.SourceControl;
+            player.Favorite = true;
+            pnlPlayers.Controls.Remove(player);
+            pnlFavPlayers.Controls.Add(player);
+        }
+
+        private void removeFromFavoriteStripItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem item = (ToolStripItem)sender;
+            ToolStrip ts = item.Owner;
+            ContextMenuStrip strip = (ContextMenuStrip)item.Owner;
+            PlayerControl player = (PlayerControl)strip.SourceControl;
+            player.Favorite = false;
+            pnlFavPlayers.Controls.Remove(player);
+            pnlPlayers.Controls.Add(player);
         }
     }
 }

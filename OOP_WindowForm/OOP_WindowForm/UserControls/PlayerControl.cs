@@ -30,9 +30,17 @@ namespace OOP_WindowForm.UserControls
             {
                 favorite = value;
                 if (favorite == true)
+                {
                     pngStar.Visible = true;
+                    playerMenu.Items[0].Visible = false;
+                    playerMenu.Items[1].Visible = true;
+                }
                 else
+                {
                     pngStar.Visible = false;
+                    playerMenu.Items[0].Visible = true;
+                    playerMenu.Items[1].Visible = false;
+                }
             }
         }
 
@@ -76,12 +84,23 @@ namespace OOP_WindowForm.UserControls
 
         public PlayerControl()
         {
-            InitializeComponent();
+            InitializeComponent();;
+            this.ContextMenuStrip = playerMenu;
         }
 
         private void PlayerControl_MouseDown(object sender, MouseEventArgs e)
         {
             ((PlayerControl)sender).DoDragDrop(((PlayerControl)sender), DragDropEffects.Move);
+        }
+
+        public virtual void favoriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Favorite = true;
+        }
+
+        public virtual void removeFromFavoriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Favorite = false;
         }
     }
 }

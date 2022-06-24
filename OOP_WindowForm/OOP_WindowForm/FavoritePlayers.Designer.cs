@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FavoritePlayers));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pnlPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.lblPlayer = new System.Windows.Forms.Label();
             this.lblFavPlayer = new System.Windows.Forms.Label();
             this.pnlFavPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.favoriteStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeFromFavoriteStripItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +93,7 @@
             // 
             // pnlFavPlayers
             // 
+            this.pnlFavPlayers.AutoScroll = true;
             this.pnlFavPlayers.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlFavPlayers.Location = new System.Drawing.Point(0, 39);
             this.pnlFavPlayers.Name = "pnlFavPlayers";
@@ -97,6 +101,25 @@
             this.pnlFavPlayers.TabIndex = 3;
             this.pnlFavPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlFavPlayers_DragDrop);
             this.pnlFavPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlFavPlayers_DragEnter);
+            // 
+            // playerMenudsf
+            // 
+
+
+            // 
+            // favoriteStripItem
+            // 
+            this.favoriteStripItem.Name = "favoriteStripItem";
+            this.favoriteStripItem.Size = new System.Drawing.Size(223, 24);
+            this.favoriteStripItem.Text = "Favorite";
+            this.favoriteStripItem.Click += new System.EventHandler(this.favoriteStripItem_Click);
+            // 
+            // removeFromFavoriteStripItem
+            // 
+            this.removeFromFavoriteStripItem.Name = "removeFromFavoriteStripItem";
+            this.removeFromFavoriteStripItem.Size = new System.Drawing.Size(223, 24);
+            this.removeFromFavoriteStripItem.Text = "Remove from favorite";
+            this.removeFromFavoriteStripItem.Click += new System.EventHandler(this.removeFromFavoriteStripItem_Click);
             // 
             // FavoritePlayers
             // 
@@ -125,5 +148,8 @@
         private System.Windows.Forms.Label lblPlayer;
         private System.Windows.Forms.FlowLayoutPanel pnlFavPlayers;
         private System.Windows.Forms.Label lblFavPlayer;
+        private System.Windows.Forms.ContextMenuStrip playerMenu;
+        private System.Windows.Forms.ToolStripMenuItem favoriteStripItem;
+        private System.Windows.Forms.ToolStripMenuItem removeFromFavoriteStripItem;
     }
 }

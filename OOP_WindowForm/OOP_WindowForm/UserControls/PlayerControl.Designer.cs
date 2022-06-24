@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerControl));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblPlayerName = new System.Windows.Forms.Label();
@@ -35,8 +36,12 @@
             this.lblPlayerCaptain = new System.Windows.Forms.Label();
             this.pngStar = new System.Windows.Forms.PictureBox();
             this.lblShirtNumber = new System.Windows.Forms.Label();
+            this.playerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.favoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeFromFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).BeginInit();
+            this.playerMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -104,6 +109,29 @@
             this.lblShirtNumber.Text = "99";
             this.lblShirtNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // playerMenu
+            // 
+            this.playerMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.playerMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.favoriteToolStripMenuItem,
+            this.removeFromFavoriteToolStripMenuItem});
+            this.playerMenu.Name = "playerMenu";
+            this.playerMenu.Size = new System.Drawing.Size(224, 80);
+            // 
+            // favoriteToolStripMenuItem
+            // 
+            this.favoriteToolStripMenuItem.Name = "favoriteToolStripMenuItem";
+            this.favoriteToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.favoriteToolStripMenuItem.Text = "Favorite";
+            this.favoriteToolStripMenuItem.Click += new System.EventHandler(this.favoriteToolStripMenuItem_Click);
+            // 
+            // removeFromFavoriteToolStripMenuItem
+            // 
+            this.removeFromFavoriteToolStripMenuItem.Name = "removeFromFavoriteToolStripMenuItem";
+            this.removeFromFavoriteToolStripMenuItem.Size = new System.Drawing.Size(223, 24);
+            this.removeFromFavoriteToolStripMenuItem.Text = "Remove from favorite";
+            this.removeFromFavoriteToolStripMenuItem.Click += new System.EventHandler(this.removeFromFavoriteToolStripMenuItem_Click);
+            // 
             // PlayerControl
             // 
             this.AllowDrop = true;
@@ -121,6 +149,7 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerControl_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).EndInit();
+            this.playerMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +163,8 @@
         private System.Windows.Forms.Label lblPlayerCaptain;
         private System.Windows.Forms.PictureBox pngStar;
         private System.Windows.Forms.Label lblShirtNumber;
+        private System.Windows.Forms.ContextMenuStrip playerMenu;
+        private System.Windows.Forms.ToolStripMenuItem favoriteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeFromFavoriteToolStripMenuItem;
     }
 }

@@ -78,5 +78,10 @@ namespace OOP_WindowForm.UserControls
         {
             InitializeComponent();
         }
+
+        private void PlayerControl_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((PlayerControl)sender).DoDragDrop(((PlayerControl)sender), DragDropEffects.Move);
+        }
     }
 }

@@ -106,6 +106,7 @@
             // 
             // PlayerControl
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -117,6 +118,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "PlayerControl";
             this.Size = new System.Drawing.Size(342, 362);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerControl_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).EndInit();
             this.ResumeLayout(false);

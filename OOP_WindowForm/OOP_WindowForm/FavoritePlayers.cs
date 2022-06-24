@@ -23,6 +23,7 @@ namespace OOP_WindowForm
         {
             sfg = SfgFactory.GetSfg(repo.GetSexSetting());
             InitializeComponent();
+            pnlFavPlayers.AllowDrop = true;
         }
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
@@ -46,6 +47,17 @@ namespace OOP_WindowForm
                 });
             }
 
+        }
+
+        private void pnlFavPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void pnlFavPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerControl player = (PlayerControl)e.Data.GetData(typeof(PlayerControl));
+            pnlFavPlayers.Controls.Add(player);
         }
     }
 }

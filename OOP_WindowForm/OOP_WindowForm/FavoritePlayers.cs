@@ -23,7 +23,6 @@ namespace OOP_WindowForm
         {
             sfg = SfgFactory.GetSfg(repo.GetSexSetting());
             InitializeComponent();
-            pnlFavPlayers.AllowDrop = true;
         }
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
@@ -60,6 +59,11 @@ namespace OOP_WindowForm
 
         private void pnlFavPlayers_DragDrop(object sender, DragEventArgs e)
         {
+            if (pnlFavPlayers.Controls.Count >= 3)
+            {
+                MessageBox.Show("Not allowed to add more than 3 players!");
+                return;
+            }
             PlayerControl player = (PlayerControl)e.Data.GetData(typeof(PlayerControl));
             player.Favorite = true;
             pnlFavPlayers.Controls.Add(player);
@@ -73,6 +77,12 @@ namespace OOP_WindowForm
             ToolStrip ts = item.Owner;
             ContextMenuStrip strip = (ContextMenuStrip)item.Owner;
             PlayerControl player = (PlayerControl)strip.SourceControl;
+            if (pnlFavPlayers.Controls.Count >= 3)
+            {
+                MessageBox.Show("Not allowed to add more than 3 players!");
+                 player.Favorite = false;
+                return;
+            }
             player.Favorite = true;
             pnlPlayers.Controls.Remove(player);
             pnlFavPlayers.Controls.Add(player);
@@ -87,6 +97,18 @@ namespace OOP_WindowForm
             player.Favorite = false;
             pnlFavPlayers.Controls.Remove(player);
             pnlPlayers.Controls.Add(player);
+        }
+
+        private void pnlPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerControl player = (PlayerControl)e.Data.GetData(typeof(PlayerControl));
+            player.Favorite = false;
+            pnlPlayers.Controls.Add(player);
+        }
+
+        private void pnlPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
         }
     }
 }

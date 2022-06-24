@@ -22,7 +22,7 @@ namespace OOP_WindowForm.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace OOP_WindowForm.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OOP_WindowForm.Resources.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace OOP_WindowForm.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,38 +61,47 @@ namespace OOP_WindowForm.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hrvatski.
+        ///   Looks up a localized string similar to Croatian.
         /// </summary>
-        internal static string Croatian {
+        public static string Croatian {
             get {
                 return ResourceManager.GetString("Croatian", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Engleski.
+        ///   Looks up a localized string similar to English.
         /// </summary>
-        internal static string English {
+        public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Postavi spol prvenstva.
+        ///   Looks up a localized string similar to Set world cup gender.
         /// </summary>
-        internal static string Gender {
+        public static string Gender {
             get {
                 return ResourceManager.GetString("Gender", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Postavi jezik aplikacije.
+        ///   Looks up a localized string similar to Set language of application.
         /// </summary>
-        internal static string Language {
+        public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
     }

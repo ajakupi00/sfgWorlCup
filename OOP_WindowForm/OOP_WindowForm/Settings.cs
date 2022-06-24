@@ -6,6 +6,8 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,10 +18,10 @@ namespace OOP_WindowForm
         public Settings()
         {
             InitializeComponent();
-            Init();
+            Init("hr");
         }
 
-        private void Init()
+        private void Init(string lang)
         {
             lblGender.Text = Resources.Resource.Gender;
 
@@ -27,25 +29,39 @@ namespace OOP_WindowForm
             cbGender.Items.Add(Sex.WOMEN.ToString());
             cbGender.SelectedIndex = 0;
 
-            cbLanguage.Items.Add(Resources.Resource.Croatian);
-            cbLanguage.Items.Add(Resources.Resource.English);
-            cbLanguage.SelectedIndex = 0;
+            lblLanguage.Text = Resources.Resource.Language;
+            btnSave.Text = Resources.Resource.Save;
+           if(lang == "hr")
+                 btnLanguage.Text = Resources.Resource.English;
+           else
+                 btnLanguage.Text = Resources.Resource.Croatian;
+
         }
 
 
-        //private async void NapuniPodatke()
-        //{
-        //    label1.Text = "Dohvaćam podatke...";
-        //    RestResponse<NationalTeam> odgovorPodaci = await sfgMen.GetNationalTeams();
-        //    List<NationalTeam> podaci = SfgMenRepo.DeserializeObject(odgovorPodaci);
-        //    HashSet<Player> players = await sfgMen.GetPlayers(podaci[1]);
-        //    foreach (Player player in players)
-        //    {
-        //        cbLanguage.Items.Add(player.Name);
-        //    }
+        private string SetKultura(string jezik)
+        {
+            var kultura = new CultureInfo(jezik);
 
-        //    cbLanguage.SelectedIndex = 0;
-        //}
+            Thread.CurrentThread.CurrentUICulture = kultura;
+            Thread.CurrentThread.CurrentCulture = kultura;
 
+            return jezik;
+
+        }
+
+
+        private void btnLanguage_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            string lang;
+            if (btn.Text == Resources.Resource.English)
+                lang = SetKultura("en");
+            else
+                lang = SetKultura("hr");
+            this.Controls.Clear();
+            this.InitializeComponent();
+            this.Init(lang);
+        }
     }
 }

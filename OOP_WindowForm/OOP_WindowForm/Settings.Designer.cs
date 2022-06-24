@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Settings));
             this.lblLanguage = new System.Windows.Forms.Label();
-            this.cbLanguage = new System.Windows.Forms.ComboBox();
             this.cbGender = new System.Windows.Forms.ComboBox();
             this.lblGender = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnLanguage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLanguage
@@ -45,15 +45,6 @@
             this.lblLanguage.Size = new System.Drawing.Size(239, 27);
             this.lblLanguage.TabIndex = 0;
             this.lblLanguage.Text = "Postavite jezik aplikacije";
-            // 
-            // cbLanguage
-            // 
-            this.cbLanguage.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cbLanguage.FormattingEnabled = true;
-            this.cbLanguage.Location = new System.Drawing.Point(63, 134);
-            this.cbLanguage.Name = "cbLanguage";
-            this.cbLanguage.Size = new System.Drawing.Size(354, 28);
-            this.cbLanguage.TabIndex = 1;
             // 
             // cbGender
             // 
@@ -85,15 +76,27 @@
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = true;
             // 
+            // btnLanguage
+            // 
+            this.btnLanguage.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnLanguage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnLanguage.Location = new System.Drawing.Point(63, 131);
+            this.btnLanguage.Name = "btnLanguage";
+            this.btnLanguage.Size = new System.Drawing.Size(354, 55);
+            this.btnLanguage.TabIndex = 5;
+            this.btnLanguage.Text = "Engleski";
+            this.btnLanguage.UseVisualStyleBackColor = true;
+            this.btnLanguage.Click += new System.EventHandler(this.btnLanguage_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 528);
+            this.Controls.Add(this.btnLanguage);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.lblGender);
-            this.Controls.Add(this.cbLanguage);
             this.Controls.Add(this.lblLanguage);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings";
@@ -106,10 +109,10 @@
         #endregion
 
         private System.Windows.Forms.Label lblLanguage;
-        private System.Windows.Forms.ComboBox cbLanguage;
         private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnLanguage;
     }
 }
 

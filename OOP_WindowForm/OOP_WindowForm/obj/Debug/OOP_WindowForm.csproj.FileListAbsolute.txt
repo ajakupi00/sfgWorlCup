@@ -35,3 +35,7 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\O
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.exe
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.pdb
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Settings.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\hr\OOP_WindowForm.resources.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.hr.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\hr\OOP_WindowForm.resources.dll

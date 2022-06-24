@@ -15,6 +15,7 @@ namespace OOP_WindowForm
 {
     public partial class Settings : Form
     {
+        private IRepo repo = RepoFactory.GetRepo();
         public Settings()
         {
             InitializeComponent();
@@ -25,8 +26,8 @@ namespace OOP_WindowForm
         {
             lblGender.Text = Resources.Resource.Gender;
 
-            cbGender.Items.Add(Sex.MEN.ToString());
-            cbGender.Items.Add(Sex.WOMEN.ToString());
+            cbGender.Items.Add(Sex.MEN);
+            cbGender.Items.Add(Sex.WOMEN);
             cbGender.SelectedIndex = 0;
 
             lblLanguage.Text = Resources.Resource.Language;
@@ -62,6 +63,15 @@ namespace OOP_WindowForm
             this.Controls.Clear();
             this.InitializeComponent();
             this.Init(lang);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
+            string lang = currentCulture.Name.Substring(0, 2);
+            repo.SetLanguage(lang);
+            repo.SetSexSetting((Sex)cbGender.SelectedItem);
+            this.Close();
         }
     }
 }

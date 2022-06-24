@@ -14,7 +14,7 @@ namespace dllOOP.DAL
     {
         private const string NATIONAL_TEAMS_ENDPOINT = @"https://world-cup-json-2018.herokuapp.com/teams/results";
         private const string MATCH_ENDPOINT = @"https://world-cup-json-2018.herokuapp.com/matches/country?fifa_code=";
-         
+
 
         public static List<T> DeserializeObject<T>(RestResponse<T> odgovorPodaci)
         {
@@ -38,32 +38,28 @@ namespace dllOOP.DAL
             RestResponse<Match> response = await GetMatches(team);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
             HashSet<Player> players = new HashSet<Player>();
-
-            foreach (Match match in matches)
+            Match match = matches[0];
+            if (match.HomeTeamCountry == team.Country)
             {
-                if (match.HomeTeamCountry == team.Country)
+                for (int i = 0; i < match.HomeTeamStatistics.StartingEleven.Count; i++)
                 {
-                    for (int i = 0; i < match.HomeTeamStatistics.StartingEleven.Count; i++)
-                    {
-                        players.Add(match.HomeTeamStatistics.StartingEleven[i]);
-                    }
-                    for (int i = 0; i < match.HomeTeamStatistics.Substitutes.Count; i++)
-                    {
-                        players.Add(match.HomeTeamStatistics.Substitutes[i]);
-                    }
+                    players.Add(match.HomeTeamStatistics.StartingEleven[i]);
                 }
-                else
+                for (int i = 0; i < match.HomeTeamStatistics.Substitutes.Count; i++)
                 {
-                    for (int i = 0; i < match.AwayTeamStatistics.StartingEleven.Count; i++)
-                    {
-                        players.Add(match.AwayTeamStatistics.StartingEleven[i]);
-                    }
-                    for (int i = 0; i < match.AwayTeamStatistics.Substitutes.Count; i++)
-                    {
-                        players.Add(match.AwayTeamStatistics.Substitutes[i]);
-                    }
+                    players.Add(match.HomeTeamStatistics.Substitutes[i]);
                 }
-
+            }
+            else
+            {
+                for (int i = 0; i < match.AwayTeamStatistics.StartingEleven.Count; i++)
+                {
+                    players.Add(match.AwayTeamStatistics.StartingEleven[i]);
+                }
+                for (int i = 0; i < match.AwayTeamStatistics.Substitutes.Count; i++)
+                {
+                    players.Add(match.AwayTeamStatistics.Substitutes[i]);
+                }
             }
 
             return players;

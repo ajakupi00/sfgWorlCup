@@ -12,7 +12,7 @@ namespace OOP_WindowForm
 {
     public partial class Form1 : Form
     {
-        private SfgMenRepo sfgMen = new SfgMenRepo();
+        private SfgWomenRepo sfgMen = new SfgWomenRepo();
         public Form1()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace OOP_WindowForm
             label1.Text = "Dohvaćam podatke...";
             RestResponse<NationalTeam> odgovorPodaci = await sfgMen.GetNationalTeams();
             List<NationalTeam> podaci = SfgMenRepo.DeserializeObject(odgovorPodaci);
-            HashSet<Player> players = await sfgMen.GetPlayers(podaci[9]);
+            HashSet<Player> players = await sfgMen.GetPlayers(podaci[1]);
             foreach (Player player in players)
             {
                 comboBox1.Items.Add(player.Name);

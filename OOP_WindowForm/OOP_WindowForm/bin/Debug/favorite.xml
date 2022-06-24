@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationalTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>24</Id>
-  <Country>Korea Republic</Country>
-  <FifaCode>KOR</FifaCode>
+  <Id>21</Id>
+  <Country>Germany</Country>
+  <FifaCode>GER</FifaCode>
   <GroupId>6</GroupId>
   <GroupLetter>F</GroupLetter>
   <Wins>1</Wins>
@@ -10,7 +10,7 @@
   <Losses>2</Losses>
   <GamesPlayed>3</GamesPlayed>
   <Points>3</Points>
-  <GoalsFor>3</GoalsFor>
-  <GoalsAgainst>3</GoalsAgainst>
-  <GoalDifferential>0</GoalDifferential>
+  <GoalsFor>2</GoalsFor>
+  <GoalsAgainst>4</GoalsAgainst>
+  <GoalDifferential>-2</GoalDifferential>
 </NationalTeam>

@@ -16,8 +16,10 @@ namespace dllOOP.DAL
         private readonly string DIR = AppDomain.CurrentDomain.BaseDirectory;
         private string SETTINGS_FILE_NAME = @"\settings.txt";
         private string TEAM_FILE_NAME = @"\favorite.xml";
+        private string PLAYERS_FILE_NAME = @"\players.xml";
         private string SETTINGS_PATH;
         private string TEAM_PATH;
+        private string PLAYER_PATH;
         private string[] SETTINGS = new string[3];
 
         public FileRepository()
@@ -34,8 +36,13 @@ namespace dllOOP.DAL
             {
                 File.Create(DIR + TEAM_FILE_NAME);
             }
+            if (!File.Exists(DIR + PLAYERS_FILE_NAME))
+            {
+                File.Create(DIR + PLAYERS_FILE_NAME);
+            }
             SETTINGS_PATH = DIR + SETTINGS_FILE_NAME;
             TEAM_PATH = DIR + TEAM_FILE_NAME;
+            PLAYER_PATH = DIR + PLAYERS_FILE_NAME;
         }
 
         public NationalTeam GetFavoriteTeam()
@@ -66,6 +73,17 @@ namespace dllOOP.DAL
         {
             string[] lines = File.ReadAllLines(SETTINGS_PATH);
             return (lines[1] == "MEN") ? Sex.MEN : Sex.WOMEN;
+        }
+
+        public void SaveFavoritePlayers(List<Player> players)
+        {
+            using (StreamWriter xmlSW = new StreamWriter(PLAYER_PATH))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+                { 
+                    serializer.Serialize(xmlSW, players);
+                }
+            }
         }
 
         public void SetFavoriteTeam(NationalTeam team)

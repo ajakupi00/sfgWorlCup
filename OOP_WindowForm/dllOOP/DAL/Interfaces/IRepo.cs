@@ -15,6 +15,7 @@ namespace dllOOP.DAL.Interfaces
         void SetFavoriteTeam(NationalTeam team);
         //POSTAVI OMILJENU REPREZENTACIJU
         //POSTAVI OMILJENA 3 IGRACA
+        void SaveFavoritePlayers(List<Player> players);
 
         string GetLanguage();
         Sex GetSexSetting();

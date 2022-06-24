@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Player>
+    <Name>Thibaut COURTOIS</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>1</ShirtNumber>
+    <Position>Goalie</Position>
+  </Player>
+  <Player>
+    <Name>Kevin DE BRUYNE</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>7</ShirtNumber>
+    <Position>Midfield</Position>
+  </Player>
+</ArrayOfPlayer>

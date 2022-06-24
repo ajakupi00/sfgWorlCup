@@ -142,5 +142,22 @@ namespace OOP_WindowForm
         {
             e.Effect = DragDropEffects.Move;
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if(pnlFavPlayers.Controls.Count < 1)
+            {
+                MessageBox.Show("Add players to save them!");
+                return;
+            }
+            List<Player> players = new List<Player>();
+            foreach (PlayerControl control in pnlFavPlayers.Controls)
+            {
+                players.Add(PlayerControl.ParseFromControl(control));
+               
+            }
+            repo.SaveFavoritePlayers(players);
+            this.Close();
+        }
     }
 }

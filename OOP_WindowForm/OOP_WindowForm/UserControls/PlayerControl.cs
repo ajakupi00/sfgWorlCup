@@ -1,4 +1,5 @@
 ﻿using dllOOOP.Models;
+using dllOOP.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,7 @@ namespace OOP_WindowForm.UserControls
     {
         private bool favorite;
         private string playerName;
-        private Position position;
+        private dllOOOP.Models.Position position;
         private bool captain;
         private int shirtNumber;
 
@@ -52,7 +53,7 @@ namespace OOP_WindowForm.UserControls
                 lblPlayerName.Text = value;
             }
         }
-        public Position Position
+        public dllOOOP.Models.Position Position
         {
             get => position;
             set
@@ -102,6 +103,17 @@ namespace OOP_WindowForm.UserControls
         public virtual void removeFromFavoriteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Favorite = false;
+        }
+
+        public static Player ParseFromControl(PlayerControl control)
+        {
+            return new Player
+            {
+                Name = control.PlayerName,
+                Captain = control.Captain,
+                Position = (dllOOP.Models.Position)control.position,
+                ShirtNumber = control.ShirtNumber
+            };
         }
     }
 }

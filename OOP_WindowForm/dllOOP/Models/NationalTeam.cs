@@ -15,6 +15,7 @@ namespace dllOOOP.Models
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public partial class NationalTeam
     {
         [JsonProperty("id")]
@@ -55,5 +56,9 @@ namespace dllOOOP.Models
 
         [JsonProperty("goal_differential")]
         public long GoalDifferential { get; set; }
+
+        public override string ToString() => $"{Country} ({FifaCode})";
     }
+
+    
 }

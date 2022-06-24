@@ -1,6 +1,7 @@
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\OOP_WindowForm.exe.config
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\OOP_WindowForm.exe
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\OOP_WindowForm.pdb
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\hr\OOP_WindowForm.resources.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\dllOOP.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\Newtonsoft.Json.dll
@@ -28,14 +29,14 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\S
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\System.ValueTuple.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.AssemblyReference.cache
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.SuggestedBindingRedirects.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.FavoriteNation.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Settings.resources
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Properties.Resources.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.hr.resources
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.GenerateResource.cache
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CoreCompileInputs.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\hr\OOP_WindowForm.resources.dll
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.csproj.CopyComplete
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.exe
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.pdb
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Settings.resources
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.resources
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\bin\Debug\hr\OOP_WindowForm.resources.dll
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.Resources.Resource.hr.resources
-C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\hr\OOP_WindowForm.resources.dll

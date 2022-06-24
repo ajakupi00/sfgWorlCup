@@ -19,8 +19,15 @@ namespace OOP_WindowForm
         public Settings()
         {
             InitializeComponent();
-            string lang = SetKultura(repo.GetLanguage());
-            Init(lang);
+            try
+            {
+                string lang = SetKultura(repo.GetLanguage());
+                Init(lang);
+            }
+            catch (Exception)
+            {
+                Init("hr");
+            }
         }
 
         private void Init(string lang)
@@ -29,11 +36,19 @@ namespace OOP_WindowForm
 
             cbGender.Items.Add(Sex.MEN);
             cbGender.Items.Add(Sex.WOMEN);
-            Sex sex = repo.GetSexSetting();
-            if(cbGender.Items[0].ToString() == sex.ToString())
-                 cbGender.SelectedIndex = 0;
-            else
-                cbGender.SelectedIndex = 1;
+            try
+            {
+                Sex sex = repo.GetSexSetting();
+                if (cbGender.Items[0].ToString() == sex.ToString())
+                    cbGender.SelectedIndex = 0;
+                else
+                    cbGender.SelectedIndex = 1;
+            }
+            catch (Exception)
+            {
+                cbGender.SelectedIndex = 0;
+            }
+           
             lblLanguage.Text = Resources.Resource.Language;
             btnSave.Text = Resources.Resource.Save;
            if(lang == "hr" || lang == "" || lang == null)
@@ -75,7 +90,8 @@ namespace OOP_WindowForm
             string lang = currentCulture.Name.Substring(0, 2);
             repo.SetLanguage(lang);
             repo.SetSexSetting((Sex)cbGender.SelectedItem);
-            this.Close();
+            new FavoriteNation().Show();
+            this.Hide();
         }
     }
 }

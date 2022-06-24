@@ -15,6 +15,7 @@ namespace dllOOOP.Models
     using Newtonsoft.Json;
     using Newtonsoft.Json.Converters;
 
+    [Serializable]
     public partial class NationalTeam
     {
         [JsonProperty("id")]

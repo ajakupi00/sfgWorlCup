@@ -79,6 +79,7 @@
     <Compile Include="DAL\Interfaces\ISfg.cs" />
     <Compile Include="DAL\Interfaces\IRepo.cs" />
     <Compile Include="DAL\RepoFactory.cs" />
+    <Compile Include="DAL\SfgFactory.cs" />
     <Compile Include="DAL\SfgMenRepo.cs" />
     <Compile Include="DAL\SfgWomenRepo.cs" />
     <Compile Include="Models\Match.cs" />

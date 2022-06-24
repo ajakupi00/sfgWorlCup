@@ -40,5 +40,25 @@ namespace OOP_WindowForm
             cbNations.SelectedIndex = 0;
             lblLoading.Text = "Nations loaded.";
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            NationalTeam team = (NationalTeam)cbNations.SelectedItem;
+            repo.SetFavoriteTeam(team);
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                NationalTeam team = repo.GetFavoriteTeam();
+                lblLoading.Text = team.FifaCode;
+            }
+            catch (Exception ex)
+            {
+
+                lblLoading.Text = ex.Message;
+            }
+        }
     }
 }

@@ -25,4 +25,54 @@
     <Goals>0</Goals>
     <YCards>0</YCards>
   </Player>
+  <Player>
+    <Name>JO Hyeonwoo</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>23</ShirtNumber>
+    <Position>Goalie</Position>
+    <Nation>
+      <Id>24</Id>
+      <Country>Korea Republic</Country>
+      <FifaCode>KOR</FifaCode>
+      <GroupId>6</GroupId>
+      <GroupLetter>F</GroupLetter>
+      <Wins>1</Wins>
+      <Draws>0</Draws>
+      <Losses>2</Losses>
+      <GamesPlayed>3</GamesPlayed>
+      <Points>3</Points>
+      <GoalsFor>3</GoalsFor>
+      <GoalsAgainst>3</GoalsAgainst>
+      <GoalDifferential>0</GoalDifferential>
+    </Nation>
+    <Sex>MEN</Sex>
+    <PicturePath>C:\Users\arjan\Downloads\6175b54dbf058.jpg</PicturePath>
+    <Goals>0</Goals>
+    <YCards>0</YCards>
+  </Player>
+  <Player>
+    <Name>PARK Jooho</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>6</ShirtNumber>
+    <Position>Defender</Position>
+    <Nation>
+      <Id>24</Id>
+      <Country>Korea Republic</Country>
+      <FifaCode>KOR</FifaCode>
+      <GroupId>6</GroupId>
+      <GroupLetter>F</GroupLetter>
+      <Wins>1</Wins>
+      <Draws>0</Draws>
+      <Losses>2</Losses>
+      <GamesPlayed>3</GamesPlayed>
+      <Points>3</Points>
+      <GoalsFor>3</GoalsFor>
+      <GoalsAgainst>3</GoalsAgainst>
+      <GoalDifferential>0</GoalDifferential>
+    </Nation>
+    <Sex>MEN</Sex>
+    <PicturePath />
+    <Goals>0</Goals>
+    <YCards>0</YCards>
+  </Player>
 </ArrayOfPlayer>

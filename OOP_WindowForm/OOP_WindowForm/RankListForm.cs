@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,9 @@ namespace OOP_WindowForm
         private NationalTeam nation;
         private List<Match> matches;
         private List<Player> players;
+
+        private int itemsOnPage = 0;
+        private int left;
         public RankListForm()
         {
             sex = repo.GetSexSetting();
@@ -142,6 +147,132 @@ namespace OOP_WindowForm
                     players.Sort((x, y) => -x.Goals.CompareTo(y.Goals));
                     AddPlayersControls(players);
                     break;
+            }
+        }
+
+
+        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void printAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Print();
+        }
+
+        private void Print()
+        {
+            printPreviewDialog.ShowDialog();
+            
+        }
+
+        private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (itemsOnPage++ == 0)
+            {
+                PrintPrvaStranica(e);
+                e.HasMorePages = true;
+            }
+            else if (itemsOnPage++ == 2)
+            {
+                PrintDrugaStranica(e);
+                e.HasMorePages = true;
+            }
+            else
+            {
+                PrintTrecaStranica(e);
+            }
+        }
+
+        private void PrintTrecaStranica(PrintPageEventArgs e)
+        {
+            int x = 0;
+            int y = 0; //450
+            int ymax = printDocument.DefaultPageSettings.Bounds.Height; //1200
+            int xmax = printDocument.DefaultPageSettings.Bounds.Width; //1200
+            printDocument.DefaultPageSettings.Landscape = true;
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            for (int i = 0; i < pnlMatches.Controls.Count; i++)
+            {
+                Rectangle rect = new Rectangle(0, 0, pnlMatches.Controls[i].Width, pnlMatches.Controls[i].Height);
+                Bitmap bitmap = new Bitmap(pnlMatches.Controls[i].Width, pnlMatches.Controls[i].Height);
+                pnlMatches.Controls[i].DrawToBitmap(bitmap, rect);
+
+                e.Graphics.DrawImage(bitmap, new Point(x, y));
+                y += pnlMatches.Controls[i].Height + 20;
+            }
+        }
+
+        private void PrintDrugaStranica(PrintPageEventArgs e)
+        {
+            int x = 0;
+            int y = 0; //450
+            int ymax = printDocument.DefaultPageSettings.Bounds.Height; //1200
+            int xmax = printDocument.DefaultPageSettings.Bounds.Width; //1200
+            printDocument.DefaultPageSettings.Landscape = true;
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            for (int i = 0; i < pnlPlayers.Controls.Count; i++)
+            {
+                if (x >= pnlPlayers.Controls[i].Width + 19 && y >= ymax - 20)
+                {
+                    left = 0;
+                    return;
+                }
+                if (y >= ymax - 20)
+                {
+                    y = 0;
+                    x += pnlPlayers.Controls[i].Width + 20;
+                }
+                Rectangle rect = new Rectangle(0, 0, pnlPlayers.Controls[i].Width, pnlPlayers.Controls[i].Height);
+                Bitmap bitmap = new Bitmap(pnlPlayers.Controls[i].Width, pnlPlayers.Controls[i].Height);
+                pnlPlayers.Controls[i].DrawToBitmap(bitmap, rect);
+
+                e.Graphics.DrawImage(bitmap, new Point(x, y));
+                y += pnlPlayers.Controls[i].Height + 20;
+
+
+            }
+        }
+
+
+        private void PrintPrvaStranica(PrintPageEventArgs e)
+        {
+            int x = 0;
+            int y = 0; //450
+            int ymax = printDocument.DefaultPageSettings.Bounds.Height; //1200
+            int xmax = printDocument.DefaultPageSettings.Bounds.Width; //1200
+            printDocument.DefaultPageSettings.Landscape = true;
+            e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
+            for (int i = 0; i < pnlPlayers.Controls.Count; i++)
+            {
+                if (x >= pnlPlayers.Controls[i].Width + 19 && y >= ymax - 20)
+                {
+                    left = pnlPlayers.Controls.Count - i;
+                    return;
+                }
+                if (y >= ymax - 20)
+                {
+                    y = 0;
+                    x += pnlPlayers.Controls[i].Width + 20;
+                }
+                Rectangle rect = new Rectangle(0, 0, pnlPlayers.Controls[i].Width, pnlPlayers.Controls[i].Height);
+                Bitmap bitmap = new Bitmap(pnlPlayers.Controls[i].Width, pnlPlayers.Controls[i].Height);
+                pnlPlayers.Controls[i].DrawToBitmap(bitmap, rect);
+
+                e.Graphics.DrawImage(bitmap, new Point(x, y));
+                y += pnlPlayers.Controls[i].Height + 20;
+
+
+            }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if(printPreviewDialog.ShowDialog() == DialogResult.OK)
+            {
+                Print();
+                printDocument.Print();
             }
         }
     }

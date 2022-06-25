@@ -18,6 +18,7 @@ namespace OOP_WindowForm
     {
         private IRepo repo = RepoFactory.GetRepo();
         private ISfg sfg;
+        public bool Called = false;
         public FavoriteNation()
         {
             sfg = SfgFactory.GetSfg(repo.GetSexSetting());
@@ -45,7 +46,9 @@ namespace OOP_WindowForm
         {
             NationalTeam team = (NationalTeam)cbNations.SelectedItem;
             repo.SetFavoriteTeam(team);
-            new FavoritePlayers().Show();
+            if (!Called)
+                new FavoritePlayers().Show();
+          
             this.Hide();
         }
 

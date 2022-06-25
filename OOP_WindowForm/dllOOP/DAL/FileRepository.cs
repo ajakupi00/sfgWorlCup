@@ -140,6 +140,8 @@ namespace dllOOP.DAL
 
         public void SavePlayersImages(List<Player> players)
         {
+            if (players == null || players.Count == 0)
+                return;
             string path = $"{DIR}\\{players[0].Sex}_{players[0].Nation.FifaCode}.xml";
             if (!File.Exists(path))
             {

@@ -274,7 +274,8 @@ namespace OOP_WindowForm
                  existingImages.ForEach(i => playersWithImages.Add(i));
             repo.SavePlayersImages(playersWithImages);
             repo.SaveFavoritePlayers(players);
-            Application.Exit();
+            this.Close();
+            new RankListForm().Show();
         }
     }
 }

@@ -44,7 +44,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(106, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(148, 22);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(111, 113);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -67,7 +67,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 180);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 29);
+            this.label2.Size = new System.Drawing.Size(107, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Attendance:";
             // 
@@ -87,7 +87,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(12, 255);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 29);
+            this.label4.Size = new System.Drawing.Size(103, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Away team:";
             // 
@@ -95,7 +95,7 @@
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLocation.Location = new System.Drawing.Point(102, 148);
+            this.lblLocation.Location = new System.Drawing.Point(129, 148);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(102, 24);
             this.lblLocation.TabIndex = 5;
@@ -105,9 +105,9 @@
             // 
             this.lblAttendance.AutoSize = true;
             this.lblAttendance.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAttendance.Location = new System.Drawing.Point(117, 178);
+            this.lblAttendance.Location = new System.Drawing.Point(129, 179);
             this.lblAttendance.Name = "lblAttendance";
-            this.lblAttendance.Size = new System.Drawing.Size(94, 30);
+            this.lblAttendance.Size = new System.Drawing.Size(75, 24);
             this.lblAttendance.TabIndex = 6;
             this.lblAttendance.Text = "180 000";
             // 
@@ -117,7 +117,7 @@
             this.lblHome.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblHome.Location = new System.Drawing.Point(129, 222);
             this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(113, 30);
+            this.lblHome.Size = new System.Drawing.Size(90, 24);
             this.lblHome.TabIndex = 7;
             this.lblHome.Text = "CROATIA";
             // 
@@ -127,7 +127,7 @@
             this.lblAway.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblAway.Location = new System.Drawing.Point(129, 252);
             this.lblAway.Name = "lblAway";
-            this.lblAway.Size = new System.Drawing.Size(195, 30);
+            this.lblAway.Size = new System.Drawing.Size(156, 24);
             this.lblAway.TabIndex = 8;
             this.lblAway.Text = "CZECH REPUBLIC";
             // 
@@ -146,7 +146,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MatchStatControl";
-            this.Size = new System.Drawing.Size(311, 314);
+            this.Size = new System.Drawing.Size(392, 314);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

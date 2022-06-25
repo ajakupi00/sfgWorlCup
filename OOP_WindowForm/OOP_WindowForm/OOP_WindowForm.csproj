@@ -92,6 +92,12 @@
     <Compile Include="FavoritePlayers.Designer.cs">
       <DependentUpon>FavoritePlayers.cs</DependentUpon>
     </Compile>
+    <Compile Include="RankListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RankListForm.Designer.cs">
+      <DependentUpon>RankListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,17 +116,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\MatchStatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MatchStatControl.Designer.cs">
+      <DependentUpon>MatchStatControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PlayerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\PlayerControl.Designer.cs">
       <DependentUpon>PlayerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\PlayerStatControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PlayerStatControl.Designer.cs">
+      <DependentUpon>PlayerStatControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FavoriteNation.resx">
       <DependentUpon>FavoriteNation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FavoritePlayers.resx">
       <DependentUpon>FavoritePlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RankListForm.resx">
+      <DependentUpon>RankListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.hr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -142,8 +163,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\MatchStatControl.resx">
+      <DependentUpon>MatchStatControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\PlayerControl.resx">
       <DependentUpon>PlayerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PlayerStatControl.resx">
+      <DependentUpon>PlayerStatControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -169,6 +196,7 @@
     <Content Include="Icon\star.png" />
     <Content Include="Icon\trophy.ico" />
     <Content Include="Icon\football-player.png" />
+    <Content Include="Icon\matchIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

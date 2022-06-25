@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.Models;
+﻿using dllOOP.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;

@@ -19,22 +19,81 @@ namespace OOP_WindowForm
     {
         private IRepo repo = RepoFactory.GetRepo();
         private ISfg sfg;
+        private Sex worldCupGender;
+        private NationalTeam nationalTeam;
         private List<PlayerControl> selected = new List<PlayerControl>();
         public FavoritePlayers()
         {
-            sfg = SfgFactory.GetSfg(repo.GetSexSetting());
+            Sex sex = repo.GetSexSetting();
+            sfg = SfgFactory.GetSfg(sex);
+            worldCupGender = sex;
+            nationalTeam = repo.GetFavoriteTeam();
             InitializeComponent();
         }
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
         {
-            LoadPlayers();
+            try
+            {
+                List<Player> players = repo.GetFavoritePlayers();
+                if (players.Count > 0 && players[0].Sex == worldCupGender && players[0].Nation.FifaCode == nationalTeam.FifaCode)
+                {
+                    LoadPlayers(players);
+                }
+                else
+                {
+
+                    LoadPlayers();
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private async void LoadPlayers()
         {
             NationalTeam team = repo.GetFavoriteTeam();
             HashSet<Player> players = await sfg.GetPlayers(team);
+            foreach (Player player in players)
+            {
+
+                PlayerControl playerControl = new PlayerControl()
+                {
+                    PlayerName = player.Name,
+                    Position = (dllOOOP.Models.Position)player.Position,
+                    Captain = player.Captain,
+                    Favorite = false,
+                    ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
+                };
+                playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
+                playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
+                playerControl.MouseDown += Player_MouseDownClick;
+                pnlPlayers.Controls.Add(playerControl);
+            }
+
+        }
+
+        private async void LoadPlayers(List<Player> favPlayers)
+        {
+            HashSet<Player> players = await sfg.GetPlayers(nationalTeam);
+            favPlayers.ForEach(f => players.Remove(f));
+            favPlayers.ForEach(f =>
+            {
+                PlayerControl playerControl = new PlayerControl()
+                {
+                    PlayerName = f.Name,
+                    Position = (dllOOOP.Models.Position)f.Position,
+                    Captain = f.Captain,
+                    Favorite = true,
+                    ShirtNumber = int.Parse(f.ShirtNumber.ToString()),
+                };
+                playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
+                playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
+                playerControl.MouseDown += Player_MouseDownClick;
+                pnlFavPlayers.Controls.Add(playerControl);
+            });
             foreach (Player player in players)
             {
 
@@ -82,16 +141,17 @@ namespace OOP_WindowForm
                 MessageBox.Show("Not allowed to add more than 3 players!");
                 return;
             }
-            if(selected.Count > 1)
+            if (selected.Count > 1)
             {
-                selected.ForEach(p => {
-                    if(pnlFavPlayers.Controls.Count < 3)
+                selected.ForEach(p =>
+                {
+                    if (pnlFavPlayers.Controls.Count < 3)
                     {
                         p.Favorite = true;
                         p.BackColor = Color.White;
                         pnlFavPlayers.Controls.Add(p);
                     }
-                   
+
                 });
                 selected.Clear();
                 return;
@@ -145,7 +205,7 @@ namespace OOP_WindowForm
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if(pnlFavPlayers.Controls.Count < 1)
+            if (pnlFavPlayers.Controls.Count < 1)
             {
                 MessageBox.Show("Add players to save them!");
                 return;
@@ -153,8 +213,8 @@ namespace OOP_WindowForm
             List<Player> players = new List<Player>();
             foreach (PlayerControl control in pnlFavPlayers.Controls)
             {
-                players.Add(PlayerControl.ParseFromControl(control));
-               
+                players.Add(PlayerControl.ParseFromControl(control, worldCupGender, nationalTeam));
+
             }
             repo.SaveFavoritePlayers(players);
             this.Close();

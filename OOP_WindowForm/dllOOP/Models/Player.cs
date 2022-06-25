@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using dllOOOP.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace dllOOP.Models
 
         [JsonProperty("position")]
         public Position Position { get; set; }
+        public NationalTeam Nation{ get; set; }
+        public Sex Sex{ get; set; }
 
         public override bool Equals(object obj)
         {

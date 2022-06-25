@@ -13,14 +13,11 @@ namespace dllOOP.DAL.Interfaces
         void SetLanguage(string lang);
         void SetSexSetting(Sex sex);
         void SetFavoriteTeam(NationalTeam team);
-        //POSTAVI OMILJENU REPREZENTACIJU
-        //POSTAVI OMILJENA 3 IGRACA
         void SaveFavoritePlayers(List<Player> players);
 
         string GetLanguage();
         Sex GetSexSetting();
         NationalTeam GetFavoriteTeam();
-        //DOHVATI OMILJENU REPREZENTACIJU
-        //DOHVATI OMILJENA 3 IGRACA
+        List<Player> GetFavoritePlayers();
     }
 }

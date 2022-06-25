@@ -105,14 +105,16 @@ namespace OOP_WindowForm.UserControls
             Favorite = false;
         }
 
-        public static Player ParseFromControl(PlayerControl control)
+        public static Player ParseFromControl(PlayerControl control, Sex sex, NationalTeam nation)
         {
             return new Player
             {
                 Name = control.PlayerName,
                 Captain = control.Captain,
                 Position = (dllOOP.Models.Position)control.position,
-                ShirtNumber = control.ShirtNumber
+                ShirtNumber = control.ShirtNumber,
+                Sex = sex,
+                Nation = nation
             };
         }
     }

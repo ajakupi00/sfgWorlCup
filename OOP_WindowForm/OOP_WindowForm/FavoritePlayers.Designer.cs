@@ -32,12 +32,12 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblPlayer = new System.Windows.Forms.Label();
             this.pnlPlayers = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.pnlFavPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFavPlayer = new System.Windows.Forms.Label();
             this.favoriteStripItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFromFavoriteStripItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -89,6 +89,26 @@
             this.pnlPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragDrop);
             this.pnlPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlPlayers_DragEnter);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(8, 8);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSave.Location = new System.Drawing.Point(538, 788);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(151, 40);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // pnlFavPlayers
             // 
             this.pnlFavPlayers.AllowDrop = true;
@@ -125,26 +145,6 @@
             this.removeFromFavoriteStripItem.Size = new System.Drawing.Size(223, 24);
             this.removeFromFavoriteStripItem.Text = "Remove from favorite";
             this.removeFromFavoriteStripItem.Click += new System.EventHandler(this.removeFromFavoriteStripItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(8, 8);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnSave.Location = new System.Drawing.Point(538, 788);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(151, 40);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FavoritePlayers
             // 

@@ -45,6 +45,24 @@ namespace dllOOP.DAL
             PLAYER_PATH = DIR + PLAYERS_FILE_NAME;
         }
 
+        public List<Player> GetFavoritePlayers()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(PLAYER_PATH))
+                {
+                    List<Player> team = (List<Player>)serializer.Deserialize(reader);
+                    return team;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+        }
+
         public NationalTeam GetFavoriteTeam()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(NationalTeam));

@@ -57,6 +57,17 @@ namespace dllOOOP.Models
         [JsonProperty("goal_differential")]
         public long GoalDifferential { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            return obj is NationalTeam team &&
+                   FifaCode == team.FifaCode;
+        }
+
+        public override int GetHashCode()
+        {
+            return FifaCode.GetHashCode();
+        }
+
         public override string ToString() => $"{Country} ({FifaCode})";
     }
 

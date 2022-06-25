@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Player>
-    <Name>Thibaut COURTOIS</Name>
+    <Name>Sime VRSALJKO</Name>
     <Captain>false</Captain>
-    <ShirtNumber>1</ShirtNumber>
-    <Position>Goalie</Position>
+    <ShirtNumber>2</ShirtNumber>
+    <Position>Defender</Position>
+    <Nation>
+      <Id>15</Id>
+      <Country>Croatia</Country>
+      <FifaCode>CRO</FifaCode>
+      <GroupId>4</GroupId>
+      <GroupLetter>D</GroupLetter>
+      <Wins>4</Wins>
+      <Draws>2</Draws>
+      <Losses>1</Losses>
+      <GamesPlayed>7</GamesPlayed>
+      <Points>14</Points>
+      <GoalsFor>14</GoalsFor>
+      <GoalsAgainst>9</GoalsAgainst>
+      <GoalDifferential>5</GoalDifferential>
+    </Nation>
+    <Sex>MEN</Sex>
   </Player>
   <Player>
-    <Name>Kevin DE BRUYNE</Name>
+    <Name>Ivan STRINIC</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>3</ShirtNumber>
+    <Position>Defender</Position>
+    <Nation>
+      <Id>15</Id>
+      <Country>Croatia</Country>
+      <FifaCode>CRO</FifaCode>
+      <GroupId>4</GroupId>
+      <GroupLetter>D</GroupLetter>
+      <Wins>4</Wins>
+      <Draws>2</Draws>
+      <Losses>1</Losses>
+      <GamesPlayed>7</GamesPlayed>
+      <Points>14</Points>
+      <GoalsFor>14</GoalsFor>
+      <GoalsAgainst>9</GoalsAgainst>
+      <GoalDifferential>5</GoalDifferential>
+    </Nation>
+    <Sex>MEN</Sex>
+  </Player>
+  <Player>
+    <Name>Ivan RAKITIC</Name>
     <Captain>false</Captain>
     <ShirtNumber>7</ShirtNumber>
     <Position>Midfield</Position>
+    <Nation>
+      <Id>15</Id>
+      <Country>Croatia</Country>
+      <FifaCode>CRO</FifaCode>
+      <GroupId>4</GroupId>
+      <GroupLetter>D</GroupLetter>
+      <Wins>4</Wins>
+      <Draws>2</Draws>
+      <Losses>1</Losses>
+      <GamesPlayed>7</GamesPlayed>
+      <Points>14</Points>
+      <GoalsFor>14</GoalsFor>
+      <GoalsAgainst>9</GoalsAgainst>
+      <GoalDifferential>5</GoalDifferential>
+    </Nation>
+    <Sex>MEN</Sex>
   </Player>
 </ArrayOfPlayer>

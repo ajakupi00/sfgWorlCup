@@ -17,18 +17,23 @@ namespace OOP_WindowForm
 {
     public partial class FavoritePlayers : Form
     {
-        private OpenFileDialog ofd = new OpenFileDialog();
         private IRepo repo = RepoFactory.GetRepo();
         private ISfg sfg;
         private Sex worldCupGender;
         private NationalTeam nationalTeam;
+
+        private OpenFileDialog ofd = new OpenFileDialog();
         private List<PlayerControl> selected = new List<PlayerControl>();
+        private List<Player> playersWithImages = new List<Player>();
+        private List<Player> existingImages;
+
         public FavoritePlayers()
         {
             Sex sex = repo.GetSexSetting();
             sfg = SfgFactory.GetSfg(sex);
             worldCupGender = sex;
             nationalTeam = repo.GetFavoriteTeam();
+            existingImages = repo.GetPlayersImages(sex, nationalTeam);
             InitializeComponent();
             InitOpenFileDialog();
         }
@@ -76,6 +81,9 @@ namespace OOP_WindowForm
                     Favorite = false,
                     ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
                 };
+                if (existingImages != null)
+                    playerControl.PicturePath = (existingImages.Exists(p => p.Name == player.Name)) ? existingImages.FirstOrDefault(p => p.Name == player.Name).PicturePath : "";
+
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
@@ -98,6 +106,8 @@ namespace OOP_WindowForm
                     Favorite = true,
                     ShirtNumber = int.Parse(f.ShirtNumber.ToString()),
                 };
+                if (existingImages != null)
+                    playerControl.PicturePath = (existingImages.Exists(p => p.Name == f.Name)) ? existingImages.FirstOrDefault(p => p.Name == f.Name).PicturePath : "";
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
@@ -115,6 +125,9 @@ namespace OOP_WindowForm
                     Favorite = false,
                     ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
                 };
+                if (existingImages != null)
+                    playerControl.PicturePath = (existingImages.Exists(p => p.Name == player.Name)) ? existingImages.FirstOrDefault(p => p.Name == player.Name).PicturePath : "";
+
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
@@ -149,6 +162,9 @@ namespace OOP_WindowForm
         private void ShowPicture(string file, PictureBox pb)
         {
             pb.Image = Image.FromFile(file);
+            PlayerControl parent = (PlayerControl)pb.Parent;
+            parent.PicturePath = file;
+            playersWithImages.Add(PlayerControl.ParseFromControl(parent, worldCupGender, nationalTeam));
         }
 
         private void Player_MouseDownClick(object sender, MouseEventArgs e)
@@ -254,8 +270,11 @@ namespace OOP_WindowForm
                 players.Add(PlayerControl.ParseFromControl(control, worldCupGender, nationalTeam));
 
             }
+            if(existingImages != null)
+                 existingImages.ForEach(i => playersWithImages.Add(i));
+            repo.SavePlayersImages(playersWithImages);
             repo.SaveFavoritePlayers(players);
-            this.Close();
+            Application.Exit();
         }
     }
 }

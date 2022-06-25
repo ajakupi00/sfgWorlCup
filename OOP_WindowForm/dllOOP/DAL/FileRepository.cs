@@ -100,7 +100,26 @@ namespace dllOOP.DAL
             return pb;
         }
 
+        public List<Player> GetPlayersImages(Sex sex, NationalTeam nation)
+        {
+            string path = $"{DIR}\\{sex}_{nation.FifaCode}.xml";
+            if (!File.Exists(path))
+                return null;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    List<Player> players = (List<Player>)serializer.Deserialize(reader);
+                    return players;
+                }
+            }
+            catch (Exception e)
+            {
 
+                return null;
+            }
+        }
 
         public Sex GetSexSetting()
         {
@@ -111,6 +130,24 @@ namespace dllOOP.DAL
         public void SaveFavoritePlayers(List<Player> players)
         {
             using (StreamWriter xmlSW = new StreamWriter(PLAYER_PATH))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+                {
+                    serializer.Serialize(xmlSW, players);
+                }
+            }
+        }
+
+        public void SavePlayersImages(List<Player> players)
+        {
+            string path = $"{DIR}\\{players[0].Sex}_{players[0].Nation.FifaCode}.xml";
+            if (!File.Exists(path))
+            {
+                FileStream file = File.Create(path);
+                file.Close();
+
+            }
+            using (StreamWriter xmlSW = new StreamWriter(path))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
                 {

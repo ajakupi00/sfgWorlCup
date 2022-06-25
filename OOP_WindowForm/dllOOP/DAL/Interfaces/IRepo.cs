@@ -16,6 +16,7 @@ namespace dllOOP.DAL.Interfaces
         void SetSexSetting(Sex sex);
         void SetFavoriteTeam(NationalTeam team);
         void SaveFavoritePlayers(List<Player> players);
+        void SavePlayersImages(List<Player> playersWithImages);
 
         //GET
         string GetLanguage();
@@ -23,5 +24,6 @@ namespace dllOOP.DAL.Interfaces
         NationalTeam GetFavoriteTeam();
         List<Player> GetFavoritePlayers();
         Control GetPicture(string filepath);
+        List<Player> GetPlayersImages(Sex sex, NationalTeam nation);
     }
 }

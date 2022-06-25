@@ -23,6 +23,7 @@ namespace dllOOP.Models
         public Position Position { get; set; }
         public NationalTeam Nation{ get; set; }
         public Sex Sex{ get; set; }
+        public string PicturePath { get; set; }
 
         public override bool Equals(object obj)
         {

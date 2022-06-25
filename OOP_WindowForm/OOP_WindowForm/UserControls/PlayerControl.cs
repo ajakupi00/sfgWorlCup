@@ -19,6 +19,7 @@ namespace OOP_WindowForm.UserControls
         private dllOOOP.Models.Position position;
         private bool captain;
         private int shirtNumber;
+        private string picturePath = "";
 
         public bool Favorite
         {
@@ -82,6 +83,16 @@ namespace OOP_WindowForm.UserControls
             }
         }
 
+        public string PicturePath { 
+            get => picturePath;
+            set { 
+                if(value != "")
+                {
+                    picturePath = value;
+                    image.Image = Image.FromFile(PicturePath);
+                }
+            } }
+
         public PlayerControl()
         {
             InitializeComponent();;
@@ -114,7 +125,8 @@ namespace OOP_WindowForm.UserControls
                 Position = (dllOOP.Models.Position)control.position,
                 ShirtNumber = control.ShirtNumber,
                 Sex = sex,
-                Nation = nation
+                Nation = nation,
+                PicturePath = control.PicturePath
             };
         }
 

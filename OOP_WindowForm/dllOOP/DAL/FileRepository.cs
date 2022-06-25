@@ -3,10 +3,12 @@ using dllOOP.DAL.Interfaces;
 using dllOOP.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace dllOOP.DAL
@@ -16,8 +18,10 @@ namespace dllOOP.DAL
         private readonly string DIR = AppDomain.CurrentDomain.BaseDirectory;
         private string SETTINGS_FILE_NAME = @"\settings.txt";
         private string TEAM_FILE_NAME = @"\favorite.xml";
+        private string PLAYERS_FILE_NAME = @"\players.xml";
         private string SETTINGS_PATH;
         private string TEAM_PATH;
+        private string PLAYER_PATH;
         private string[] SETTINGS = new string[3];
 
         public FileRepository()
@@ -34,8 +38,31 @@ namespace dllOOP.DAL
             {
                 File.Create(DIR + TEAM_FILE_NAME);
             }
+            if (!File.Exists(DIR + PLAYERS_FILE_NAME))
+            {
+                File.Create(DIR + PLAYERS_FILE_NAME);
+            }
             SETTINGS_PATH = DIR + SETTINGS_FILE_NAME;
             TEAM_PATH = DIR + TEAM_FILE_NAME;
+            PLAYER_PATH = DIR + PLAYERS_FILE_NAME;
+        }
+
+        public List<Player> GetFavoritePlayers()
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(PLAYER_PATH))
+                {
+                    List<Player> team = (List<Player>)serializer.Deserialize(reader);
+                    return team;
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
         public NationalTeam GetFavoriteTeam()
@@ -62,15 +89,76 @@ namespace dllOOP.DAL
             return lines[0];
         }
 
+        public Control GetPicture(string filepath)
+        {
+            PictureBox pb = new PictureBox();
+
+            Image imgThumbnail = Image.FromFile(filepath);
+            pb.Image = imgThumbnail;
+            pb.Size = new Size(185,185);
+            pb.SizeMode = PictureBoxSizeMode.Zoom;
+            return pb;
+        }
+
+        public List<Player> GetPlayersImages(Sex sex, NationalTeam nation)
+        {
+            string path = $"{DIR}\\{sex}_{nation.FifaCode}.xml";
+            if (!File.Exists(path))
+                return null;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    List<Player> players = (List<Player>)serializer.Deserialize(reader);
+                    return players;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+        }
+
         public Sex GetSexSetting()
         {
             string[] lines = File.ReadAllLines(SETTINGS_PATH);
             return (lines[1] == "MEN") ? Sex.MEN : Sex.WOMEN;
         }
 
+        public void SaveFavoritePlayers(List<Player> players)
+        {
+            using (StreamWriter xmlSW = new StreamWriter(PLAYER_PATH))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+                {
+                    serializer.Serialize(xmlSW, players);
+                }
+            }
+        }
+
+        public void SavePlayersImages(List<Player> players)
+        {
+            string path = $"{DIR}\\{players[0].Sex}_{players[0].Nation.FifaCode}.xml";
+            if (!File.Exists(path))
+            {
+                FileStream file = File.Create(path);
+                file.Close();
+
+            }
+            using (StreamWriter xmlSW = new StreamWriter(path))
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+                {
+                    serializer.Serialize(xmlSW, players);
+                }
+            }
+        }
+
         public void SetFavoriteTeam(NationalTeam team)
         {
-           using(StreamWriter xmlSW = new StreamWriter(TEAM_PATH))
+            using (StreamWriter xmlSW = new StreamWriter(TEAM_PATH))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(NationalTeam));
                 serializer.Serialize(xmlSW, team);
@@ -94,7 +182,7 @@ namespace dllOOP.DAL
             File.WriteAllLines(SETTINGS_PATH, SETTINGS);
         }
 
-
+    
 
     }
 }

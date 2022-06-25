@@ -86,6 +86,12 @@
     <Compile Include="FavoriteNation.Designer.cs">
       <DependentUpon>FavoriteNation.cs</DependentUpon>
     </Compile>
+    <Compile Include="FavoritePlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FavoritePlayers.Designer.cs">
+      <DependentUpon>FavoritePlayers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,8 +110,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\PlayerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PlayerControl.Designer.cs">
+      <DependentUpon>PlayerControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FavoriteNation.resx">
       <DependentUpon>FavoriteNation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FavoritePlayers.resx">
+      <DependentUpon>FavoritePlayers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.hr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -127,6 +142,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\PlayerControl.resx">
+      <DependentUpon>PlayerControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,7 +166,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icon\star.png" />
     <Content Include="Icon\trophy.ico" />
+    <Content Include="Icon\football-player.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

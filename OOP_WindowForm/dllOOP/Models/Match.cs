@@ -55,6 +55,7 @@ namespace dllOOOP.Models
     }
 
 
+    [Serializable]
     public enum Position { Defender, Forward, Goalie, Midfield };
 
     public partial class Match

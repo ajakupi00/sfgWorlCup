@@ -17,6 +17,7 @@ namespace OOP_WindowForm
 {
     public partial class FavoritePlayers : Form
     {
+        private OpenFileDialog ofd = new OpenFileDialog();
         private IRepo repo = RepoFactory.GetRepo();
         private ISfg sfg;
         private Sex worldCupGender;
@@ -29,6 +30,14 @@ namespace OOP_WindowForm
             worldCupGender = sex;
             nationalTeam = repo.GetFavoriteTeam();
             InitializeComponent();
+            InitOpenFileDialog();
+        }
+        private void InitOpenFileDialog()
+        {
+            ofd.Filter = "Pictures|*.jpeg;*.jpg;*.png;|All files|*.*";
+            ofd.Multiselect = false;
+            ofd.Title = "Load picture...";
+            ofd.InitialDirectory = Application.StartupPath;
         }
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
@@ -92,6 +101,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
+                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlFavPlayers.Controls.Add(playerControl);
             });
             foreach (Player player in players)
@@ -108,9 +118,37 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
+                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlPlayers.Controls.Add(playerControl);
             }
 
+        }
+
+        private void FavoritePlayers_DoubleClick(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            LoadPicture(pb);
+        }
+
+        private void LoadPicture(PictureBox pb)
+        {
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                var maxPictures = 1;
+                if (ofd.FileNames.Length > maxPictures)
+                {
+                    MessageBox.Show($"A maximum of 1 image is allowed.\nOnly 1 pictures will be added.");
+                }
+                foreach (var file in ofd.FileNames)
+                {
+                    ShowPicture(file, pb);
+                }
+            }
+        }
+
+        private void ShowPicture(string file, PictureBox pb)
+        {
+            pb.Image = Image.FromFile(file);
         }
 
         private void Player_MouseDownClick(object sender, MouseEventArgs e)

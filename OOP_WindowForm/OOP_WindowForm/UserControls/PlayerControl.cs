@@ -117,5 +117,8 @@ namespace OOP_WindowForm.UserControls
                 Nation = nation
             };
         }
+
+
+        
     }
 }

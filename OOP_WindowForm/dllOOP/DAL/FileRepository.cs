@@ -3,10 +3,12 @@ using dllOOP.DAL.Interfaces;
 using dllOOP.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace dllOOP.DAL
@@ -87,6 +89,19 @@ namespace dllOOP.DAL
             return lines[0];
         }
 
+        public Control GetPicture(string filepath)
+        {
+            PictureBox pb = new PictureBox();
+
+            Image imgThumbnail = Image.FromFile(filepath);
+            pb.Image = imgThumbnail;
+            pb.Size = new Size(185,185);
+            pb.SizeMode = PictureBoxSizeMode.Zoom;
+            return pb;
+        }
+
+
+
         public Sex GetSexSetting()
         {
             string[] lines = File.ReadAllLines(SETTINGS_PATH);
@@ -98,7 +113,7 @@ namespace dllOOP.DAL
             using (StreamWriter xmlSW = new StreamWriter(PLAYER_PATH))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
-                { 
+                {
                     serializer.Serialize(xmlSW, players);
                 }
             }
@@ -106,7 +121,7 @@ namespace dllOOP.DAL
 
         public void SetFavoriteTeam(NationalTeam team)
         {
-           using(StreamWriter xmlSW = new StreamWriter(TEAM_PATH))
+            using (StreamWriter xmlSW = new StreamWriter(TEAM_PATH))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(NationalTeam));
                 serializer.Serialize(xmlSW, team);
@@ -130,7 +145,7 @@ namespace dllOOP.DAL
             File.WriteAllLines(SETTINGS_PATH, SETTINGS);
         }
 
-
+    
 
     }
 }

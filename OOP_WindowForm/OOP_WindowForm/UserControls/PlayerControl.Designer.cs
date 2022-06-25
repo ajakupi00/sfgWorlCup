@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerControl));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.image = new System.Windows.Forms.PictureBox();
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.lblplayerPosition = new System.Windows.Forms.Label();
             this.lblPlayerCaptain = new System.Windows.Forms.Label();
@@ -39,21 +39,22 @@
             this.playerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.favoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFromFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).BeginInit();
             this.playerMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // image
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(79, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 185);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.image.Image = ((System.Drawing.Image)(resources.GetObject("image.Image")));
+            this.image.InitialImage = ((System.Drawing.Image)(resources.GetObject("image.InitialImage")));
+            this.image.Location = new System.Drawing.Point(79, 45);
+            this.image.Name = "image";
+            this.image.Size = new System.Drawing.Size(184, 185);
+            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.image.TabIndex = 0;
+            this.image.TabStop = false;
+            this.image.Tag = "image";
             // 
             // lblPlayerName
             // 
@@ -116,7 +117,7 @@
             this.favoriteToolStripMenuItem,
             this.removeFromFavoriteToolStripMenuItem});
             this.playerMenu.Name = "playerMenu";
-            this.playerMenu.Size = new System.Drawing.Size(224, 80);
+            this.playerMenu.Size = new System.Drawing.Size(224, 52);
             // 
             // favoriteToolStripMenuItem
             // 
@@ -143,11 +144,11 @@
             this.Controls.Add(this.lblPlayerCaptain);
             this.Controls.Add(this.lblplayerPosition);
             this.Controls.Add(this.lblPlayerName);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.image);
             this.Name = "PlayerControl";
             this.Size = new System.Drawing.Size(342, 362);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerControl_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).EndInit();
             this.playerMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -157,7 +158,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox image;
         private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.Label lblplayerPosition;
         private System.Windows.Forms.Label lblPlayerCaptain;

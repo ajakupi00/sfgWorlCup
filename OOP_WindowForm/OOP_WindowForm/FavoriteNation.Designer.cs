@@ -33,6 +33,7 @@
             this.cbNations = new System.Windows.Forms.ComboBox();
             this.lblLoading = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -74,11 +75,25 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnContinue.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnContinue.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnContinue.Location = new System.Drawing.Point(80, 264);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(354, 33);
+            this.btnContinue.TabIndex = 7;
+            this.btnContinue.Text = "Nastavi";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
             // FavoriteNation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 450);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblLoading);
             this.Controls.Add(this.cbNations);
@@ -98,5 +113,6 @@
         private System.Windows.Forms.ComboBox cbNations;
         private System.Windows.Forms.Label lblLoading;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnContinue;
     }
 }

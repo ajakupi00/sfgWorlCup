@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.Models;
+﻿using dllOOP.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +15,7 @@ namespace OOP_WindowForm.UserControls
     {
         private bool favorite;
         private string playerName;
-        private dllOOOP.Models.Position position;
+        private dllOOP.Models.Position position;
         private bool captain;
         private int shirtNumber;
         private string picturePath = "";
@@ -54,7 +53,7 @@ namespace OOP_WindowForm.UserControls
                 lblPlayerName.Text = value;
             }
         }
-        public dllOOOP.Models.Position Position
+        public dllOOP.Models.Position Position
         {
             get => position;
             set

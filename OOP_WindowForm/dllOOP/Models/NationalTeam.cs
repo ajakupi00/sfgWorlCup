@@ -6,7 +6,7 @@
 //
 //    var nationalTeam = NationalTeam.FromJson(jsonString);
 
-namespace dllOOOP.Models
+namespace dllOOP.Models
 {
     using System;
     using System.Collections.Generic;

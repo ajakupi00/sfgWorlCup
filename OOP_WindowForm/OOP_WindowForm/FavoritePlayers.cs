@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.DAL;
+﻿using dllOOP.DAL;
 using dllOOP.DAL.Interfaces;
 using dllOOP.Models;
 using OOP_WindowForm.UserControls;
@@ -76,7 +75,7 @@ namespace OOP_WindowForm
                 PlayerControl playerControl = new PlayerControl()
                 {
                     PlayerName = player.Name,
-                    Position = (dllOOOP.Models.Position)player.Position,
+                    Position = player.Position,
                     Captain = player.Captain,
                     Favorite = false,
                     ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
@@ -101,7 +100,7 @@ namespace OOP_WindowForm
                 PlayerControl playerControl = new PlayerControl()
                 {
                     PlayerName = f.Name,
-                    Position = (dllOOOP.Models.Position)f.Position,
+                    Position = (dllOOP.Models.Position)f.Position,
                     Captain = f.Captain,
                     Favorite = true,
                     ShirtNumber = int.Parse(f.ShirtNumber.ToString()),
@@ -120,7 +119,7 @@ namespace OOP_WindowForm
                 PlayerControl playerControl = new PlayerControl()
                 {
                     PlayerName = player.Name,
-                    Position = (dllOOOP.Models.Position)player.Position,
+                    Position = (dllOOP.Models.Position)player.Position,
                     Captain = player.Captain,
                     Favorite = false,
                     ShirtNumber = int.Parse(player.ShirtNumber.ToString()),
@@ -274,7 +273,8 @@ namespace OOP_WindowForm
                  existingImages.ForEach(i => playersWithImages.Add(i));
             repo.SavePlayersImages(playersWithImages);
             repo.SaveFavoritePlayers(players);
-            Application.Exit();
+            this.Close();
+            new RankListForm().Show();
         }
     }
 }

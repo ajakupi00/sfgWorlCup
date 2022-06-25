@@ -1,6 +1,6 @@
-﻿using dllOOOP.Models;
-using dllOOP.DAL;
+﻿using dllOOP.DAL;
 using dllOOP.DAL.Interfaces;
+using dllOOP.Models;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -18,6 +18,7 @@ namespace OOP_WindowForm
     {
         private IRepo repo = RepoFactory.GetRepo();
         private ISfg sfg;
+        public bool Called = false;
         public FavoriteNation()
         {
             sfg = SfgFactory.GetSfg(repo.GetSexSetting());
@@ -45,10 +46,13 @@ namespace OOP_WindowForm
         {
             NationalTeam team = (NationalTeam)cbNations.SelectedItem;
             repo.SetFavoriteTeam(team);
+
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
             new FavoritePlayers().Show();
             this.Hide();
         }
-
-     
     }
 }

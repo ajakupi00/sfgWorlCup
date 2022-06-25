@@ -1,4 +1,4 @@
-﻿using dllOOOP.Models;
+﻿using dllOOP.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,7 +24,8 @@ namespace dllOOP.Models
         public NationalTeam Nation{ get; set; }
         public Sex Sex{ get; set; }
         public string PicturePath { get; set; }
-
+        public int Goals { get; set; } = 0;
+        public int YCards { get; set; } = 0;
         public override bool Equals(object obj)
         {
             return obj is Player player &&

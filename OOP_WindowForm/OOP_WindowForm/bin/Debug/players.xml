@@ -1,72 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Player>
-    <Name>Sime VRSALJKO</Name>
+    <Name>Valentina BERGAMASCHI</Name>
     <Captain>false</Captain>
     <ShirtNumber>2</ShirtNumber>
-    <Position>Defender</Position>
-    <Nation>
-      <Id>15</Id>
-      <Country>Croatia</Country>
-      <FifaCode>CRO</FifaCode>
-      <GroupId>4</GroupId>
-      <GroupLetter>D</GroupLetter>
-      <Wins>4</Wins>
-      <Draws>2</Draws>
-      <Losses>1</Losses>
-      <GamesPlayed>7</GamesPlayed>
-      <Points>14</Points>
-      <GoalsFor>14</GoalsFor>
-      <GoalsAgainst>9</GoalsAgainst>
-      <GoalDifferential>5</GoalDifferential>
-    </Nation>
-    <Sex>MEN</Sex>
-    <PicturePath>C:\Users\arjan\Downloads\6175b54dbf058.jpg</PicturePath>
-  </Player>
-  <Player>
-    <Name>Ivan STRINIC</Name>
-    <Captain>false</Captain>
-    <ShirtNumber>3</ShirtNumber>
-    <Position>Defender</Position>
-    <Nation>
-      <Id>15</Id>
-      <Country>Croatia</Country>
-      <FifaCode>CRO</FifaCode>
-      <GroupId>4</GroupId>
-      <GroupLetter>D</GroupLetter>
-      <Wins>4</Wins>
-      <Draws>2</Draws>
-      <Losses>1</Losses>
-      <GamesPlayed>7</GamesPlayed>
-      <Points>14</Points>
-      <GoalsFor>14</GoalsFor>
-      <GoalsAgainst>9</GoalsAgainst>
-      <GoalDifferential>5</GoalDifferential>
-    </Nation>
-    <Sex>MEN</Sex>
-    <PicturePath />
-  </Player>
-  <Player>
-    <Name>Ivan RAKITIC</Name>
-    <Captain>false</Captain>
-    <ShirtNumber>7</ShirtNumber>
     <Position>Midfield</Position>
     <Nation>
-      <Id>15</Id>
-      <Country>Croatia</Country>
-      <FifaCode>CRO</FifaCode>
-      <GroupId>4</GroupId>
-      <GroupLetter>D</GroupLetter>
-      <Wins>4</Wins>
-      <Draws>2</Draws>
-      <Losses>1</Losses>
-      <GamesPlayed>7</GamesPlayed>
-      <Points>14</Points>
-      <GoalsFor>14</GoalsFor>
-      <GoalsAgainst>9</GoalsAgainst>
+      <Id>10</Id>
+      <Country>Italy</Country>
+      <FifaCode>ITA</FifaCode>
+      <GroupId>3</GroupId>
+      <GroupLetter>C</GroupLetter>
+      <Wins>3</Wins>
+      <Draws>0</Draws>
+      <Losses>2</Losses>
+      <GamesPlayed>5</GamesPlayed>
+      <Points>9</Points>
+      <GoalsFor>9</GoalsFor>
+      <GoalsAgainst>4</GoalsAgainst>
       <GoalDifferential>5</GoalDifferential>
     </Nation>
-    <Sex>MEN</Sex>
+    <Sex>WOMEN</Sex>
     <PicturePath />
+    <Goals>0</Goals>
+    <YCards>0</YCards>
   </Player>
 </ArrayOfPlayer>

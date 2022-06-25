@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.Models;
+﻿using dllOOP.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -18,7 +17,10 @@ namespace dllOOP.DAL
 
         public static List<T> DeserializeObject<T>(RestResponse<T> odgovorPodaci)
         {
-            return (List<T>)JsonConvert.DeserializeObject(odgovorPodaci.Content, typeof(List<T>));
+            return (List<T>)JsonConvert.DeserializeObject(odgovorPodaci.Content, typeof(List<T>), new JsonSerializerSettings
+            {
+                NullValueHandling = NullValueHandling.Ignore
+            });
         }
 
         public Task<RestResponse<Match>> GetMatches(NationalTeam team)

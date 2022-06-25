@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.Models;
+﻿using dllOOP.Models;
 using Newtonsoft.Json;
 using RestSharp;
 using System;

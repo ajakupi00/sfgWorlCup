@@ -42,3 +42,6 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\O
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.pdb
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.FavoritePlayers.resources
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.UserControls.PlayerControl.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.RankListForm.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.UserControls.MatchStatControl.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WindowForm\obj\Debug\OOP_WindowForm.UserControls.PlayerStatControl.resources

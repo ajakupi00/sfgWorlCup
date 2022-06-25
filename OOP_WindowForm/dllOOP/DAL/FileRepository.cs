@@ -1,5 +1,4 @@
-﻿using dllOOOP.Models;
-using dllOOP.DAL.Interfaces;
+﻿using dllOOP.DAL.Interfaces;
 using dllOOP.Models;
 using System;
 using System.Collections.Generic;
@@ -140,6 +139,8 @@ namespace dllOOP.DAL
 
         public void SavePlayersImages(List<Player> players)
         {
+            if (players == null || players.Count == 0)
+                return;
             string path = $"{DIR}\\{players[0].Sex}_{players[0].Nation.FifaCode}.xml";
             if (!File.Exists(path))
             {

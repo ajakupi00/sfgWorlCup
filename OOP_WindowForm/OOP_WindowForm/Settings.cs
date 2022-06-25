@@ -88,7 +88,11 @@ namespace OOP_WindowForm
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string lang = currentCulture.Name.Substring(0, 2);
             repo.SetLanguage(lang);
-            repo.SetSexSetting((Sex)cbGender.SelectedItem);
+            repo.SetSexSetting((Sex)cbGender.SelectedItem);  
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
             new FavoriteNation().Show();
             this.Hide();
         }

@@ -34,6 +34,7 @@
             this.lblGender = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnLanguage = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblLanguage
@@ -69,7 +70,7 @@
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnSave.Location = new System.Drawing.Point(63, 413);
+            this.btnSave.Location = new System.Drawing.Point(63, 371);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(354, 55);
             this.btnSave.TabIndex = 4;
@@ -89,11 +90,25 @@
             this.btnLanguage.UseVisualStyleBackColor = true;
             this.btnLanguage.Click += new System.EventHandler(this.btnLanguage_Click);
             // 
+            // btnContinue
+            // 
+            this.btnContinue.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnContinue.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnContinue.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnContinue.Location = new System.Drawing.Point(63, 432);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(354, 33);
+            this.btnContinue.TabIndex = 6;
+            this.btnContinue.Text = "Nastavi";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 528);
+            this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.btnLanguage);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.cbGender);
@@ -114,6 +129,7 @@
         private System.Windows.Forms.Label lblGender;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnLanguage;
+        private System.Windows.Forms.Button btnContinue;
     }
 }
 

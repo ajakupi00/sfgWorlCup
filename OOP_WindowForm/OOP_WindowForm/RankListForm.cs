@@ -27,21 +27,40 @@ namespace OOP_WindowForm
         private List<Match> matches;
         private List<Player> players;
 
+        private Settings settingsForm;
+        private FavoriteNation nationForm;
+
         private int itemsOnPage = 0;
         private int left;
         public RankListForm()
         {
-            sex = repo.GetSexSetting();
-            sfg = SfgFactory.GetSfg(sex);
-            nation = repo.GetFavoriteTeam();
+            InitSettings();
             InitializeComponent();
         }
 
+        private void InitSettings()
+        {
+            sex = repo.GetSexSetting();
+            sfg = SfgFactory.GetSfg(sex);
+
+            nation = repo.GetFavoriteTeam();
+        }
+
+
         private async void RankListForm_Load(object sender, EventArgs e)
         {
-            await LoadMatches(nation);
-            LoadPlayers(nation);
+            try
+            {
+                await LoadMatches(nation);
+                LoadPlayers(nation);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("That country was not quilified!\nPlease choose another team!");
+            }
         }
+
 
         private async void LoadPlayers(NationalTeam nation)
         {
@@ -164,7 +183,7 @@ namespace OOP_WindowForm
         private void Print()
         {
             printPreviewDialog.ShowDialog();
-            
+
         }
 
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -269,11 +288,36 @@ namespace OOP_WindowForm
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            if(printPreviewDialog.ShowDialog() == DialogResult.OK)
+            if (printPreviewDialog.ShowDialog() == DialogResult.OK)
             {
                 Print();
                 printDocument.Print();
             }
+        }
+
+        private void changeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            settingsForm = new Settings();
+            settingsForm.Controls["btnContinue"].Visible = false;
+            settingsForm.Show();
+            settingsForm.FormClosing += SettingsForm_FormClosing;
+
+        }
+
+        private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            InitSettings();
+            this.Controls.Clear();
+            InitializeComponent();
+            RankListForm_Load(this, new EventArgs());
+        }
+
+        private void changeTeamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nationForm = new FavoriteNation();
+            nationForm.Controls["btnContinue"].Visible = false;
+            nationForm.Show();
+            nationForm.FormClosing += SettingsForm_FormClosing;
         }
     }
 }

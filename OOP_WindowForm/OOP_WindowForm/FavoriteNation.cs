@@ -46,12 +46,13 @@ namespace OOP_WindowForm
         {
             NationalTeam team = (NationalTeam)cbNations.SelectedItem;
             repo.SetFavoriteTeam(team);
-            if (!Called)
-                new FavoritePlayers().Show();
-          
-            this.Hide();
+
         }
 
-     
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
+            new FavoritePlayers().Show();
+            this.Hide();
+        }
     }
 }

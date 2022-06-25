@@ -212,7 +212,14 @@
         [EnumMember(Value = "substitution-out")]
         SubstitutionOut, 
         [EnumMember(Value = "yellow-card")]
-        YellowCard };
+        YellowCard,
+        [EnumMember(Value = "goal-own")]
+        GoalOwn,
+        [EnumMember(Value = "yellow-card-second")]
+        YellowCardSecond,
+        [EnumMember(Value = "red-card")]
+        RedCard
+    };
 
 
     internal static class Converter

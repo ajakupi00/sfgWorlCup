@@ -1,0 +1,16 @@
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\OOP_WPF.exe.config
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\OOP_WPF.exe
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\OOP_WPF.pdb
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.csproj.AssemblyReference.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.csproj.SuggestedBindingRedirects.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\MainWindow.g.cs
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\App.g.cs
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF_MarkupCompile.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF_MarkupCompile.lref
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\MainWindow.baml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.g.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.Properties.Resources.resources
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.csproj.GenerateResource.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.csproj.CoreCompileInputs.cache
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.exe
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.pdb

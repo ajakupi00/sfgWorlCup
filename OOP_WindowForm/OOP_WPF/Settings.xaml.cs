@@ -79,7 +79,8 @@ namespace OOP_WPF
 
         private void btnContinue_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            new TeamOverview().Show();
         }
 
         private void btnLanguage_Click(object sender, RoutedEventArgs e)

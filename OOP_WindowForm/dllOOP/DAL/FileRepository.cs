@@ -14,7 +14,7 @@ namespace dllOOP.DAL
 {
     public class FileRepository : IRepo
     {
-        private readonly string DIR = AppDomain.CurrentDomain.BaseDirectory;
+        private readonly string DIR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         private string SETTINGS_FILE_NAME = @"\settings.txt";
         private string TEAM_FILE_NAME = @"\favorite.xml";
         private string PLAYERS_FILE_NAME = @"\players.xml";
@@ -25,6 +25,7 @@ namespace dllOOP.DAL
 
         public FileRepository()
         {
+
             if (!Directory.Exists(DIR))
             {
                 Directory.CreateDirectory(DIR);
@@ -48,6 +49,8 @@ namespace dllOOP.DAL
 
         public List<Player> GetFavoritePlayers()
         {
+            if (!File.Exists(PLAYER_PATH))
+                return null;
             XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
             try
             {
@@ -59,8 +62,7 @@ namespace dllOOP.DAL
             }
             catch (Exception e)
             {
-
-                throw e;
+                return null;
             }
         }
 

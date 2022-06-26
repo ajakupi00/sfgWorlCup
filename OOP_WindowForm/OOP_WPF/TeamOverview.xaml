@@ -5,32 +5,83 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_WPF"
         mc:Ignorable="d"
-        Title="TeamOverview" Height="400" Width="600">
+        Title="TeamOverview" Height="400" Width="600"
+        Icon="/Icon/trophy.ico">
+    <Window.Resources>
+            <Style TargetType="ComboBox">
+                <Style.Triggers>
+                    <Trigger Property="IsDropDownOpen" Value="True">
+                        <Setter Property="IsEditable" Value="True"></Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.25*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid>
+        <Grid Grid.Column="0" Height="60">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="0.45*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="1.25*" />
-                <RowDefinition Height="0.75*"/>
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
 
             <Label x:Name="lblFavNation" Grid.Row="0" Content="Favorite nation:" VerticalContentAlignment="Bottom" Margin="15 0"/>
-            <ComboBox x:Name="cbFavNation" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15 0"/>
+            <ComboBox x:Name="cbFavNation" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15 0" SelectionChanged="cbFavNation_SelectionChanged">
+                
+            </ComboBox>
             <Button x:Name="btnFavStat" Content="Show stat" Grid.Column="1" Grid.Row="1"
                     VerticalAlignment="Center" HorizontalAlignment="Center"
                     Padding="15 2" />
 
+        </Grid>
+        <Grid Grid.Column="1" Height="60">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.45*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblNation" Grid.Row="0" Content="Oponent nation:" VerticalContentAlignment="Bottom" Margin="15 0"/>
+            <ComboBox x:Name="cbNation" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="15 0" SelectionChanged="cbNation_SelectionChanged"/>
+            <Button x:Name="btnStat" Content="Show stat" Grid.Column="1" Grid.Row="1"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    Padding="15 2" Click="btnStat_Click" />
+
+        </Grid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.45*"/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Score" x:Name="lblScore" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="3" FontSize="35"/>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Right"  VerticalAlignment="Center">
+                <Label Grid.Row="1" Content="CRO" x:Name="lblFavTeam" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="35"/>
+                <Label Grid.Row="2" Content="2" x:Name="lblGoalFav" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="25"/>
+            </StackPanel>
+            <Label Content=":" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="35" x:Name="lblDots"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center">
+                <Label Grid.Row="1" Content="CRO" x:Name="lblTeam" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="35"/>
+                <Label Grid.Row="2" Content="2" x:Name="lblGoalTeam" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="25"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

@@ -40,3 +40,5 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\OOP_WPF.pdb
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\TeamOverview.g.cs
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\TeamOverview.baml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

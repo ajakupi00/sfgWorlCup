@@ -44,3 +44,7 @@ C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\System.R
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\TeamStat.g.cs
 C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\TeamStat.baml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\PlayersFormation.g.cs
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\PlayersFormation.baml
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\UserControls\PlayerControl.g.cs
+C:\Users\arjan\source\repos\sfgWorlCup\OOP_WindowForm\OOP_WPF\obj\Debug\UserControls\PlayerControl.baml

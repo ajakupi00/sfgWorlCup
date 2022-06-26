@@ -25,7 +25,7 @@ namespace OOP_WPF
     {
         private IRepo repo = RepoFactory.GetRepo();
         private List<Match> matchesOfTeam = new List<Match>();
-
+        private Match match;
         private ISfg sfg;
         private NationalTeam favTeam;
         private NationalTeam opponentTeam;
@@ -49,6 +49,7 @@ namespace OOP_WPF
 
             RestResponse<Match> response = await sfg.GetMatches(favTeam);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
+            
             matchesOfTeam = matches;
             cbFavNation.Items.Clear();
             foreach (NationalTeam team in teams)
@@ -139,7 +140,7 @@ namespace OOP_WPF
         {
             RestResponse<Match> response = await sfg.GetMatches(favTeam);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
-            Match match = matches.FirstOrDefault(m => (m.HomeTeamCountry == favTeam.Country && m.AwayTeamCountry == opponentTeam.Country) || (m.AwayTeamCountry == favTeam.Country && m.HomeTeamCountry == opponentTeam.Country));
+            match = matches.FirstOrDefault(m => (m.HomeTeamCountry == favTeam.Country && m.AwayTeamCountry == opponentTeam.Country) || (m.AwayTeamCountry == favTeam.Country && m.HomeTeamCountry == opponentTeam.Country));
             lblScore.Content = "Score";
             lblFavTeam.Content = favTeam.FifaCode;
             lblGoalFav.Content = (match.HomeTeam.Country == favTeam.Country) ? match.HomeTeam.Goals : match.AwayTeam.Goals;
@@ -153,6 +154,12 @@ namespace OOP_WPF
             TeamStat stat = new TeamStat();
             stat.Team = favTeam;
             stat.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            new PlayersFormation(match).Show();
         }
     }
 }

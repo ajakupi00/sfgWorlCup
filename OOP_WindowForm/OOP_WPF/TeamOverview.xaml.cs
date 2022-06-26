@@ -105,7 +105,11 @@ namespace OOP_WPF
 
         private void btnStat_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (opponentTeam == null)
+                return;
+            TeamStat stat = new TeamStat();
+            stat.Team = opponentTeam;
+            stat.Show();
         }
 
         private void cbFavNation_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -142,6 +146,13 @@ namespace OOP_WPF
             lblTeam.Content = opponentTeam.FifaCode;
             lblGoalTeam.Content = (match.HomeTeam.Country == opponentTeam.Country) ? match.HomeTeam.Goals : match.AwayTeam.Goals;
             lblDots.Content = ":";
+        }
+
+        private void btnFavStat_Click(object sender, RoutedEventArgs e)
+        {
+            TeamStat stat = new TeamStat();
+            stat.Team = favTeam;
+            stat.Show();
         }
     }
 }

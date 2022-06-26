@@ -98,6 +98,9 @@
     <Compile Include="TeamOverview.xaml.cs">
       <DependentUpon>TeamOverview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeamStat.xaml.cs">
+      <DependentUpon>TeamStat.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TeamOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeamStat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

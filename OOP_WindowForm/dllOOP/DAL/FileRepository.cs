@@ -85,6 +85,7 @@ namespace dllOOP.DAL
         public string GetLanguage()
         {
             string[] lines = File.ReadAllLines(SETTINGS_PATH);
+            if (lines.Count() == 0) return null;
             return lines[0];
         }
 
@@ -120,9 +121,17 @@ namespace dllOOP.DAL
             }
         }
 
+        public string GetResolution()
+        {
+            string[] lines = File.ReadAllLines(SETTINGS_PATH);
+            if (lines.Count() == 0) return null;
+            return lines[2];
+        }
+
         public Sex GetSexSetting()
         {
             string[] lines = File.ReadAllLines(SETTINGS_PATH);
+            if(lines.Count() == 0) return Sex.MEN;
             return (lines[1] == "MEN") ? Sex.MEN : Sex.WOMEN;
         }
 
@@ -175,6 +184,14 @@ namespace dllOOP.DAL
             File.WriteAllLines(SETTINGS_PATH, SETTINGS);
         }
 
+        public void SetResolution(string screensize)
+        {
+            SETTINGS[2] = screensize;
+            string[] lines = File.ReadAllLines(SETTINGS_PATH);
+            //if (lines.Count() > 1) SETTINGS[2] = lines[2];
+            File.WriteAllLines(SETTINGS_PATH, SETTINGS);
+        }
+
         public void SetSexSetting(Sex sex)
         {
             SETTINGS[1] = sex.ToString();
@@ -183,7 +200,10 @@ namespace dllOOP.DAL
             File.WriteAllLines(SETTINGS_PATH, SETTINGS);
         }
 
-    
-
+        public bool SettingsFileExist()
+        {
+            string[] lines = File.ReadAllLines(SETTINGS_PATH);
+            return lines.Length > 0;
+        }
     }
 }

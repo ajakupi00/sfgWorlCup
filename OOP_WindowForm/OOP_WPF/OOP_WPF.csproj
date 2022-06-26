@@ -170,7 +170,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Icon\footbal-field.jpg" />
+    <Resource Include="Icon\footbal-field.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_WPF"
         mc:Ignorable="d"
-        Title="PlayersFormation" Height="700" Width="1000">
+        Title="Match" Height="700" Width="1000"
+        Icon="/Icon/trophy.ico">
     <Grid x:Name="field">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="leftHalf">
+        <Grid x:Name="leftHalf" VerticalAlignment="Center">
             
         </Grid>
-        <Grid x:Name="rightHalf" Grid.Column="1" FlowDirection="RightToLeft">
+        <Grid x:Name="rightHalf" Grid.Column="1" VerticalAlignment="Center" FlowDirection="RightToLeft">
         </Grid>
         <Grid.Background>
-            <ImageBrush Stretch="Fill" ImageSource="/Icon/footbal-field.jpg"
+            <ImageBrush Stretch="Fill" ImageSource="/Icon/footbal-field.png"
                         AlignmentX="Center" AlignmentY="Center"/>
         </Grid.Background>
     </Grid>

@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OOP_WPF.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="225" d:DesignWidth="165"
-             Margin="15">
+             d:DesignHeight="205" d:DesignWidth="165">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
@@ -19,10 +18,10 @@
             <RowDefinition Height="1.25*"/>
             <RowDefinition Height="0.75*"/>
         </Grid.RowDefinitions>
-        <Image Source="/Icon/football-player.png" HorizontalAlignment="Center" x:Name="image" />
+        <Image Source="/Icon/football-player.png" HorizontalAlignment="Center" x:Name="image" Height="115" />
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Neymar Dos Santos Jr."  HorizontalAlignment="Center"  x:Name="lblName"  />
-            <TextBlock Text="00" HorizontalAlignment="Center"  x:Name="lblNumber"  />
+            <TextBlock Text="Neymar Dos Santos Jr."  HorizontalAlignment="Center"  x:Name="lblName" />
+            <TextBlock Text="00" HorizontalAlignment="Center"  x:Name="lblNumber" FontWeight="Bold" FontSize="20"  />
         </StackPanel>
     </Grid>
 

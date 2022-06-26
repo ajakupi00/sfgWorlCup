@@ -158,7 +158,6 @@ namespace OOP_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
             new PlayersFormation(match).Show();
         }
     }

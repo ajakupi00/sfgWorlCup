@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationalTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>24</Id>
-  <Country>Korea Republic</Country>
-  <FifaCode>KOR</FifaCode>
-  <GroupId>6</GroupId>
-  <GroupLetter>F</GroupLetter>
-  <Wins>1</Wins>
+  <Id>25</Id>
+  <Country>Belgium</Country>
+  <FifaCode>BEL</FifaCode>
+  <GroupId>7</GroupId>
+  <GroupLetter>G</GroupLetter>
+  <Wins>6</Wins>
   <Draws>0</Draws>
-  <Losses>2</Losses>
-  <GamesPlayed>3</GamesPlayed>
-  <Points>3</Points>
-  <GoalsFor>3</GoalsFor>
-  <GoalsAgainst>3</GoalsAgainst>
-  <GoalDifferential>0</GoalDifferential>
+  <Losses>1</Losses>
+  <GamesPlayed>7</GamesPlayed>
+  <Points>18</Points>
+  <GoalsFor>16</GoalsFor>
+  <GoalsAgainst>6</GoalsAgainst>
+  <GoalDifferential>10</GoalDifferential>
 </NationalTeam>

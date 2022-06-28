@@ -32,15 +32,15 @@ namespace dllOOP.DAL
             }
             if (!File.Exists(DIR + SETTINGS_FILE_NAME))
             {
-                File.Create(DIR + SETTINGS_FILE_NAME);
+                File.Create(DIR + SETTINGS_FILE_NAME).Close();
             }
             if (!File.Exists(DIR + TEAM_FILE_NAME))
             {
-                File.Create(DIR + TEAM_FILE_NAME);
+                File.Create(DIR + TEAM_FILE_NAME).Close();
             }
             if (!File.Exists(DIR + PLAYERS_FILE_NAME))
             {
-                File.Create(DIR + PLAYERS_FILE_NAME);
+                File.Create(DIR + PLAYERS_FILE_NAME).Close();
             }
             SETTINGS_PATH = DIR + SETTINGS_FILE_NAME;
             TEAM_PATH = DIR + TEAM_FILE_NAME;
@@ -100,6 +100,28 @@ namespace dllOOP.DAL
             pb.Size = new Size(185,185);
             pb.SizeMode = PictureBoxSizeMode.Zoom;
             return pb;
+        }
+
+        public string GetPlayerImage(Sex sex, NationalTeam nation, Player player)
+        {
+            string path = $"{DIR}\\{sex}_{nation.FifaCode}.xml";
+            if (!File.Exists(path))
+                return "";
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    List<Player> players = (List<Player>)serializer.Deserialize(reader);
+                    return players.Contains(player) ? players.FirstOrDefault(p => p.Name == player.Name).PicturePath : "";
+                }
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+
         }
 
         public List<Player> GetPlayersImages(Sex sex, NationalTeam nation)

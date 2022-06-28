@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerControl));
-            this.image = new System.Windows.Forms.PictureBox();
+            this.pbImage = new System.Windows.Forms.PictureBox();
             this.lblPlayerName = new System.Windows.Forms.Label();
             this.lblplayerPosition = new System.Windows.Forms.Label();
             this.lblPlayerCaptain = new System.Windows.Forms.Label();
@@ -39,22 +39,22 @@
             this.playerMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.favoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeFromFavoriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).BeginInit();
             this.playerMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // image
+            // pbImage
             // 
-            this.image.Image = ((System.Drawing.Image)(resources.GetObject("image.Image")));
-            this.image.InitialImage = ((System.Drawing.Image)(resources.GetObject("image.InitialImage")));
-            this.image.Location = new System.Drawing.Point(79, 45);
-            this.image.Name = "image";
-            this.image.Size = new System.Drawing.Size(184, 185);
-            this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.image.TabIndex = 0;
-            this.image.TabStop = false;
-            this.image.Tag = "image";
+            this.pbImage.Image = ((System.Drawing.Image)(resources.GetObject("pbImage.Image")));
+            this.pbImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbImage.InitialImage")));
+            this.pbImage.Location = new System.Drawing.Point(79, 45);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.Size = new System.Drawing.Size(184, 185);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
+            this.pbImage.Tag = "image";
             // 
             // lblPlayerName
             // 
@@ -144,11 +144,11 @@
             this.Controls.Add(this.lblPlayerCaptain);
             this.Controls.Add(this.lblplayerPosition);
             this.Controls.Add(this.lblPlayerName);
-            this.Controls.Add(this.image);
+            this.Controls.Add(this.pbImage);
             this.Name = "PlayerControl";
             this.Size = new System.Drawing.Size(342, 362);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PlayerControl_MouseDown);
-            ((System.ComponentModel.ISupportInitialize)(this.image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pngStar)).EndInit();
             this.playerMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -158,7 +158,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox image;
+        private System.Windows.Forms.PictureBox pbImage;
         private System.Windows.Forms.Label lblPlayerName;
         private System.Windows.Forms.Label lblplayerPosition;
         private System.Windows.Forms.Label lblPlayerCaptain;

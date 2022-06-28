@@ -26,6 +26,7 @@ namespace dllOOP.DAL.Interfaces
         Control GetPicture(string filepath);
         List<Player> GetPlayersImages(Sex sex, NationalTeam nation);
         string GetResolution();
+        string GetPlayerImage(Sex sex, NationalTeam nation, Player player);
 
         //CHECK
         bool SettingsFileExist();

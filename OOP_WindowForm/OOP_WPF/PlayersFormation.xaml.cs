@@ -1,4 +1,6 @@
-﻿using dllOOP.Models;
+﻿using dllOOP.DAL;
+using dllOOP.DAL.Interfaces;
+using dllOOP.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -11,7 +13,11 @@ namespace OOP_WPF
     /// </summary>
     public partial class PlayersFormation : Window
     {
+        private IRepo repo = RepoFactory.GetRepo();
         public Match Match { get; set; }
+        public Sex Sex { get; set; }
+        public NationalTeam HomeCountry { get; set; }
+        public NationalTeam AwayCountry { get; set; }
 
         public PlayersFormation(Match match)
         {
@@ -26,7 +32,7 @@ namespace OOP_WPF
             List<Player> starters = Match.AwayTeamStatistics.StartingEleven;
             string tactics = Match.AwayTeamStatistics.Tactics;
             awayFormation.Content = tactics;
-            DivideField(rightHalf, tactics, starters);
+            DivideField(rightHalf, tactics, starters, false);
         }
 
         private void HomeTeam()
@@ -34,10 +40,10 @@ namespace OOP_WPF
             List<Player> starters = Match.HomeTeamStatistics.StartingEleven;
             string tactics = Match.HomeTeamStatistics.Tactics;
             homeFormation.Content = tactics;
-            DivideField(leftHalf, tactics, starters);
+            DivideField(leftHalf, tactics, starters, true);
         }
 
-        private void DivideField(Grid half, string tactics, List<Player> starters)
+        private void DivideField(Grid half, string tactics, List<Player> starters, bool home)
         {
             string[] tactic = tactics.Split('-');
             int formation = tactic.Length;
@@ -60,10 +66,10 @@ namespace OOP_WPF
                 half.RowDefinitions.Add(new RowDefinition());
             }
 
-            AddPlayerControls(half, starters, maxPlayerPerColumn, tactic);
+            AddPlayerControls(half, starters, maxPlayerPerColumn, tactic, home);
         }
 
-        private void AddPlayerControls(Grid half, List<Player> starters, int maxplayerspercolumn, string[] tactic)
+        private void AddPlayerControls(Grid half, List<Player> starters, int maxplayerspercolumn, string[] tactic, bool home)
         {
             List<Player> defenders = starters.FindAll(p => p.Position == Position.Defender);
             List<Player> midfielders = starters.FindAll(p => p.Position == Position.Midfield);
@@ -299,7 +305,6 @@ namespace OOP_WPF
                     int existing = membersOfAttack;
                     if(membersOfAttack < nAtt)
                     {
-
                         UserControls.Player pl = new UserControls.Player();
                         pl.PlayerName = attackers[i].Name;
                         pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
@@ -309,6 +314,7 @@ namespace OOP_WPF
                         pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nAtt);
                         pl.SetValue(Grid.ColumnProperty, length);
                         pl.SetValue(Grid.RowProperty, i + existing);
+                        pl.Image = CheckImage(attackers[i], home);
                         half.Children.Add(pl);
                         nToRemove++;
                         membersOfAttack++;
@@ -327,6 +333,13 @@ namespace OOP_WPF
 
         }
 
+        private string CheckImage(Player player, bool home)
+        {
+            if (home)
+                return repo.GetPlayerImage(Sex, HomeCountry, player);
+            else
+                return repo.GetPlayerImage(Sex, AwayCountry, player);
+        }
 
         private static void AddGoalie(Grid half, int maxplayerspercolumn, UserControls.Player goalie, Player player)
         {

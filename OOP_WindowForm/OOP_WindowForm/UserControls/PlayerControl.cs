@@ -88,7 +88,7 @@ namespace OOP_WindowForm.UserControls
                 if(value != "")
                 {
                     picturePath = value;
-                    image.Image = Image.FromFile(PicturePath);
+                    pbImage.Image = Image.FromFile(PicturePath);
                 }
             } }
 

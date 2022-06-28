@@ -102,6 +102,28 @@ namespace dllOOP.DAL
             return pb;
         }
 
+        public string GetPlayerImage(Sex sex, NationalTeam nation, Player player)
+        {
+            string path = $"{DIR}\\{sex}_{nation.FifaCode}.xml";
+            if (!File.Exists(path))
+                return "";
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Player>));
+            try
+            {
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    List<Player> players = (List<Player>)serializer.Deserialize(reader);
+                    return players.FirstOrDefault(p => p.Name == player.Name).PicturePath;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return null;
+            }
+
+        }
+
         public List<Player> GetPlayersImages(Sex sex, NationalTeam nation)
         {
             string path = $"{DIR}\\{sex}_{nation.FifaCode}.xml";

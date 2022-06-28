@@ -20,7 +20,16 @@ namespace OOP_WPF.UserControls
     /// </summary>
     public partial class Player : UserControl
     {
-        public string Image { get; set; }
+        private string path = "/Icon/football-player.png";
+        public string Image
+        {
+            get => path;
+            set
+            {
+                if (value != "")
+                    path = value;
+            }
+        }
         public string PlayerName { get; set; }
         public string ShirtNUmber { get; set; }
         public Player()
@@ -30,7 +39,7 @@ namespace OOP_WPF.UserControls
 
         public void InitFields()
         {
-            //image.Source = new BitmapImage(new Uri(Image, UriKind.Relative));
+            image.Source = new BitmapImage(new Uri(Image, UriKind.Relative));
             lblName.Text = PlayerName;
             lblNumber.Text = ShirtNUmber;
         }

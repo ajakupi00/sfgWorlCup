@@ -86,6 +86,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlPlayers.Controls.Add(playerControl);
             }
 
@@ -110,7 +111,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
-                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlFavPlayers.Controls.Add(playerControl);
             });
             foreach (Player player in players)
@@ -130,7 +131,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
-                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlPlayers.Controls.Add(playerControl);
             }
 

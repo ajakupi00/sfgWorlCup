@@ -29,6 +29,7 @@ namespace OOP_WPF
         private ISfg sfg;
         private NationalTeam favTeam;
         private NationalTeam opponentTeam;
+        private Sex sex;
         public TeamOverview()
         {
             InitializeComponent();
@@ -84,7 +85,8 @@ namespace OOP_WPF
 
         private void InitSettings()
         {
-            sfg = SfgFactory.GetSfg(repo.GetSexSetting());
+            sex = repo.GetSexSetting();
+            sfg = SfgFactory.GetSfg(sex);
             favTeam = repo.GetFavoriteTeam();
             string resx = repo.GetResolution();
             if (resx == "fullscreen")
@@ -158,7 +160,11 @@ namespace OOP_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            new PlayersFormation(match).Show();
+            PlayersFormation playersFormation = new PlayersFormation(match);
+            playersFormation.Sex = sex;
+            playersFormation.HomeCountry = favTeam;
+            playersFormation.AwayCountry = opponentTeam;
+            playersFormation.Show();
         }
     }
 }

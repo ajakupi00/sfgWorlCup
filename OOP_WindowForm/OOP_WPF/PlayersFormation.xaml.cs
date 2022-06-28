@@ -19,9 +19,12 @@ namespace OOP_WPF
         public NationalTeam HomeCountry { get; set; }
         public NationalTeam AwayCountry { get; set; }
 
-        public PlayersFormation(Match match)
+        public PlayersFormation(Match match, Sex sex, NationalTeam home, NationalTeam away)
         {
             this.Match = match;
+            this.Sex = sex;
+            this.HomeCountry = home;
+            this.AwayCountry = away;
             InitializeComponent();
             HomeTeam();
             AwayTeam();
@@ -40,6 +43,12 @@ namespace OOP_WPF
             List<Player> starters = Match.HomeTeamStatistics.StartingEleven;
             string tactics = Match.HomeTeamStatistics.Tactics;
             homeFormation.Content = tactics;
+            if(HomeCountry.Country != Match.HomeTeamCountry)
+            {
+                var temp = HomeCountry;
+                HomeCountry = AwayCountry;
+                AwayCountry = temp;
+            }
             DivideField(leftHalf, tactics, starters, true);
         }
 
@@ -78,7 +87,7 @@ namespace OOP_WPF
 
             UserControls.Player goalie = new UserControls.Player();
             Player player = starters.Find(p => p.Position == Position.Goalie);
-            AddGoalie(half, maxplayerspercolumn, goalie, player);
+            AddGoalie(half, maxplayerspercolumn, goalie, player, home);
 
             int ndef = int.Parse(tactic[0]);
             int nToRemove = 0;
@@ -86,20 +95,10 @@ namespace OOP_WPF
             //  DEFENDERS
             for (int i = 0; i < defenders.Count; i++)
             {
-                UserControls.Player pl = new UserControls.Player();
+               
                 if (i < ndef)
                 {
-                    pl.PlayerName = defenders[i].Name;
-                    pl.ShirtNUmber = defenders[i].ShirtNumber.ToString();
-                    pl.InitFields();
-                    pl.VerticalAlignment = VerticalAlignment.Center;
-                    pl.HorizontalAlignment = HorizontalAlignment.Center;
-                    pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
-                    pl.SetValue(Grid.ColumnProperty, 1);
-                    pl.SetValue(Grid.RowProperty, i);
-                    half.Children.Add(pl);
-                    nToRemove++;
-                    membersOffDef++;
+                    AddPlayer(half, maxplayerspercolumn, defenders, ndef, ref nToRemove, ref membersOffDef, i, 0, 1, home);
                 }
             }
             defenders.RemoveRange(0, nToRemove);
@@ -111,18 +110,7 @@ namespace OOP_WPF
                 {
                     if(membersOffDef < ndef)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = midfielders[i].Name;
-                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
-                        pl.SetValue(Grid.ColumnProperty, 1);
-                        pl.SetValue(Grid.RowProperty, i + exisitingDef);
-                        half.Children.Add(pl);
-                        nToRemove++;
-                        membersOffDef++;
+                        AddPlayer(half, maxplayerspercolumn, midfielders, ndef, ref nToRemove, ref membersOffDef, i, exisitingDef,1, home);
                     }
                 }
                 midfielders.RemoveRange(0, nToRemove);
@@ -140,20 +128,13 @@ namespace OOP_WPF
                 {
                     if (i < nfMid)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = defenders[i].Name;
-                        pl.ShirtNUmber = defenders[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
-                        pl.SetValue(Grid.ColumnProperty, 2);
-                        pl.SetValue(Grid.RowProperty, i);
-                        half.Children.Add(pl);
-                        membersOffMid++;
+                        AddPlayer(half, maxplayerspercolumn, defenders, nfMid, ref nToRemove, ref membersOffMid, i, 0, 2, home);
                     }
                 }
             }
+            defenders.RemoveRange(0, nToRemove);
+            nToRemove = 0;
+            
             // ADD MIDFIELDERS
             if(membersOffMid < nfMid)
             {
@@ -162,19 +143,7 @@ namespace OOP_WPF
                 {
                     if (membersOffMid < nfMid)
                     {
-
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = midfielders[i].Name;
-                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
-                        pl.SetValue(Grid.ColumnProperty, 2);
-                        pl.SetValue(Grid.RowProperty, i + defInMid);
-                        half.Children.Add(pl);
-                        membersOffMid++;
-                        nToRemove++;
+                        AddPlayer(half, maxplayerspercolumn, midfielders, nfMid, ref nToRemove, ref membersOffMid, i, defInMid, 2, home);
                     }
                 }
             }
@@ -188,18 +157,7 @@ namespace OOP_WPF
                 {
                     if (membersOffMid < nfMid)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = attackers[i].Name;
-                        pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
-                        pl.SetValue(Grid.ColumnProperty, 2);
-                        pl.SetValue(Grid.RowProperty, i + membersOffMid);
-                        half.Children.Add(pl);
-                        membersOffMid++;
-                        nToRemove++;
+                        AddPlayer(half, maxplayerspercolumn, attackers, nfMid, ref nToRemove, ref membersOffMid, i, membersOffMid, 2, home);
                     }
                 }
             }
@@ -224,18 +182,10 @@ namespace OOP_WPF
                 {
                     if(i < nsMid)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = midfielders[i].Name;
-                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nsMid);
-                        pl.SetValue(Grid.ColumnProperty, 3);
-                        pl.SetValue(Grid.RowProperty, i);
-                        half.Children.Add(pl);
-                        nToRemove++;
-                        membersOffsMid++;
+                        AddPlayer(half, maxplayerspercolumn, midfielders, nsMid, ref nToRemove, ref membersOffsMid, i, 0, 3, home);
+
+
+                        //pl.SetValue(Grid.ColumnProperty, 3);
                     }
                 }
                 midfielders.RemoveRange(0, nToRemove);
@@ -247,18 +197,7 @@ namespace OOP_WPF
                         int existingMemebers = membersOffsMid;
                         if(membersOffsMid < nsMid)
                         {
-                            UserControls.Player pl = new UserControls.Player();
-                            pl.PlayerName = attackers[i].Name;
-                            pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
-                            pl.InitFields();
-                            pl.VerticalAlignment = VerticalAlignment.Center;
-                            pl.HorizontalAlignment = HorizontalAlignment.Center;
-                            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nsMid);
-                            pl.SetValue(Grid.ColumnProperty, 3);
-                            pl.SetValue(Grid.RowProperty, i + existingMemebers);
-                            half.Children.Add(pl);
-                            nToRemove++;
-                            membersOffsMid++;
+                            AddPlayer(half, maxplayerspercolumn, attackers, nsMid, ref nToRemove, ref membersOffsMid, i, existingMemebers, 3, home);
                         }
                     }
                     attackers.RemoveRange(0, nToRemove);
@@ -281,18 +220,9 @@ namespace OOP_WPF
                 {
                     if (i < nAtt)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = midfielders[i].Name;
-                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nAtt);
-                        pl.SetValue(Grid.ColumnProperty, length);
-                        pl.SetValue(Grid.RowProperty, i);
-                        half.Children.Add(pl);
-                        nToRemove++;
-                        membersOfAttack++;
+                        AddPlayer(half, maxplayerspercolumn, midfielders, nAtt, ref nToRemove, ref membersOfAttack, i, 0, length, home);
+
+                        //pl.SetValue(Grid.ColumnProperty, length);
                     }
                 }
                 midfielders.RemoveRange(0, nToRemove);
@@ -305,32 +235,42 @@ namespace OOP_WPF
                     int existing = membersOfAttack;
                     if(membersOfAttack < nAtt)
                     {
-                        UserControls.Player pl = new UserControls.Player();
-                        pl.PlayerName = attackers[i].Name;
-                        pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
-                        pl.InitFields();
-                        pl.VerticalAlignment = VerticalAlignment.Center;
-                        pl.HorizontalAlignment = HorizontalAlignment.Center;
-                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nAtt);
-                        pl.SetValue(Grid.ColumnProperty, length);
-                        pl.SetValue(Grid.RowProperty, i + existing);
-                        pl.Image = CheckImage(attackers[i], home);
-                        half.Children.Add(pl);
-                        nToRemove++;
-                        membersOfAttack++;
+                        AddPlayer(half, maxplayerspercolumn, attackers, nAtt, ref nToRemove, ref membersOfAttack, i, existing, length, home);
                     }
                 }
             }
 
+        }
+
+        private void AddPlayer(Grid half, int maxplayerspercolumn, List<Player> defenders, int ndef, ref int nToRemove, ref int membersOffDef, int i, int existing, int length, bool home)
+        {
+            UserControls.Player pl = new UserControls.Player();
+            pl.PlayerName = defenders[i].Name;
+            pl.ShirtNUmber = defenders[i].ShirtNumber.ToString();
+            pl.Image = CheckImage(defenders[i], home);
+            pl.InitFields();
+            pl.VerticalAlignment = VerticalAlignment.Center;
+            pl.HorizontalAlignment = HorizontalAlignment.Center;
+            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
+            pl.SetValue(Grid.ColumnProperty, length);
+            pl.SetValue(Grid.RowProperty, i + existing);
+            half.Children.Add(pl);
+            nToRemove++;
+            membersOffDef++;
+        }
 
 
-
-
-
-
-
-
-
+        private void AddGoalie(Grid half, int maxplayerspercolumn, UserControls.Player goalie, Player player, bool home)
+        {
+            goalie.PlayerName = player.Name;
+            goalie.ShirtNUmber = player.ShirtNumber.ToString();
+            goalie.Image = CheckImage(player, home);
+            goalie.InitFields();
+            goalie.VerticalAlignment = VerticalAlignment.Center;
+            goalie.HorizontalAlignment = HorizontalAlignment.Center;
+            goalie.SetValue(Grid.RowSpanProperty, maxplayerspercolumn );
+            goalie.SetValue(Grid.ColumnProperty, 0);
+            half.Children.Add(goalie);
         }
 
         private string CheckImage(Player player, bool home)
@@ -340,19 +280,6 @@ namespace OOP_WPF
             else
                 return repo.GetPlayerImage(Sex, AwayCountry, player);
         }
-
-        private static void AddGoalie(Grid half, int maxplayerspercolumn, UserControls.Player goalie, Player player)
-        {
-            goalie.PlayerName = player.Name;
-            goalie.ShirtNUmber = player.ShirtNumber.ToString();
-            goalie.InitFields();
-            goalie.VerticalAlignment = VerticalAlignment.Center;
-            goalie.HorizontalAlignment = HorizontalAlignment.Center;
-            goalie.SetValue(Grid.RowSpanProperty, maxplayerspercolumn);
-            goalie.SetValue(Grid.ColumnProperty, 0);
-            half.Children.Add(goalie);
-        }
-
 
 
     }

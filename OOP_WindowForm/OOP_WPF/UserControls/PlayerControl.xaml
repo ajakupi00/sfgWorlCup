@@ -13,7 +13,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-       
+
         <Grid.RowDefinitions>
             <RowDefinition Height="1.25*"/>
             <RowDefinition Height="0.75*"/>

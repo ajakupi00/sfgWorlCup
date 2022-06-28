@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,9 @@ namespace OOP_WPF.UserControls
     /// </summary>
     public partial class Player : UserControl
     {
-        private string path = "/Icon/football-player.png";
+        private readonly string DIR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
+        private string path = @"football-player.png";
         public string Image
         {
             get => path;
@@ -39,7 +42,7 @@ namespace OOP_WPF.UserControls
 
         public void InitFields()
         {
-            image.Source = new BitmapImage(new Uri(Image, UriKind.Relative));
+            image.Source = new BitmapImage(new Uri(DIR + @"\"+ path));
             lblName.Text = PlayerName;
             lblNumber.Text = ShirtNUmber;
         }

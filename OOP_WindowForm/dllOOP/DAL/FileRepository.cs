@@ -32,15 +32,15 @@ namespace dllOOP.DAL
             }
             if (!File.Exists(DIR + SETTINGS_FILE_NAME))
             {
-                File.Create(DIR + SETTINGS_FILE_NAME);
+                File.Create(DIR + SETTINGS_FILE_NAME).Close();
             }
             if (!File.Exists(DIR + TEAM_FILE_NAME))
             {
-                File.Create(DIR + TEAM_FILE_NAME);
+                File.Create(DIR + TEAM_FILE_NAME).Close();
             }
             if (!File.Exists(DIR + PLAYERS_FILE_NAME))
             {
-                File.Create(DIR + PLAYERS_FILE_NAME);
+                File.Create(DIR + PLAYERS_FILE_NAME).Close();
             }
             SETTINGS_PATH = DIR + SETTINGS_FILE_NAME;
             TEAM_PATH = DIR + TEAM_FILE_NAME;
@@ -113,7 +113,7 @@ namespace dllOOP.DAL
                 using (StreamReader reader = new StreamReader(path))
                 {
                     List<Player> players = (List<Player>)serializer.Deserialize(reader);
-                    return players.FirstOrDefault(p => p.Name == player.Name).PicturePath;
+                    return players.Contains(player) ? players.FirstOrDefault(p => p.Name == player.Name).PicturePath : "";
                 }
             }
             catch (Exception e)

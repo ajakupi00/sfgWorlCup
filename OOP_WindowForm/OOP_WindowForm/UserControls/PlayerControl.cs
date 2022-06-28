@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,8 @@ namespace OOP_WindowForm.UserControls
 {
     public partial class PlayerControl : UserControl
     {
+        public readonly string DIR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
         private bool favorite;
         private string playerName;
         private dllOOP.Models.Position position;
@@ -87,7 +90,13 @@ namespace OOP_WindowForm.UserControls
             set { 
                 if(value != "")
                 {
-                    picturePath = value;
+                    string[] details = value.Split('\\');
+                    string path = details[details.Length - 1];
+                    if (!File.Exists(DIR + @"\" + path))
+                    {
+                        File.Copy(value, DIR + @"\" +path);
+                    }
+                    picturePath = DIR + @"\" + path;
                     pbImage.Image = Image.FromFile(PicturePath);
                 }
             } }
@@ -117,6 +126,8 @@ namespace OOP_WindowForm.UserControls
 
         public static Player ParseFromControl(PlayerControl control, Sex sex, NationalTeam nation)
         {
+            string[] details = control.PicturePath.Split('\\');
+            string path = details[details.Length - 1];
             return new Player
             {
                 Name = control.PlayerName,
@@ -125,7 +136,7 @@ namespace OOP_WindowForm.UserControls
                 ShirtNumber = control.ShirtNumber,
                 Sex = sex,
                 Nation = nation,
-                PicturePath = control.PicturePath
+                PicturePath = path
             };
         }
 

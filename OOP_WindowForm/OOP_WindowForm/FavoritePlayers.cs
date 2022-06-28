@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace OOP_WindowForm
 {
     public partial class FavoritePlayers : Form
     {
+        private readonly string DIR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         private IRepo repo = RepoFactory.GetRepo();
+
         private ISfg sfg;
         private Sex worldCupGender;
         private NationalTeam nationalTeam;
@@ -164,7 +167,11 @@ namespace OOP_WindowForm
             pb.Image = Image.FromFile(file);
             PlayerControl parent = (PlayerControl)pb.Parent;
             parent.PicturePath = file;
-            playersWithImages.Add(PlayerControl.ParseFromControl(parent, worldCupGender, nationalTeam));
+            Player player = PlayerControl.ParseFromControl(parent, worldCupGender, nationalTeam);
+            playersWithImages.Add(player);
+            if(!File.Exists(DIR + @"\" + player.PicturePath))
+                File.Copy(file, DIR + @"\" + player.PicturePath);
+            
         }
 
         private void Player_MouseDownClick(object sender, MouseEventArgs e)

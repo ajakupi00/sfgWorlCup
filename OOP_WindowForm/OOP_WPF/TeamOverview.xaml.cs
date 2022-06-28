@@ -160,10 +160,7 @@ namespace OOP_WPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PlayersFormation playersFormation = new PlayersFormation(match);
-            playersFormation.Sex = sex;
-            playersFormation.HomeCountry = favTeam;
-            playersFormation.AwayCountry = opponentTeam;
+            PlayersFormation playersFormation = new PlayersFormation(match, sex, favTeam, opponentTeam);
             playersFormation.Show();
         }
     }

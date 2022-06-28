@@ -95,6 +95,9 @@
     <Compile Include="PlayersFormation.xaml.cs">
       <DependentUpon>PlayersFormation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlayerStat.xaml.cs">
+      <DependentUpon>PlayerStat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="PlayersFormation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlayerStat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -46,5 +46,7 @@ namespace OOP_WPF.UserControls
             lblName.Text = PlayerName;
             lblNumber.Text = ShirtNUmber;
         }
+
+      
     }
 }

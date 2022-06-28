@@ -42,13 +42,13 @@ namespace OOP_WPF
         {
             List<Player> starters = Match.HomeTeamStatistics.StartingEleven;
             string tactics = Match.HomeTeamStatistics.Tactics;
-            homeFormation.Content = tactics;
             if(HomeCountry.Country != Match.HomeTeamCountry)
             {
                 var temp = HomeCountry;
                 HomeCountry = AwayCountry;
                 AwayCountry = temp;
             }
+            homeFormation.Content = tactics + $" {HomeCountry.FifaCode}";
             DivideField(leftHalf, tactics, starters, true);
         }
 
@@ -254,6 +254,7 @@ namespace OOP_WPF
             pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
             pl.SetValue(Grid.ColumnProperty, length);
             pl.SetValue(Grid.RowProperty, i + existing);
+            pl.MouseDoubleClick += CheckPlayer;
             half.Children.Add(pl);
             nToRemove++;
             membersOffDef++;
@@ -270,7 +271,42 @@ namespace OOP_WPF
             goalie.HorizontalAlignment = HorizontalAlignment.Center;
             goalie.SetValue(Grid.RowSpanProperty, maxplayerspercolumn );
             goalie.SetValue(Grid.ColumnProperty, 0);
+            goalie.MouseDoubleClick += CheckPlayer;
             half.Children.Add(goalie);
+        }
+
+        private void CheckPlayer(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            UserControls.Player control = (UserControls.Player)sender;
+            bool found = false;
+            Player player = Match.HomeTeamStatistics.StartingEleven.Find(p => p.Name == control.PlayerName ? found = true : found = false);
+            if (!found)
+            {
+                player = Match.AwayTeamStatistics.StartingEleven.Find(p => p.Name == control.PlayerName);
+                player.PicturePath = control.Image;
+                foreach (TeamEvent ev in Match.AwayTeamEvents)
+                {
+                    if (ev.TypeOfEvent == TypeOfEvent.Goal && ev.Player == player.Name)
+                        player.Goals++;
+                    else if (ev.TypeOfEvent == TypeOfEvent.GoalPenalty && ev.Player == player.Name)
+                        player.Goals++;
+                    else if (ev.TypeOfEvent == TypeOfEvent.YellowCard && ev.Player == player.Name)
+                        player.YCards++;
+                }
+                new PlayerStat(player).Show();
+                return;
+            }
+            player.PicturePath = control.Image;
+            foreach (TeamEvent ev in Match.HomeTeamEvents)
+            {
+                if (ev.TypeOfEvent == TypeOfEvent.Goal && ev.Player == player.Name)
+                    player.Goals++;
+                else if (ev.TypeOfEvent == TypeOfEvent.GoalPenalty && ev.Player == player.Name)
+                    player.Goals++;
+                else if (ev.TypeOfEvent == TypeOfEvent.YellowCard && ev.Player == player.Name)
+                    player.YCards++;
+            }
+            new PlayerStat(player).Show();
         }
 
         private string CheckImage(Player player, bool home)

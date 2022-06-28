@@ -12,9 +12,12 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+    <Label Content="4-3-3" x:Name="homeFormation" FontSize="20" />
         <Grid x:Name="leftHalf" VerticalAlignment="Center">
             
         </Grid>
+        <Label Content="4-3-3" Grid.Column="1" x:Name="awayFormation" FontSize="20"  />
+
         <Grid x:Name="rightHalf" Grid.Column="1" VerticalAlignment="Center" FlowDirection="RightToLeft">
         </Grid>
         <Grid.Background>

@@ -25,6 +25,7 @@ namespace OOP_WPF
         {
             List<Player> starters = Match.AwayTeamStatistics.StartingEleven;
             string tactics = Match.AwayTeamStatistics.Tactics;
+            awayFormation.Content = tactics;
             DivideField(rightHalf, tactics, starters);
         }
 
@@ -32,6 +33,7 @@ namespace OOP_WPF
         {
             List<Player> starters = Match.HomeTeamStatistics.StartingEleven;
             string tactics = Match.HomeTeamStatistics.Tactics;
+            homeFormation.Content = tactics;
             DivideField(leftHalf, tactics, starters);
         }
 
@@ -63,7 +65,7 @@ namespace OOP_WPF
 
         private void AddPlayerControls(Grid half, List<Player> starters, int maxplayerspercolumn, string[] tactic)
         {
-            List<Player> defender = starters.FindAll(p => p.Position == Position.Defender);
+            List<Player> defenders = starters.FindAll(p => p.Position == Position.Defender);
             List<Player> midfielders = starters.FindAll(p => p.Position == Position.Midfield);
             List<Player> attackers = starters.FindAll(p => p.Position == Position.Forward);
 
@@ -72,105 +74,257 @@ namespace OOP_WPF
             Player player = starters.Find(p => p.Position == Position.Goalie);
             AddGoalie(half, maxplayerspercolumn, goalie, player);
 
-            for (int i = 0; i < tactic.Length; i++)
+            int ndef = int.Parse(tactic[0]);
+            int nToRemove = 0;
+            int membersOffDef = 0;
+            //  DEFENDERS
+            for (int i = 0; i < defenders.Count; i++)
             {
-                int ntact = int.Parse(tactic[i]);
-                int nd = 0;
-                for (int j = 0; j < ntact; j++)
+                UserControls.Player pl = new UserControls.Player();
+                if (i < ndef)
                 {
-                    UserControls.Player pl = new UserControls.Player();
-                    if (i == 0) //IF DEFENDER
+                    pl.PlayerName = defenders[i].Name;
+                    pl.ShirtNUmber = defenders[i].ShirtNumber.ToString();
+                    pl.InitFields();
+                    pl.VerticalAlignment = VerticalAlignment.Center;
+                    pl.HorizontalAlignment = HorizontalAlignment.Center;
+                    pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
+                    pl.SetValue(Grid.ColumnProperty, 1);
+                    pl.SetValue(Grid.RowProperty, i);
+                    half.Children.Add(pl);
+                    nToRemove++;
+                    membersOffDef++;
+                }
+            }
+            defenders.RemoveRange(0, nToRemove);
+            nToRemove = 0;
+            if(membersOffDef < ndef)
+            {
+                int exisitingDef = membersOffDef;
+                for (int i = 0; i < midfielders.Count; i++)
+                {
+                    if(membersOffDef < ndef)
                     {
-                        AddPlayer(half, maxplayerspercolumn, i, ntact, j, pl, defender);
-                        if (j == ntact - 1)
-                        {
-                            defender.RemoveRange(0, ntact);
-                            continue;
-                        }
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = midfielders[i].Name;
+                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ndef);
+                        pl.SetValue(Grid.ColumnProperty, 1);
+                        pl.SetValue(Grid.RowProperty, i + exisitingDef);
+                        half.Children.Add(pl);
+                        nToRemove++;
+                        membersOffDef++;
                     }
+                }
+                midfielders.RemoveRange(0, nToRemove);
+                nToRemove = 0;
+            }
 
-                    else if (i == 1) //FIRST MIDFIELD
-                    {
-                        if (defender.Count > 0)
-                        {
 
-                            pl.PlayerName = defender[nd].Name;
-                            pl.ShirtNUmber = defender[nd].ShirtNumber.ToString();
-                            pl.InitFields();
-                            pl.VerticalAlignment = VerticalAlignment.Center;
-                            pl.HorizontalAlignment = HorizontalAlignment.Center;
-                            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ntact);
-                            pl.SetValue(Grid.ColumnProperty, i + 1);
-                            pl.SetValue(Grid.RowProperty, j);
-                            half.Children.Add(pl);
-                            defender.Remove(defender[nd]);
-                            continue;
-                        }
-                        if (j < midfielders.Count)
-                        {
-                            AddPlayer(half, maxplayerspercolumn, i, ntact, j, pl, midfielders);
-                            nd++;
-                            continue;
-                        }
-                        if (tactic.Length == 3 && nd <= midfielders.Count)
-                        {
-                            pl.PlayerName = midfielders[nd].Name;
-                            pl.ShirtNUmber = midfielders[nd].ShirtNumber.ToString();
-                            pl.InitFields();
-                            pl.VerticalAlignment = VerticalAlignment.Center;
-                            pl.HorizontalAlignment = HorizontalAlignment.Center;
-                            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ntact);
-                            pl.SetValue(Grid.ColumnProperty, i + 1);
-                            pl.SetValue(Grid.RowProperty, j);
-                            half.Children.Add(pl);
-                            nd++;
-                        }
-                        if (j == ntact - 1)
-                        {
-                            midfielders.RemoveRange(0, nd);
-                            continue;
-
-                        }
-                    }
-                    else if (i == 2 && tactic.Length > 3) // SECOND MIDFIELD
+            // FIRST MIDFIELD
+            int nfMid = int.Parse(tactic[1]);
+            // CHECK LEFT DEFENDER
+            int membersOffMid = 0;
+            if (defenders.Count > 0)
+            {
+                for (int i = 0; i < defenders.Count; i++)
+                {
+                    if (i < nfMid)
                     {
-                        if (j < midfielders.Count)
-                        {
-                            AddPlayer(half, maxplayerspercolumn, i, ntact, j, pl, midfielders);
-                            nd++;
-                            continue;
-                        }
-                        if (j == midfielders.Count)
-                        {
-                            midfielders.RemoveRange(0, nd);
-                            nd = 0;
-                        }
-                        if (j < attackers.Count && midfielders.Count == 0)
-                        {
-                            pl.PlayerName = attackers[nd].Name;
-                            pl.ShirtNUmber = attackers[nd].ShirtNumber.ToString();
-                            pl.InitFields();
-                            pl.VerticalAlignment = VerticalAlignment.Center;
-                            pl.HorizontalAlignment = HorizontalAlignment.Center;
-                            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ntact);
-                            pl.SetValue(Grid.ColumnProperty, i + 1);
-                            pl.SetValue(Grid.RowProperty, j);
-                            half.Children.Add(pl);
-                            nd++;
-                        }
-                        if (j == ntact - 1)
-                        {
-                            attackers.RemoveRange(0, nd);
-                            continue;
-                        }
-                        
-                    }
-                    else // ATTACKERS
-                    {
-                        AddPlayer(half, maxplayerspercolumn, i, ntact, j, pl, attackers);
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = defenders[i].Name;
+                        pl.ShirtNUmber = defenders[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
+                        pl.SetValue(Grid.ColumnProperty, 2);
+                        pl.SetValue(Grid.RowProperty, i);
+                        half.Children.Add(pl);
+                        membersOffMid++;
                     }
                 }
             }
+            // ADD MIDFIELDERS
+            if(membersOffMid < nfMid)
+            {
+                int defInMid = membersOffMid;
+                for (int i = 0; i < midfielders.Count; i++)
+                {
+                    if (membersOffMid < nfMid)
+                    {
+
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = midfielders[i].Name;
+                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
+                        pl.SetValue(Grid.ColumnProperty, 2);
+                        pl.SetValue(Grid.RowProperty, i + defInMid);
+                        half.Children.Add(pl);
+                        membersOffMid++;
+                        nToRemove++;
+                    }
+                }
+            }
+            midfielders.RemoveRange(0, nToRemove);
+            nToRemove = 0;
+            // CHECK IF SPACE LEFT FOR ATTACKERS
+            // ADD ATTACKERS
+            if(membersOffMid < nfMid)
+            {
+                for (int i = 0; i < attackers.Count; i++)
+                {
+                    if (membersOffMid < nfMid)
+                    {
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = attackers[i].Name;
+                        pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nfMid);
+                        pl.SetValue(Grid.ColumnProperty, 2);
+                        pl.SetValue(Grid.RowProperty, i + membersOffMid);
+                        half.Children.Add(pl);
+                        membersOffMid++;
+                        nToRemove++;
+                    }
+                }
+            }
+            if(nToRemove != 0)
+            {
+                attackers.RemoveRange(0, nToRemove);
+            }
+            nToRemove = 0;
+
+
+            // SECOND MIDFIELD
+                // CHECK IF EXISTS SECOND MIDFIELD
+                // ADD REMAINING MIDFIELDERS
+                // CHECK IF SPACE FOR ATTACKERS
+                // ADD ATTACKERS
+
+            if(tactic.Length > 3)
+            {
+                int nsMid = int.Parse(tactic[2]);
+                int membersOffsMid = 0;
+                for (int i = 0; i < midfielders.Count; i++)
+                {
+                    if(i < nsMid)
+                    {
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = midfielders[i].Name;
+                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nsMid);
+                        pl.SetValue(Grid.ColumnProperty, 3);
+                        pl.SetValue(Grid.RowProperty, i);
+                        half.Children.Add(pl);
+                        nToRemove++;
+                        membersOffsMid++;
+                    }
+                }
+                midfielders.RemoveRange(0, nToRemove);
+                nToRemove = 0;
+                if(membersOffsMid < nsMid)
+                {
+                    for (int i = 0; i < attackers.Count; i++)
+                    {
+                        int existingMemebers = membersOffsMid;
+                        if(membersOffsMid < nsMid)
+                        {
+                            UserControls.Player pl = new UserControls.Player();
+                            pl.PlayerName = attackers[i].Name;
+                            pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
+                            pl.InitFields();
+                            pl.VerticalAlignment = VerticalAlignment.Center;
+                            pl.HorizontalAlignment = HorizontalAlignment.Center;
+                            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nsMid);
+                            pl.SetValue(Grid.ColumnProperty, 3);
+                            pl.SetValue(Grid.RowProperty, i + existingMemebers);
+                            half.Children.Add(pl);
+                            nToRemove++;
+                            membersOffsMid++;
+                        }
+                    }
+                    attackers.RemoveRange(0, nToRemove);
+                    nToRemove = 0;
+                }
+            }
+
+
+            //  ATTACKERS
+            // CHECK  REMAINING MIDFIELDERS
+            // CHECK IF SPACE FOR ATTACKERS
+            // ADD ATTACKERS
+
+            int length = tactic.Length;
+            int nAtt = int.Parse(tactic[length - 1]);
+            int membersOfAttack = 0;
+            if(midfielders.Count > 0)
+            {
+                for (int i = 0; i < midfielders.Count; i++)
+                {
+                    if (i < nAtt)
+                    {
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = midfielders[i].Name;
+                        pl.ShirtNUmber = midfielders[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nAtt);
+                        pl.SetValue(Grid.ColumnProperty, length);
+                        pl.SetValue(Grid.RowProperty, i);
+                        half.Children.Add(pl);
+                        nToRemove++;
+                        membersOfAttack++;
+                    }
+                }
+                midfielders.RemoveRange(0, nToRemove);
+                nToRemove = 0;
+            }
+            if(membersOfAttack < nAtt)
+            {
+                for (int i = 0; i < attackers.Count; i++)
+                {
+                    int existing = membersOfAttack;
+                    if(membersOfAttack < nAtt)
+                    {
+
+                        UserControls.Player pl = new UserControls.Player();
+                        pl.PlayerName = attackers[i].Name;
+                        pl.ShirtNUmber = attackers[i].ShirtNumber.ToString();
+                        pl.InitFields();
+                        pl.VerticalAlignment = VerticalAlignment.Center;
+                        pl.HorizontalAlignment = HorizontalAlignment.Center;
+                        pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / nAtt);
+                        pl.SetValue(Grid.ColumnProperty, length);
+                        pl.SetValue(Grid.RowProperty, i + existing);
+                        half.Children.Add(pl);
+                        nToRemove++;
+                        membersOfAttack++;
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+
+
         }
 
 
@@ -187,19 +341,6 @@ namespace OOP_WPF
         }
 
 
-
-        private static void AddPlayer(Grid half, int maxplayerspercolumn, int i, int ntact, int j, UserControls.Player pl, List<Player> mid)
-        {
-            pl.PlayerName = mid[j].Name;
-            pl.ShirtNUmber = mid[j].ShirtNumber.ToString();
-            pl.InitFields();
-            pl.VerticalAlignment = VerticalAlignment.Center;
-            pl.HorizontalAlignment = HorizontalAlignment.Center;
-            pl.SetValue(Grid.RowSpanProperty, maxplayerspercolumn / ntact);
-            pl.SetValue(Grid.ColumnProperty, i + 1);
-            pl.SetValue(Grid.RowProperty, j);
-            half.Children.Add(pl);
-        }
 
     }
 }

@@ -1,6 +1,9 @@
 ﻿using dllOOP.DAL;
 using dllOOP.DAL.Interfaces;
 using dllOOP.Models;
+using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -17,6 +20,9 @@ namespace OOP_WPF
         private string lang;
         private string screensize;
         private bool fullscreen;
+        private bool saved;
+
+        public bool Called { get; set; }
         public Settings()
         {
             InitializeComponent();
@@ -26,6 +32,8 @@ namespace OOP_WPF
 
         private void InitSettings()
         {
+            lblSettingsStatus.Text = OOP_WPF.Resources.Resource.SettingsNotSaved;
+            btnContinue.Visibility = Visibility.Hidden;
             cbSex.Items.Clear();
             cbSex.Items.Add(sex);
             if (sex == Sex.MEN)
@@ -48,9 +56,9 @@ namespace OOP_WPF
                 cbResolution.SelectedIndex = 0;
 
             if (lang == "hr")
-                btnLanguage.Content = "Engleski";
+                SetKultura(lang);
             else
-                btnLanguage.Content = "Croatian";
+                SetKultura(lang);
         }
 
         private void GetSettings()
@@ -69,12 +77,28 @@ namespace OOP_WPF
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            Save();
+            if (!Called)
+            {
+                btnContinue.Visibility = Visibility.Visible;
+            }else if(Called && saved)
+            {
+                System.Windows.MessageBox.Show("Settings saved!");
+                this.Close();
+            }
+        }
+
+        private void Save()
+        {
+
             repo.SetLanguage(lang);
             repo.SetSexSetting(sex);
             if (fullscreen)
                 repo.SetResolution("fullscreen");
             else
                 repo.SetResolution(screensize);
+            saved = true;
+            lblSettingsStatus.Text = OOP_WPF.Resources.Resource.SettingsSaved;
         }
 
         private void btnContinue_Click(object sender, RoutedEventArgs e)
@@ -87,19 +111,38 @@ namespace OOP_WPF
         {
             if (btnLanguage.Content.ToString() == "Engleski")
             {
-                lang = "eng";
-                btnLanguage.Content = "Croatian";
+                lang = "en";
+                SetKultura(lang);
+                btnLanguage.Content = OOP_WPF.Resources.Resource.CurrentLang;
             }
             else
             {
                 lang = "hr";
-                btnLanguage.Content = "Engleski";
+                SetKultura(lang);
+                btnLanguage.Content = OOP_WPF.Resources.Resource.CurrentLang;
             }
-        }
 
+        }
+        private void SetKultura(string jezik)
+        {
+            var kultura = new CultureInfo(jezik);
+
+            Thread.CurrentThread.CurrentUICulture = kultura;
+            Thread.CurrentThread.CurrentCulture = kultura;
+
+            lblLang.Text = OOP_WPF.Resources.Resource.Language;
+            lblSex.Text = OOP_WPF.Resources.Resource.Gender;
+            lblRes.Text = OOP_WPF.Resources.Resource.ScreenResolution;
+            if(!saved)
+                 lblSettingsStatus.Text = OOP_WPF.Resources.Resource.SettingsNotSaved;
+            else
+                 lblSettingsStatus.Text = OOP_WPF.Resources.Resource.SettingsSaved;
+
+        }
         private void cbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            sex = (Sex)cbSex.SelectedItem;
+            if(e.Source == this)
+                sex = (Sex)cbSex.SelectedItem;
         }
 
         private void cbResolution_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -119,6 +162,36 @@ namespace OOP_WPF
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void settingForm_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (Called)
+            {
+                switch (e.Key)
+                {
+                    case System.Windows.Input.Key.Enter:
+                        Save();
+                        break;
+                    case System.Windows.Input.Key.Escape:
+                        CloseSettings();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void CloseSettings()
+        {
+            if(System.Windows.MessageBox.Show("Close Application?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.No)
+            {
+                return;
+            }
+            else
+            {
+                this.Hide();
             }
         }
     }

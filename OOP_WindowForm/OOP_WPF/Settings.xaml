@@ -4,25 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_WPF"
+        xmlns:prop="clr-namespace:OOP_WPF.Resources"
+
         mc:Ignorable="d"
          Title="World Cup 2018" Height="600" Width="400"
-        Icon="/Icon/trophy.ico">
+        Icon="/Icon/trophy.ico" KeyUp="settingForm_KeyUp">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="0.5*"/>
             <RowDefinition/>
+            <RowDefinition Height="0.15*"/>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
-            <Label Content="Language:"/>
-            <Button x:Name="btnLanguage" Height="25" Content="Engleski" Click="btnLanguage_Click"/>
+            <TextBlock x:Name="lblLang"/>
+            <Button x:Name="btnLanguage" Height="25" Content="{x:Static prop:Resource.CurrentLang}" Click="btnLanguage_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
-            <Label Content="World cup gender:"/>
+            <TextBlock  x:Name="lblSex" />
             <ComboBox x:Name="cbSex" SelectionChanged="cbSex_SelectionChanged"/>
         </StackPanel>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
-            <Label Content="Screen resolution:"/>
+            <TextBlock  x:Name="lblRes"/>
             <ComboBox x:Name="cbResolution" SelectionChanged="cbResolution_SelectionChanged"/>
         </StackPanel>
         <Grid Grid.Row="2" VerticalAlignment="Bottom" Height="30">
@@ -33,5 +36,11 @@
             <Button x:Name="btnSave" Content="Save" Margin="5" Background="Green" Foreground="White" Click="btnSave_Click"/>
             <Button x:Name="btnContinue" Content="Continue" Grid.Column="1" Margin="5" Click="btnContinue_Click"/>
         </Grid>
+        <StatusBar Grid.Row="3">
+            <StatusBarItem>
+                <TextBlock x:Name="lblSettingsStatus" FontSize="10" Text="{x:Static prop:Resource.SettingsNotSaved}" />
+            </StatusBarItem>
+        </StatusBar>
     </Grid>
+    
 </Window>

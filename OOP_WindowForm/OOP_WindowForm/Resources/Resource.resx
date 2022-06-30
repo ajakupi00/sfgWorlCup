@@ -132,4 +132,7 @@
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="ScreenResolution" xml:space="preserve">
+    <value>Set screen resolution</value>
+  </data>
 </root>

@@ -132,4 +132,7 @@
   <data name="Save" xml:space="preserve">
     <value>Spremi</value>
   </data>
+  <data name="ScreenResolution" xml:space="preserve">
+    <value>Postavi veličinu zaslona</value>
+  </data>
 </root>

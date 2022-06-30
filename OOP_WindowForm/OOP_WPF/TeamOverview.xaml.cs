@@ -34,7 +34,20 @@ namespace OOP_WPF
         {
             InitializeComponent();
             InitSettings();
+            InitLabels();
             InitCombos();
+        }
+
+        private void InitLabels()
+        {
+            lblFavNation.Content = OOP_WPF.Resources.Resource.FNation;
+            lblNation.Content = OOP_WPF.Resources.Resource.ONation;
+            btnFavStat.Content = OOP_WPF.Resources.Resource.ShowStat;
+            btnStat.Content = OOP_WPF.Resources.Resource.ShowStat;
+            btnStarters.Content = OOP_WPF.Resources.Resource.Starters;
+            menuFileExit.Header = OOP_WPF.Resources.Resource.Exit;
+            menuSetting.Header = OOP_WPF.Resources.Resource.Setting;
+            menuItemSetting.Header = OOP_WPF.Resources.Resource.Edit;
         }
 
         private async void InitCombos()
@@ -44,13 +57,13 @@ namespace OOP_WPF
             lblTeam.Content = "";
             lblGoalTeam.Content = "";
             lblDots.Content = "";
-            lblScore.Content = "Loading countires..";
+            lblScore.Content = OOP_WPF.Resources.Resource.LoadingTeams;
             RestResponse<NationalTeam> odgovorPodaci = await sfg.GetNationalTeams();
             List<NationalTeam> teams = SfgMenRepo.DeserializeObject(odgovorPodaci);
 
             RestResponse<Match> response = await sfg.GetMatches(favTeam);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
-            
+
             matchesOfTeam = matches;
             cbFavNation.Items.Clear();
             foreach (NationalTeam team in teams)
@@ -77,7 +90,7 @@ namespace OOP_WPF
                 }
 
             }
-            lblScore.Content = "Choose opponent team";
+            lblScore.Content = OOP_WPF.Resources.Resource.ChooseOpponent;
 
 
 
@@ -102,7 +115,6 @@ namespace OOP_WPF
                 this.Height = height;
                 this.Width = width;
             }
-
 
         }
 
@@ -134,8 +146,9 @@ namespace OOP_WPF
             {
                 opponentTeam = (NationalTeam)cb.SelectedItem;
                 UpdateScore();
+                btnStarters.Visibility = Visibility.Visible;
             }
-            
+
         }
 
         private async void UpdateScore()
@@ -143,7 +156,7 @@ namespace OOP_WPF
             RestResponse<Match> response = await sfg.GetMatches(favTeam);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
             match = matches.FirstOrDefault(m => (m.HomeTeamCountry == favTeam.Country && m.AwayTeamCountry == opponentTeam.Country) || (m.AwayTeamCountry == favTeam.Country && m.HomeTeamCountry == opponentTeam.Country));
-            lblScore.Content = "Score";
+            lblScore.Content = OOP_WPF.Resources.Resource.Score;
             lblFavTeam.Content = favTeam.FifaCode;
             lblGoalFav.Content = (match.HomeTeam.Country == favTeam.Country) ? match.HomeTeam.Goals : match.AwayTeam.Goals;
             lblTeam.Content = opponentTeam.FifaCode;
@@ -162,6 +175,20 @@ namespace OOP_WPF
         {
             PlayersFormation playersFormation = new PlayersFormation(match, sex, favTeam, opponentTeam);
             playersFormation.Show();
+        }
+
+        private void menuItemSetting_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            Grid content = (Grid)settings.Content;
+            ((Grid)content.Children[content.Children.Count - 1]).Children[1].Visibility = Visibility.Hidden;
+            settings.Called = true;
+            settings.Show();
+        }
+
+        private void menuFileExit_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

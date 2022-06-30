@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationalTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>25</Id>
-  <Country>Belgium</Country>
-  <FifaCode>BEL</FifaCode>
-  <GroupId>7</GroupId>
-  <GroupLetter>G</GroupLetter>
-  <Wins>6</Wins>
-  <Draws>0</Draws>
+  <Id>30</Id>
+  <Country>Senegal</Country>
+  <FifaCode>SEN</FifaCode>
+  <GroupId>8</GroupId>
+  <GroupLetter>H</GroupLetter>
+  <Wins>1</Wins>
+  <Draws>1</Draws>
   <Losses>1</Losses>
-  <GamesPlayed>7</GamesPlayed>
-  <Points>18</Points>
-  <GoalsFor>16</GoalsFor>
-  <GoalsAgainst>6</GoalsAgainst>
-  <GoalDifferential>10</GoalDifferential>
+  <GamesPlayed>3</GamesPlayed>
+  <Points>4</Points>
+  <GoalsFor>4</GoalsFor>
+  <GoalsAgainst>4</GoalsAgainst>
+  <GoalDifferential>0</GoalDifferential>
 </NationalTeam>

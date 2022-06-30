@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOP_WPF"
         mc:Ignorable="d"
-        Title="PlayerStat" Height="450" Width="400">
+        Title="PlayerStat" Height="450" Width="400"
+        Icon="/Icon/trophy.ico">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Loaded">
             <BeginStoryboard>
@@ -16,7 +17,7 @@
         </EventTrigger>
     </Window.Triggers>
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        
+
         <StackPanel.Resources>
             <Style TargetType="{x:Type Label}">
                 <Setter Property="FontSize" Value="18"/>

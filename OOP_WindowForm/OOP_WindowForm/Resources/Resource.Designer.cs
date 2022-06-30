@@ -104,5 +104,14 @@ namespace OOP_WindowForm.Resources {
                 return ResourceManager.GetString("Save", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set screen resolution.
+        /// </summary>
+        public static string ScreenResolution {
+            get {
+                return ResourceManager.GetString("ScreenResolution", resourceCulture);
+            }
+        }
     }
 }

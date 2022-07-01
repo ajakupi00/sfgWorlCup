@@ -1,0 +1,29 @@
+﻿<Window x:Class="OOP_WPF.PlayersFormation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP_WPF"
+        mc:Ignorable="d"
+        Title="Match" Height="700" Width="1000"
+        Icon="/Icon/trophy.ico">
+    <Grid x:Name="field">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+    <Label Content="4-3-3" x:Name="homeFormation" FontSize="20" />
+        <Grid x:Name="leftHalf" VerticalAlignment="Center">
+            
+        </Grid>
+        <Label Content="4-3-3" Grid.Column="1" x:Name="awayFormation" FontSize="20"  />
+
+        <Grid x:Name="rightHalf" Grid.Column="1" VerticalAlignment="Center" FlowDirection="RightToLeft">
+        </Grid>
+        <Grid.Background>
+            <ImageBrush Stretch="Fill" ImageSource="/Icon/footbal-field.png"
+                        AlignmentX="Center" AlignmentY="Center"/>
+        </Grid.Background>
+    </Grid>
+
+</Window>

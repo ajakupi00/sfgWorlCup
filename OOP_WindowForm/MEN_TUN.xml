@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Player>
-    <Name>JO Hyeonwoo</Name>
+    <Name>Mouez HASSEN</Name>
     <Captain>false</Captain>
-    <ShirtNumber>23</ShirtNumber>
+    <ShirtNumber>22</ShirtNumber>
     <Position>Goalie</Position>
     <Nation>
-      <Id>24</Id>
-      <Country>Korea Republic</Country>
-      <FifaCode>KOR</FifaCode>
-      <GroupId>6</GroupId>
-      <GroupLetter>F</GroupLetter>
+      <Id>27</Id>
+      <Country>Tunisia</Country>
+      <FifaCode>TUN</FifaCode>
+      <GroupId>7</GroupId>
+      <GroupLetter>G</GroupLetter>
       <Wins>1</Wins>
       <Draws>0</Draws>
       <Losses>2</Losses>
       <GamesPlayed>3</GamesPlayed>
       <Points>3</Points>
-      <GoalsFor>3</GoalsFor>
-      <GoalsAgainst>3</GoalsAgainst>
-      <GoalDifferential>0</GoalDifferential>
+      <GoalsFor>5</GoalsFor>
+      <GoalsAgainst>8</GoalsAgainst>
+      <GoalDifferential>-3</GoalDifferential>
     </Nation>
     <Sex>MEN</Sex>
-    <PicturePath>C:\Users\arjan\Downloads\6175b54dbf058.jpg</PicturePath>
+    <PicturePath>6175b54dbf058.jpg</PicturePath>
     <Goals>0</Goals>
     <YCards>0</YCards>
   </Player>

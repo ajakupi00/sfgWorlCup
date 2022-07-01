@@ -16,6 +16,7 @@ namespace dllOOP.DAL.Interfaces
         void SetFavoriteTeam(NationalTeam team);
         void SaveFavoritePlayers(List<Player> players);
         void SavePlayersImages(List<Player> playersWithImages);
+        void SetResolution(string screensize);
 
         //GET
         string GetLanguage();
@@ -24,5 +25,10 @@ namespace dllOOP.DAL.Interfaces
         List<Player> GetFavoritePlayers();
         Control GetPicture(string filepath);
         List<Player> GetPlayersImages(Sex sex, NationalTeam nation);
+        string GetResolution();
+        string GetPlayerImage(Sex sex, NationalTeam nation, Player player);
+
+        //CHECK
+        bool SettingsFileExist();
     }
 }

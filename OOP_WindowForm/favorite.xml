@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationalTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>13</Id>
-  <Country>Argentina</Country>
-  <FifaCode>ARG</FifaCode>
+  <Id>15</Id>
+  <Country>Croatia</Country>
+  <FifaCode>CRO</FifaCode>
   <GroupId>4</GroupId>
   <GroupLetter>D</GroupLetter>
-  <Wins>1</Wins>
-  <Draws>1</Draws>
-  <Losses>2</Losses>
-  <GamesPlayed>4</GamesPlayed>
-  <Points>4</Points>
-  <GoalsFor>6</GoalsFor>
+  <Wins>4</Wins>
+  <Draws>2</Draws>
+  <Losses>1</Losses>
+  <GamesPlayed>7</GamesPlayed>
+  <Points>14</Points>
+  <GoalsFor>14</GoalsFor>
   <GoalsAgainst>9</GoalsAgainst>
-  <GoalDifferential>-3</GoalDifferential>
+  <GoalDifferential>5</GoalDifferential>
 </NationalTeam>

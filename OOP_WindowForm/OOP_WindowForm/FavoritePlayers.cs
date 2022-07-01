@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +17,9 @@ namespace OOP_WindowForm
 {
     public partial class FavoritePlayers : Form
     {
+        private readonly string DIR = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
         private IRepo repo = RepoFactory.GetRepo();
+
         private ISfg sfg;
         private Sex worldCupGender;
         private NationalTeam nationalTeam;
@@ -46,6 +49,9 @@ namespace OOP_WindowForm
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
         {
+            lblFavPlayer.Text = OOP_WindowForm.Resources.Resource.FavPlayers;
+            lblPlayer.Text = OOP_WindowForm.Resources.Resource.Players;
+            btnSave.Text = OOP_WindowForm.Resources.Resource.Save;
             try
             {
                 List<Player> players = repo.GetFavoritePlayers();
@@ -61,8 +67,9 @@ namespace OOP_WindowForm
             }
             catch (Exception)
             {
-
+                LoadPlayers();
             }
+            
         }
 
         private async void LoadPlayers()
@@ -86,6 +93,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlPlayers.Controls.Add(playerControl);
             }
 
@@ -110,7 +118,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
-                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlFavPlayers.Controls.Add(playerControl);
             });
             foreach (Player player in players)
@@ -130,7 +138,7 @@ namespace OOP_WindowForm
                 playerControl.ContextMenuStrip.Items[0].Click += favoriteStripItem_Click;
                 playerControl.ContextMenuStrip.Items[1].Click += removeFromFavoriteStripItem_Click;
                 playerControl.MouseDown += Player_MouseDownClick;
-                playerControl.Controls["image"].DoubleClick += FavoritePlayers_DoubleClick;
+                playerControl.Controls["pbImage"].DoubleClick += FavoritePlayers_DoubleClick;
                 pnlPlayers.Controls.Add(playerControl);
             }
 
@@ -149,7 +157,7 @@ namespace OOP_WindowForm
                 var maxPictures = 1;
                 if (ofd.FileNames.Length > maxPictures)
                 {
-                    MessageBox.Show($"A maximum of 1 image is allowed.\nOnly 1 pictures will be added.");
+                    MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxImage);
                 }
                 foreach (var file in ofd.FileNames)
                 {
@@ -163,7 +171,11 @@ namespace OOP_WindowForm
             pb.Image = Image.FromFile(file);
             PlayerControl parent = (PlayerControl)pb.Parent;
             parent.PicturePath = file;
-            playersWithImages.Add(PlayerControl.ParseFromControl(parent, worldCupGender, nationalTeam));
+            Player player = PlayerControl.ParseFromControl(parent, worldCupGender, nationalTeam);
+            playersWithImages.Add(player);
+            if(!File.Exists(DIR + @"\" + player.PicturePath))
+                File.Copy(file, DIR + @"\" + player.PicturePath);
+            
         }
 
         private void Player_MouseDownClick(object sender, MouseEventArgs e)
@@ -191,7 +203,7 @@ namespace OOP_WindowForm
         {
             if (pnlFavPlayers.Controls.Count >= 3)
             {
-                MessageBox.Show("Not allowed to add more than 3 players!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxPlayers);
                 return;
             }
             if (selected.Count > 1)
@@ -224,7 +236,7 @@ namespace OOP_WindowForm
             PlayerControl player = (PlayerControl)strip.SourceControl;
             if (pnlFavPlayers.Controls.Count >= 3)
             {
-                MessageBox.Show("Not allowed to add more than 3 players!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxPlayers);
                 player.Favorite = false;
                 return;
             }
@@ -260,7 +272,7 @@ namespace OOP_WindowForm
         {
             if (pnlFavPlayers.Controls.Count < 1)
             {
-                MessageBox.Show("Add players to save them!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.SaveCondition);
                 return;
             }
             List<Player> players = new List<Player>();

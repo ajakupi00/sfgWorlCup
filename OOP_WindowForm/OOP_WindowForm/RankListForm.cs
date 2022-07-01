@@ -10,8 +10,10 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,6 +25,7 @@ namespace OOP_WindowForm
 
         private ISfg sfg;
         private Sex sex;
+        private string lang;
         private NationalTeam nation;
         private List<Match> matches;
         private List<Player> players;
@@ -34,18 +37,45 @@ namespace OOP_WindowForm
         private int left;
         public RankListForm()
         {
-            InitSettings();
             InitializeComponent();
+            InitSettings();
+            Localize();
+
+        }
+
+        private void Localize()
+        {
+            printAllToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.PrintAll;
+            settingsToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Settings;
+            changeToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.SettingsChange;
+            changeTeamToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.SettingsChangeTeam;
+            applicationToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Application;
+            closeToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Close;
+            lblPlyRankings.Text = OOP_WindowForm.Resources.Resource.PlayerRanking;
+            lblMatchRankings.Text = OOP_WindowForm.Resources.Resource.MatchRanking;
+            lblSort.Text = OOP_WindowForm.Resources.Resource.SortBy;
+
         }
 
         private void InitSettings()
         {
             sex = repo.GetSexSetting();
             sfg = SfgFactory.GetSfg(sex);
-
+            lang = repo.GetLanguage();
+            SetKultura(lang);
+           
             nation = repo.GetFavoriteTeam();
         }
+        private void SetKultura(string jezik)
+        {
+            var kultura = new CultureInfo(jezik);
 
+            Thread.CurrentThread.CurrentUICulture = kultura;
+            Thread.CurrentThread.CurrentCulture = kultura;
+
+
+
+        }
 
         private async void RankListForm_Load(object sender, EventArgs e)
         {
@@ -57,7 +87,7 @@ namespace OOP_WindowForm
             catch (Exception)
             {
 
-                MessageBox.Show("That country was not quilified!\nPlease choose another team!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.TeamNotQualified);
             }
         }
 
@@ -89,8 +119,8 @@ namespace OOP_WindowForm
 
         private void AppendComboBox()
         {
-            cbPlayerSort.Items.Add("Goals");
-            cbPlayerSort.Items.Add("Yellow cards");
+            cbPlayerSort.Items.Add(OOP_WindowForm.Resources.Resource.Goals);
+            cbPlayerSort.Items.Add(OOP_WindowForm.Resources.Resource.YCards);
             cbPlayerSort.SelectedIndex = 0;
         }
 
@@ -214,6 +244,11 @@ namespace OOP_WindowForm
             e.Graphics.SmoothingMode = SmoothingMode.HighQuality;
             for (int i = 0; i < pnlMatches.Controls.Count; i++)
             {
+                if (y >= ymax - 50)
+                {
+                    y = 0;
+                    x += pnlMatches.Controls[i].Width + 20;
+                }
                 Rectangle rect = new Rectangle(0, 0, pnlMatches.Controls[i].Width, pnlMatches.Controls[i].Height);
                 Bitmap bitmap = new Bitmap(pnlMatches.Controls[i].Width, pnlMatches.Controls[i].Height);
                 pnlMatches.Controls[i].DrawToBitmap(bitmap, rect);
@@ -298,6 +333,7 @@ namespace OOP_WindowForm
         private void changeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingsForm = new Settings();
+            settingsForm.Called = true;
             settingsForm.Controls["btnContinue"].Visible = false;
             settingsForm.Show();
             settingsForm.FormClosing += SettingsForm_FormClosing;
@@ -309,6 +345,7 @@ namespace OOP_WindowForm
             InitSettings();
             this.Controls.Clear();
             InitializeComponent();
+            Localize();
             RankListForm_Load(this, new EventArgs());
         }
 

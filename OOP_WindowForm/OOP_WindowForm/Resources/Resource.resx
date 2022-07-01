@@ -117,22 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Application" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="ChooseFavNation" xml:space="preserve">
+    <value>Choose your favorite national team</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Continue</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Croatian</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="FavPlayers" xml:space="preserve">
+    <value>Favorite Players</value>
+  </data>
   <data name="Gender" xml:space="preserve">
     <value>Set world cup gender</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>Goals</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Set language of application</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading...</value>
+  </data>
+  <data name="MatchRanking" xml:space="preserve">
+    <value>Match rankings</value>
+  </data>
+  <data name="MaxImage" xml:space="preserve">
+    <value>A maximum of 1 image is allowed.\nOnly 1 pictures will be added.</value>
+  </data>
+  <data name="MaxPlayers" xml:space="preserve">
+    <value>Not allowed to add more than 3 players!</value>
+  </data>
+  <data name="NationsLoaded" xml:space="preserve">
+    <value>Nations loaded.</value>
+  </data>
+  <data name="PlayerRanking" xml:space="preserve">
+    <value>Player rankings</value>
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value>Players</value>
+  </data>
+  <data name="PrintAll" xml:space="preserve">
+    <value>Print all</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="SaveCondition" xml:space="preserve">
+    <value>Add players to save them!</value>
+  </data>
   <data name="ScreenResolution" xml:space="preserve">
     <value>Set screen resolution</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingsChange" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="SettingsChangeTeam" xml:space="preserve">
+    <value>ChangeTeam</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
+  <data name="TeamNotQualified" xml:space="preserve">
+    <value>That country was not qualified!\nPlease choose another team!</value>
+  </data>
+  <data name="YCards" xml:space="preserve">
+    <value>Yellow cards</value>
   </data>
 </root>

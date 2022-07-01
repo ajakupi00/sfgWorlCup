@@ -100,7 +100,7 @@
                     <Label Grid.Row="2" Content="2" x:Name="lblGoalTeam" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Black" FontSize="35"/>
                 </StackPanel>
             </Grid>
-            <Button Visibility="Hidden" VerticalAlignment="Bottom" x:Name="btnStarters"  Grid.Row="1" Grid.ColumnSpan="2" Margin="10" Padding="5 5" Click="Button_Click"/>
+            <Button Visibility="Hidden" VerticalAlignment="Bottom" x:Name="btnStarters"  Grid.Row="1" Grid.ColumnSpan="2" Margin="10" Padding="10 15" Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>

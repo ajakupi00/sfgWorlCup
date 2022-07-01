@@ -117,22 +117,85 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Application" xml:space="preserve">
+    <value>Aplikacija</value>
+  </data>
+  <data name="ChooseFavNation" xml:space="preserve">
+    <value>Odaberi najdražu reprezentaciju</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvori</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>Nastavi</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Hrvatski</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>Engleski</value>
   </data>
+  <data name="FavPlayers" xml:space="preserve">
+    <value>Najdraži igrači</value>
+  </data>
   <data name="Gender" xml:space="preserve">
     <value>Postavi spol prvenstva</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>Golovima</value>
   </data>
   <data name="Language" xml:space="preserve">
     <value>Postavi jezik aplikacije</value>
   </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Učitava se...</value>
+  </data>
+  <data name="MatchRanking" xml:space="preserve">
+    <value>Rangiranje utakmica</value>
+  </data>
+  <data name="MaxImage" xml:space="preserve">
+    <value>Najviše je 1 slika dopuštena. \nSamo jedna slika će biti dodana.</value>
+  </data>
+  <data name="MaxPlayers" xml:space="preserve">
+    <value>Nije dopušteno dodati više od 3 igrača!</value>
+  </data>
+  <data name="NationsLoaded" xml:space="preserve">
+    <value>Reprezentacije učitane.</value>
+  </data>
+  <data name="PlayerRanking" xml:space="preserve">
+    <value>Rangiranje igrača</value>
+  </data>
+  <data name="Players" xml:space="preserve">
+    <value>Igrači</value>
+  </data>
+  <data name="PrintAll" xml:space="preserve">
+    <value>Izprintaj sve</value>
+  </data>
   <data name="Save" xml:space="preserve">
     <value>Spremi</value>
   </data>
+  <data name="SaveCondition" xml:space="preserve">
+    <value>Dodaji igrače kako bi ih ste ih spremili!</value>
+  </data>
   <data name="ScreenResolution" xml:space="preserve">
     <value>Postavi veličinu zaslona</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Postavke</value>
+  </data>
+  <data name="SettingsChange" xml:space="preserve">
+    <value>Izmjeni</value>
+  </data>
+  <data name="SettingsChangeTeam" xml:space="preserve">
+    <value>Promjeni ekipu</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Sortiraj po: </value>
+  </data>
+  <data name="TeamNotQualified" xml:space="preserve">
+    <value>Ta ekipa se nije kvalificirala!\nMolim vas odaberite drugu ekipu!</value>
+  </data>
+  <data name="YCards" xml:space="preserve">
+    <value>Žutim kartonima</value>
   </data>
 </root>

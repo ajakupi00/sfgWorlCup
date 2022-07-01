@@ -70,6 +70,15 @@ namespace OOP_WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Choose favorite team....
+        /// </summary>
+        public static string ChoseFav {
+            get {
+                return ResourceManager.GetString("ChoseFav", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Croatian.
         /// </summary>
         public static string Croatian {
@@ -142,7 +151,7 @@ namespace OOP_WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Loding teams....
+        ///   Looks up a localized string similar to Loading teams....
         /// </summary>
         public static string LoadingTeams {
             get {

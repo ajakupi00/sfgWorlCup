@@ -120,6 +120,9 @@
   <data name="ChooseOpponent" xml:space="preserve">
     <value>Odaberi protivničku ekipu...</value>
   </data>
+  <data name="ChoseFav" xml:space="preserve">
+    <value>Odaberi najdražu ekipu...</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Hrvatski</value>
   </data>

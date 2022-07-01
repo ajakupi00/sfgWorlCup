@@ -58,9 +58,21 @@ namespace OOP_WPF
             lblGoalTeam.Content = "";
             lblDots.Content = "";
             lblScore.Content = OOP_WPF.Resources.Resource.LoadingTeams;
+
             RestResponse<NationalTeam> odgovorPodaci = await sfg.GetNationalTeams();
             List<NationalTeam> teams = SfgMenRepo.DeserializeObject(odgovorPodaci);
-
+            if (favTeam == null || !teams.Contains(favTeam))
+            {
+                foreach (NationalTeam team in teams)
+                {
+                    cbFavNation.Items.Add(team);
+                }
+                lblScore.Content = OOP_WPF.Resources.Resource.ChoseFav;
+                btnFavStat.IsEnabled = false;
+                btnStat.IsEnabled = false;
+                cbNation.IsEnabled = false;
+                return;
+            }
             RestResponse<Match> response = await sfg.GetMatches(favTeam);
             List<Match> matches = SfgMenRepo.DeserializeObject(response);
 
@@ -133,6 +145,9 @@ namespace OOP_WPF
             if (cb.IsEditable)
             {
                 favTeam = (NationalTeam)cb.SelectedItem;
+                btnFavStat.IsEnabled = true;
+                btnStat.IsEnabled = true;
+                cbNation.IsEnabled = true;
                 InitCombos();
 
             }
@@ -181,14 +196,22 @@ namespace OOP_WPF
         {
             Settings settings = new Settings();
             Grid content = (Grid)settings.Content;
-            ((Grid)content.Children[content.Children.Count - 1]).Children[1].Visibility = Visibility.Hidden;
             settings.Called = true;
             settings.Show();
+            settings.Closing += Settings_Closing;
+        }
+
+        private void Settings_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            this.Close();
+            new TeamOverview().Show();
         }
 
         private void menuFileExit_Click(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }
+
+        
     }
 }

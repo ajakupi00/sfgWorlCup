@@ -22,11 +22,31 @@
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <TextBlock  x:Name="lblSex" />
-            <ComboBox x:Name="cbSex" SelectionChanged="cbSex_SelectionChanged"/>
+            <ComboBox x:Name="cbSex" SelectionChanged="cbSex_SelectionChanged">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Style.Triggers>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="IsEditable" Value="True"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
         </StackPanel>
         <StackPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250">
             <TextBlock  x:Name="lblRes"/>
-            <ComboBox x:Name="cbResolution" SelectionChanged="cbResolution_SelectionChanged"/>
+            <ComboBox x:Name="cbResolution" SelectionChanged="cbResolution_SelectionChanged">
+                <ComboBox.Style>
+                    <Style TargetType="ComboBox">
+                        <Style.Triggers>
+                            <Trigger Property="IsDropDownOpen" Value="True">
+                                <Setter Property="IsEditable" Value="True"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ComboBox.Style>
+            </ComboBox>
         </StackPanel>
         <Grid Grid.Row="2" VerticalAlignment="Bottom" Height="30">
             <Grid.ColumnDefinitions>

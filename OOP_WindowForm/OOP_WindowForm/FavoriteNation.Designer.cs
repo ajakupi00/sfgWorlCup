@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FavoriteNation));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblChoose = new System.Windows.Forms.Label();
             this.cbNations = new System.Windows.Forms.ComboBox();
             this.lblLoading = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblChoose
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(86, 126);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Choose your favorite national team";
+            this.lblChoose.AutoSize = true;
+            this.lblChoose.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblChoose.Location = new System.Drawing.Point(86, 126);
+            this.lblChoose.Name = "lblChoose";
+            this.lblChoose.Size = new System.Drawing.Size(348, 27);
+            this.lblChoose.TabIndex = 0;
+            this.lblChoose.Text = "Choose your favorite national team";
             // 
             // cbNations
             // 
@@ -66,6 +66,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Enabled = false;
             this.btnSave.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnSave.Location = new System.Drawing.Point(237, 222);
             this.btnSave.Name = "btnSave";
@@ -78,6 +79,7 @@
             // btnContinue
             // 
             this.btnContinue.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnContinue.Enabled = false;
             this.btnContinue.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnContinue.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnContinue.Location = new System.Drawing.Point(80, 264);
@@ -97,7 +99,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblLoading);
             this.Controls.Add(this.cbNations);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblChoose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FavoriteNation";
             this.Text = "World Cup 2018";
@@ -109,7 +111,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblChoose;
         private System.Windows.Forms.ComboBox cbNations;
         private System.Windows.Forms.Label lblLoading;
         private System.Windows.Forms.Button btnSave;

@@ -27,6 +27,7 @@ namespace OOP_WindowForm
 
         private void FavoriteNation_Load(object sender, EventArgs e)
         {
+            Localize();
             NapuniPodatke();
         }
 
@@ -39,13 +40,15 @@ namespace OOP_WindowForm
             foreach (NationalTeam team in teams)
                 cbNations.Items.Add(team);
             cbNations.SelectedIndex = 0;
-            lblLoading.Text = "Nations loaded.";
+            btnSave.Enabled = true;
+            lblLoading.Text = OOP_WindowForm.Resources.Resource.NationsLoaded;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             NationalTeam team = (NationalTeam)cbNations.SelectedItem;
             repo.SetFavoriteTeam(team);
+            btnContinue.Enabled = true;
 
         }
 
@@ -53,6 +56,14 @@ namespace OOP_WindowForm
         {
             new FavoritePlayers().Show();
             this.Hide();
+        }
+
+        private void Localize()
+        {
+            lblLoading.Text = OOP_WindowForm.Resources.Resource.Loading;
+            lblChoose.Text = OOP_WindowForm.Resources.Resource.ChooseFavNation;
+            btnContinue.Text = OOP_WindowForm.Resources.Resource.Continue;
+            btnSave.Text = OOP_WindowForm.Resources.Resource.Save;
         }
     }
 }

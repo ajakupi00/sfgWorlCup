@@ -49,6 +49,9 @@ namespace OOP_WindowForm
 
         private void FavoritePlayers_Load(object sender, EventArgs e)
         {
+            lblFavPlayer.Text = OOP_WindowForm.Resources.Resource.FavPlayers;
+            lblPlayer.Text = OOP_WindowForm.Resources.Resource.Players;
+            btnSave.Text = OOP_WindowForm.Resources.Resource.Save;
             try
             {
                 List<Player> players = repo.GetFavoritePlayers();
@@ -66,6 +69,7 @@ namespace OOP_WindowForm
             {
                 LoadPlayers();
             }
+            
         }
 
         private async void LoadPlayers()
@@ -153,7 +157,7 @@ namespace OOP_WindowForm
                 var maxPictures = 1;
                 if (ofd.FileNames.Length > maxPictures)
                 {
-                    MessageBox.Show($"A maximum of 1 image is allowed.\nOnly 1 pictures will be added.");
+                    MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxImage);
                 }
                 foreach (var file in ofd.FileNames)
                 {
@@ -199,7 +203,7 @@ namespace OOP_WindowForm
         {
             if (pnlFavPlayers.Controls.Count >= 3)
             {
-                MessageBox.Show("Not allowed to add more than 3 players!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxPlayers);
                 return;
             }
             if (selected.Count > 1)
@@ -232,7 +236,7 @@ namespace OOP_WindowForm
             PlayerControl player = (PlayerControl)strip.SourceControl;
             if (pnlFavPlayers.Controls.Count >= 3)
             {
-                MessageBox.Show("Not allowed to add more than 3 players!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.MaxPlayers);
                 player.Favorite = false;
                 return;
             }
@@ -268,7 +272,7 @@ namespace OOP_WindowForm
         {
             if (pnlFavPlayers.Controls.Count < 1)
             {
-                MessageBox.Show("Add players to save them!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.SaveCondition);
                 return;
             }
             List<Player> players = new List<Player>();

@@ -36,6 +36,21 @@ namespace OOP_WindowForm
         {
             InitSettings();
             InitializeComponent();
+            Localize();
+        }
+
+        private void Localize()
+        {
+            printAllToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.PrintAll;
+            settingsToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Settings;
+            changeToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.SettingsChange;
+            changeTeamToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.SettingsChangeTeam;
+            applicationToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Application;
+            closeToolStripMenuItem.Text = OOP_WindowForm.Resources.Resource.Close;
+            lblPlyRankings.Text = OOP_WindowForm.Resources.Resource.PlayerRanking;
+            lblMatchRankings.Text = OOP_WindowForm.Resources.Resource.MatchRanking;
+            lblSort.Text = OOP_WindowForm.Resources.Resource.SortBy;
+
         }
 
         private void InitSettings()
@@ -57,7 +72,7 @@ namespace OOP_WindowForm
             catch (Exception)
             {
 
-                MessageBox.Show("That country was not quilified!\nPlease choose another team!");
+                MessageBox.Show(OOP_WindowForm.Resources.Resource.TeamNotQualified);
             }
         }
 
@@ -89,8 +104,8 @@ namespace OOP_WindowForm
 
         private void AppendComboBox()
         {
-            cbPlayerSort.Items.Add("Goals");
-            cbPlayerSort.Items.Add("Yellow cards");
+            cbPlayerSort.Items.Add(OOP_WindowForm.Resources.Resource.Goals);
+            cbPlayerSort.Items.Add(OOP_WindowForm.Resources.Resource.YCards);
             cbPlayerSort.SelectedIndex = 0;
         }
 
@@ -298,6 +313,7 @@ namespace OOP_WindowForm
         private void changeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingsForm = new Settings();
+            settingsForm.Called = true;
             settingsForm.Controls["btnContinue"].Visible = false;
             settingsForm.Show();
             settingsForm.FormClosing += SettingsForm_FormClosing;

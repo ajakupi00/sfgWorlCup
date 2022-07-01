@@ -15,6 +15,7 @@ namespace OOP_WindowForm
     public partial class Settings : Form
     {
         private IRepo repo = RepoFactory.GetRepo();
+        public bool Called { get; set; }
         public Settings()
         {
             InitializeComponent();
@@ -81,6 +82,8 @@ namespace OOP_WindowForm
             this.Controls.Clear();
             this.InitializeComponent();
             this.Init(lang);
+            if(Called)
+                btnContinue.Visible = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -88,7 +91,8 @@ namespace OOP_WindowForm
             CultureInfo currentCulture = Thread.CurrentThread.CurrentUICulture;
             string lang = currentCulture.Name.Substring(0, 2);
             repo.SetLanguage(lang);
-            repo.SetSexSetting((Sex)cbGender.SelectedItem);  
+            repo.SetSexSetting((Sex)cbGender.SelectedItem);
+            btnContinue.Enabled = true;
         }
 
         private void btnContinue_Click(object sender, EventArgs e)

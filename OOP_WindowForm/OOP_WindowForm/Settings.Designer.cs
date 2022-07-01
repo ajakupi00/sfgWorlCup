@@ -93,6 +93,7 @@
             // btnContinue
             // 
             this.btnContinue.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnContinue.Enabled = false;
             this.btnContinue.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnContinue.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnContinue.Location = new System.Drawing.Point(63, 432);

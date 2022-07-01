@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <NationalTeam xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>30</Id>
-  <Country>Senegal</Country>
-  <FifaCode>SEN</FifaCode>
-  <GroupId>8</GroupId>
-  <GroupLetter>H</GroupLetter>
+  <Id>24</Id>
+  <Country>Korea Republic</Country>
+  <FifaCode>KOR</FifaCode>
+  <GroupId>6</GroupId>
+  <GroupLetter>F</GroupLetter>
   <Wins>1</Wins>
-  <Draws>1</Draws>
-  <Losses>1</Losses>
+  <Draws>0</Draws>
+  <Losses>2</Losses>
   <GamesPlayed>3</GamesPlayed>
-  <Points>4</Points>
-  <GoalsFor>4</GoalsFor>
-  <GoalsAgainst>4</GoalsAgainst>
+  <Points>3</Points>
+  <GoalsFor>3</GoalsFor>
+  <GoalsAgainst>3</GoalsAgainst>
   <GoalDifferential>0</GoalDifferential>
 </NationalTeam>

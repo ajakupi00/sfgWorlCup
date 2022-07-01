@@ -85,6 +85,7 @@ namespace OOP_WPF
             {
                 System.Windows.MessageBox.Show("Settings saved!");
                 this.Close();
+                
             }
         }
 
@@ -141,8 +142,8 @@ namespace OOP_WPF
         }
         private void cbSex_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(e.Source == this)
-                sex = (Sex)cbSex.SelectedItem;
+            if (!((System.Windows.Controls.ComboBox)sender).IsEditable) return;
+                 sex = (Sex)cbSex.SelectedItem;
         }
 
         private void cbResolution_SelectionChanged(object sender, SelectionChangedEventArgs e)

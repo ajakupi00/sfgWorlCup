@@ -120,6 +120,9 @@
   <data name="ChooseOpponent" xml:space="preserve">
     <value>Choose opponent team...</value>
   </data>
+  <data name="ChoseFav" xml:space="preserve">
+    <value>Choose favorite team...</value>
+  </data>
   <data name="Croatian" xml:space="preserve">
     <value>Croatian</value>
   </data>
@@ -145,7 +148,7 @@
     <value>Set language of application</value>
   </data>
   <data name="LoadingTeams" xml:space="preserve">
-    <value>Loding teams...</value>
+    <value>Loading teams...</value>
   </data>
   <data name="ONation" xml:space="preserve">
     <value>Opponent nation:</value>

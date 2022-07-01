@@ -61,6 +61,42 @@ namespace OOP_WindowForm.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Application.
+        /// </summary>
+        public static string Application {
+            get {
+                return ResourceManager.GetString("Application", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose your favorite national team.
+        /// </summary>
+        public static string ChooseFavNation {
+            get {
+                return ResourceManager.GetString("ChooseFavNation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Continue.
+        /// </summary>
+        public static string Continue {
+            get {
+                return ResourceManager.GetString("Continue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Croatian.
         /// </summary>
         public static string Croatian {
@@ -79,11 +115,29 @@ namespace OOP_WindowForm.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Favorite Players.
+        /// </summary>
+        public static string FavPlayers {
+            get {
+                return ResourceManager.GetString("FavPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set world cup gender.
         /// </summary>
         public static string Gender {
             get {
                 return ResourceManager.GetString("Gender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goals.
+        /// </summary>
+        public static string Goals {
+            get {
+                return ResourceManager.GetString("Goals", resourceCulture);
             }
         }
         
@@ -97,6 +151,78 @@ namespace OOP_WindowForm.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loading....
+        /// </summary>
+        public static string Loading {
+            get {
+                return ResourceManager.GetString("Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Match rankings.
+        /// </summary>
+        public static string MatchRanking {
+            get {
+                return ResourceManager.GetString("MatchRanking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A maximum of 1 image is allowed.\nOnly 1 pictures will be added..
+        /// </summary>
+        public static string MaxImage {
+            get {
+                return ResourceManager.GetString("MaxImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not allowed to add more than 3 players!.
+        /// </summary>
+        public static string MaxPlayers {
+            get {
+                return ResourceManager.GetString("MaxPlayers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nations loaded..
+        /// </summary>
+        public static string NationsLoaded {
+            get {
+                return ResourceManager.GetString("NationsLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player rankings.
+        /// </summary>
+        public static string PlayerRanking {
+            get {
+                return ResourceManager.GetString("PlayerRanking", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Players {
+            get {
+                return ResourceManager.GetString("Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Print all.
+        /// </summary>
+        public static string PrintAll {
+            get {
+                return ResourceManager.GetString("PrintAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
@@ -106,11 +232,74 @@ namespace OOP_WindowForm.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add players to save them!.
+        /// </summary>
+        public static string SaveCondition {
+            get {
+                return ResourceManager.GetString("SaveCondition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set screen resolution.
         /// </summary>
         public static string ScreenResolution {
             get {
                 return ResourceManager.GetString("ScreenResolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string SettingsChange {
+            get {
+                return ResourceManager.GetString("SettingsChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ChangeTeam.
+        /// </summary>
+        public static string SettingsChangeTeam {
+            get {
+                return ResourceManager.GetString("SettingsChangeTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sort by:.
+        /// </summary>
+        public static string SortBy {
+            get {
+                return ResourceManager.GetString("SortBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to That country was not qualified!\nPlease choose another team!.
+        /// </summary>
+        public static string TeamNotQualified {
+            get {
+                return ResourceManager.GetString("TeamNotQualified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow cards.
+        /// </summary>
+        public static string YCards {
+            get {
+                return ResourceManager.GetString("YCards", resourceCulture);
             }
         }
     }

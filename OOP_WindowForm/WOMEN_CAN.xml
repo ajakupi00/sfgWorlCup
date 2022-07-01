@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPlayer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Player>
+    <Name>Ashley LAWRENCE</Name>
+    <Captain>false</Captain>
+    <ShirtNumber>10</ShirtNumber>
+    <Position>Midfield</Position>
+    <Nation>
+      <Id>17</Id>
+      <Country>Canada</Country>
+      <FifaCode>CAN</FifaCode>
+      <GroupId>5</GroupId>
+      <GroupLetter>E</GroupLetter>
+      <Wins>2</Wins>
+      <Draws>0</Draws>
+      <Losses>2</Losses>
+      <GamesPlayed>4</GamesPlayed>
+      <Points>6</Points>
+      <GoalsFor>4</GoalsFor>
+      <GoalsAgainst>3</GoalsAgainst>
+      <GoalDifferential>1</GoalDifferential>
+    </Nation>
+    <Sex>WOMEN</Sex>
+    <PicturePath>DSC02336.JPG</PicturePath>
+    <Goals>0</Goals>
+    <YCards>0</YCards>
+  </Player>
+</ArrayOfPlayer>

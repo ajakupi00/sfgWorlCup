@@ -31,7 +31,7 @@ Double click on the player, and the player statistics for that match is opened.
 ## API
 
 To make this possible, this application uses 
-### World Cup API: http://worldcup.sfg.io/ - by: 
+### World Cup API: http://worldcup.sfg.io/ 
 
 ## Credits
 

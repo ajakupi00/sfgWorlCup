@@ -347,6 +347,7 @@ namespace OOP_WindowForm
             InitializeComponent();
             Localize();
             RankListForm_Load(this, new EventArgs());
+            itemsOnPage = 0;
         }
 
         private void changeTeamToolStripMenuItem_Click(object sender, EventArgs e)
@@ -355,6 +356,8 @@ namespace OOP_WindowForm
             nationForm.Controls["btnContinue"].Visible = false;
             nationForm.Show();
             nationForm.FormClosing += SettingsForm_FormClosing;
+            itemsOnPage = 0;
+
         }
     }
 }
